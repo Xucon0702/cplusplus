@@ -1,0 +1,3 @@
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/alg_test.dir
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/edit_cache.dir
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/rebuild_cache.dir

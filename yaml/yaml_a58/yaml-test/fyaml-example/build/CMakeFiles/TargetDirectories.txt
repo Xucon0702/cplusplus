@@ -1,0 +1,7 @@
+/mnt/f/study/cplusplus/yaml/yaml_xc/yaml-test/fyaml-example/build/CMakeFiles/fyaml-example.dir
+/mnt/f/study/cplusplus/yaml/yaml_xc/yaml-test/fyaml-example/build/CMakeFiles/edit_cache.dir
+/mnt/f/study/cplusplus/yaml/yaml_xc/yaml-test/fyaml-example/build/CMakeFiles/rebuild_cache.dir
+/mnt/f/study/cplusplus/yaml/yaml_xc/yaml-test/fyaml-example/build/CMakeFiles/list_install_components.dir
+/mnt/f/study/cplusplus/yaml/yaml_xc/yaml-test/fyaml-example/build/CMakeFiles/install.dir
+/mnt/f/study/cplusplus/yaml/yaml_xc/yaml-test/fyaml-example/build/CMakeFiles/install/local.dir
+/mnt/f/study/cplusplus/yaml/yaml_xc/yaml-test/fyaml-example/build/CMakeFiles/install/strip.dir

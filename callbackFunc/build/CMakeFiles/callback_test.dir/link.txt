@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/callback_test.dir/src/getInterface.cpp.o CMakeFiles/callback_test.dir/src/main.cpp.o CMakeFiles/callback_test.dir/src/syncCallback.cpp.o -o callback_test   -L/mnt/f/study/cplusplus/callbackFunc/lib  -Wl,-rpath,/mnt/f/study/cplusplus/callbackFunc/lib -lalg_test 

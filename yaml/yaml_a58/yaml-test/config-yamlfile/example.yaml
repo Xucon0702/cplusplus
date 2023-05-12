@@ -1,0 +1,18 @@
+---
+invoice : 3
+date    : !!str 2022-08-05
+bill-to : &id001
+    given  : Neo
+compony : 
+    project1  : 
+        customer  : 
+        developer : 
+            kaduni   : 
+            shenzhen : 
+            shanghai : 
+                wangzhen3 : build
+                fuwenlei  : calib
+        software  : 123
+            
+
+

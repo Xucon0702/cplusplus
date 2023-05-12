@@ -1,0 +1,3 @@
+/mnt/f/study/cplusplus/callbackFunc/build/CMakeFiles/callback_test.dir
+/mnt/f/study/cplusplus/callbackFunc/build/CMakeFiles/edit_cache.dir
+/mnt/f/study/cplusplus/callbackFunc/build/CMakeFiles/rebuild_cache.dir
