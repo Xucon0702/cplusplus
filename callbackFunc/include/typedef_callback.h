@@ -11,7 +11,7 @@ class CRecvInterface
 public:
     ~CRecvInterface();
 
-    void getNum(int a);
+    static void GetNum1(int a);
     
 
 };

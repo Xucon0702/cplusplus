@@ -1,0 +1,3 @@
+/mnt/f/study/cplusplus/extern/main/build/CMakeFiles/externTest.dir
+/mnt/f/study/cplusplus/extern/main/build/CMakeFiles/edit_cache.dir
+/mnt/f/study/cplusplus/extern/main/build/CMakeFiles/rebuild_cache.dir

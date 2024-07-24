@@ -74,7 +74,9 @@ CMakeFiles/global_variable_test.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
-  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  ../include/func.h \
+  ../include/base.h
 
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
@@ -90,6 +92,8 @@ CMakeFiles/global_variable_test.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
+
+../include/func.h:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 

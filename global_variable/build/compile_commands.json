@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/mnt/f/study/cplusplus/global_variable/build",
+  "command": "/usr/bin/c++  -I/mnt/f/study/cplusplus/global_variable/include  -o CMakeFiles/global_variable_test.dir/src/func.cpp.o -c /mnt/f/study/cplusplus/global_variable/src/func.cpp",
+  "file": "/mnt/f/study/cplusplus/global_variable/src/func.cpp"
+},
+{
+  "directory": "/mnt/f/study/cplusplus/global_variable/build",
+  "command": "/usr/bin/c++  -I/mnt/f/study/cplusplus/global_variable/include  -o CMakeFiles/global_variable_test.dir/src/global.cpp.o -c /mnt/f/study/cplusplus/global_variable/src/global.cpp",
+  "file": "/mnt/f/study/cplusplus/global_variable/src/global.cpp"
+},
+{
+  "directory": "/mnt/f/study/cplusplus/global_variable/build",
+  "command": "/usr/bin/c++  -I/mnt/f/study/cplusplus/global_variable/include  -o CMakeFiles/global_variable_test.dir/src/main.cpp.o -c /mnt/f/study/cplusplus/global_variable/src/main.cpp",
+  "file": "/mnt/f/study/cplusplus/global_variable/src/main.cpp"
+}
+]

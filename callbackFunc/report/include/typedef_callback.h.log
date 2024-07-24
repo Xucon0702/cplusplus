@@ -1,0 +1,18 @@
+6 warnings generated.
+warning: invalid identifier naming option 'FunctionHungarianPrefix' [clang-tidy-config]
+/mnt/f/study/cplusplus/callbackFunc/include/typedef_callback.h:4:25: warning: parameter name 'a' is too short, expected at least 3 characters [readability-identifier-length]
+typedef void (*pcb)(int a); //函数指针定义，后面可以直接使用pcb，方便
+                        ^
+/mnt/f/study/cplusplus/callbackFunc/include/typedef_callback.h:5:25: warning: parameter name 'a' is too short, expected at least 3 characters [readability-identifier-length]
+void SetCallBackFun(int a, pcb callback);
+                        ^
+/mnt/f/study/cplusplus/callbackFunc/include/typedef_callback.h:7:6: warning: invalid case style for function 'callbackTest' [readability-identifier-naming]
+void callbackTest();
+     ^~~~~~~~~~~~
+     CallbackTest
+/mnt/f/study/cplusplus/callbackFunc/include/typedef_callback.h:9:7: warning: class 'CRecvInterface' defines a non-default destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+class CRecvInterface
+      ^
+/mnt/f/study/cplusplus/callbackFunc/include/typedef_callback.h:14:29: warning: parameter name 'a' is too short, expected at least 3 characters [readability-identifier-length]
+    static void GetNum1(int a);
+                            ^

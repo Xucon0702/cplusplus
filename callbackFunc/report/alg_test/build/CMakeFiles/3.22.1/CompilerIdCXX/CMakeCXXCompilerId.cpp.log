@@ -1,0 +1,57 @@
+19 warnings generated.
+warning: invalid identifier naming option 'FunctionHungarianPrefix' [clang-tidy-config]
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:305:10: warning: macro 'COMPILER_ID' used to declare a constant; consider using a 'constexpr' constant [cppcoreguidelines-macro-usage]
+# define COMPILER_ID "Clang"
+         ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:388:13: warning: variable 'info_compiler' is non-const and globally accessible, consider making it const [cppcoreguidelines-avoid-non-const-global-variables]
+char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";
+            ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:401:9: warning: function-like macro 'STRINGIFY_HELPER' used; consider a 'constexpr' template function [cppcoreguidelines-macro-usage]
+#define STRINGIFY_HELPER(X) #X
+        ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:402:9: warning: function-like macro 'STRINGIFY' used; consider a 'constexpr' template function [cppcoreguidelines-macro-usage]
+#define STRINGIFY(X) STRINGIFY_HELPER(X)
+        ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:406:10: warning: macro 'PLATFORM_ID' used to declare a constant; consider using a 'constexpr' constant [cppcoreguidelines-macro-usage]
+# define PLATFORM_ID "Linux"
+         ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:641:9: warning: function-like macro 'DEC' used; consider a 'constexpr' template function [cppcoreguidelines-macro-usage]
+#define DEC(n)                   \
+        ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:652:9: warning: function-like macro 'HEX' used; consider a 'constexpr' template function [cppcoreguidelines-macro-usage]
+#define HEX(n)             \
+        ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:668:1: warning: do not declare C-style arrays, use std::array<> instead [cppcoreguidelines-avoid-c-arrays]
+char const info_version[] = {
+^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:668:12: warning: invalid case style for global constant 'info_version' [readability-identifier-naming]
+char const info_version[] = {
+           ^~~~~~~~~~~~
+           kInfoVersion
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:717:13: warning: variable 'info_platform' is non-const and globally accessible, consider making it const [cppcoreguidelines-avoid-non-const-global-variables]
+char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";
+            ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:718:13: warning: variable 'info_arch' is non-const and globally accessible, consider making it const [cppcoreguidelines-avoid-non-const-global-variables]
+char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";
+            ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:738:13: warning: variable 'info_language_standard_default' is non-const and globally accessible, consider making it const [cppcoreguidelines-avoid-non-const-global-variables]
+const char* info_language_standard_default = "INFO" ":" "standard_default["
+            ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:754:13: warning: variable 'info_language_extensions_default' is non-const and globally accessible, consider making it const [cppcoreguidelines-avoid-non-const-global-variables]
+const char* info_language_extensions_default = "INFO" ":" "extensions_default["
+            ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:770:14: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  require += info_compiler[argc];
+             ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:771:14: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  require += info_platform[argc];
+             ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:773:14: warning: do not use array subscript when the index is not an integer constant expression [cppcoreguidelines-pro-bounds-constant-array-index]
+  require += info_version[argc];
+             ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:787:14: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  require += info_language_standard_default[argc];
+             ^
+/mnt/f/study/cplusplus/callbackFunc/alg_test/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp:788:14: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  require += info_language_extensions_default[argc];
+             ^

@@ -11,5 +11,5 @@ void alg_test()
     printf("alg_test start:tmp %d\n",tmp);
     tmp++;
     callbackTest();
-    gCRecvInterface.getNum(tmp+1);
+    gCRecvInterface.GetNum1(tmp+1);
 }

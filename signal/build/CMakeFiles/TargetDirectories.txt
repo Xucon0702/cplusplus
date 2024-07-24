@@ -1,0 +1,5 @@
+/mnt/f/study/cplusplus/signal/build/CMakeFiles/send_signal.dir
+/mnt/f/study/cplusplus/signal/build/CMakeFiles/recv_signal.dir
+/mnt/f/study/cplusplus/signal/build/CMakeFiles/send_test.dir
+/mnt/f/study/cplusplus/signal/build/CMakeFiles/edit_cache.dir
+/mnt/f/study/cplusplus/signal/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,5 @@
+/mnt/f/study/cplusplus/compiler_switch/build/CMakeFiles/edit_cache.dir
+/mnt/f/study/cplusplus/compiler_switch/build/CMakeFiles/rebuild_cache.dir
+/mnt/f/study/cplusplus/compiler_switch/build/test/CMakeFiles/test.dir
+/mnt/f/study/cplusplus/compiler_switch/build/test/CMakeFiles/edit_cache.dir
+/mnt/f/study/cplusplus/compiler_switch/build/test/CMakeFiles/rebuild_cache.dir

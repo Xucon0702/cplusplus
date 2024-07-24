@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/mnt/f/study/cplusplus/code-check/build",
+  "command": "/usr/bin/c++  -I/mnt/f/study/cplusplus/code-check/./include  -o CMakeFiles/codeCheck.dir/src/main.cpp.o -c /mnt/f/study/cplusplus/code-check/src/main.cpp",
+  "file": "/mnt/f/study/cplusplus/code-check/src/main.cpp"
+}
+]

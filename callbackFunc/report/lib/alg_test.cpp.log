@@ -1,0 +1,17 @@
+1001 warnings generated.
+warning: invalid identifier naming option 'FunctionHungarianPrefix' [clang-tidy-config]
+/mnt/f/study/cplusplus/callbackFunc/lib/alg_test.cpp:5:12: warning: variable 'tmp' is non-const and globally accessible, consider making it const [cppcoreguidelines-avoid-non-const-global-variables]
+static int tmp = 0;
+           ^
+/mnt/f/study/cplusplus/callbackFunc/lib/alg_test.cpp:7:24: warning: variable 'gCRecvInterface' is non-const and globally accessible, consider making it const [cppcoreguidelines-avoid-non-const-global-variables]
+static CRecvInterface  gCRecvInterface;
+                       ^
+/mnt/f/study/cplusplus/callbackFunc/lib/alg_test.cpp:11:5: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+    printf("alg_test start:tmp %d\n",tmp);
+    ^
+/mnt/f/study/cplusplus/callbackFunc/lib/alg_test.cpp:14:5: warning: static member accessed through instance [readability-static-accessed-through-instance]
+    gCRecvInterface.GetNum1(tmp+1);
+    ^~~~~~~~~~~~~~~~
+    CRecvInterface::
+Suppressed 988 warnings (988 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

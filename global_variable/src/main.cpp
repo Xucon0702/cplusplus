@@ -10,5 +10,11 @@ int main()
 
     test();
 
+    uint32_t a = 954;
+
+    uint32_t b = a*0.001;
+
+    printf("b = %d\n",b);
+
     return 0;
 }

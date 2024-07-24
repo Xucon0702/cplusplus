@@ -1,0 +1,3 @@
+/home/xucong/04-test/thread_priority/build/CMakeFiles/thread_priority.dir
+/home/xucong/04-test/thread_priority/build/CMakeFiles/edit_cache.dir
+/home/xucong/04-test/thread_priority/build/CMakeFiles/rebuild_cache.dir

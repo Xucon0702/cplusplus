@@ -1,0 +1,5 @@
+Error while processing /mnt/f/study/cplusplus/callbackFunc/src/syncCallback.cppinclude/alg_test.h.
+error: no input files [clang-diagnostic-error]
+error: no such file or directory: '/mnt/f/study/cplusplus/callbackFunc/src/syncCallback.cppinclude/alg_test.h' [clang-diagnostic-error]
+error: unable to handle compilation, expected exactly one compiler job in '' [clang-diagnostic-error]
+Found compiler error(s).

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libalg_test.a CMakeFiles/alg_test.dir/lib/alg_test.cpp.o
+/usr/bin/ranlib libalg_test.a

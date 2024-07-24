@@ -73,7 +73,7 @@ CMakeFiles/callback_test.dir/src/getInterface.cpp.o: CMakeFiles/callback_test.di
 CMakeFiles/callback_test.dir/src/getInterface.cpp.o: ../src/getInterface.cpp
 CMakeFiles/callback_test.dir/src/getInterface.cpp.o: CMakeFiles/callback_test.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/study/cplusplus/callbackFunc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/callback_test.dir/src/getInterface.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/callback_test.dir/src/getInterface.cpp.o -MF CMakeFiles/callback_test.dir/src/getInterface.cpp.o.d -o CMakeFiles/callback_test.dir/src/getInterface.cpp.o -c /mnt/f/study/cplusplus/callbackFunc/src/getInterface.cpp
+	$(CMAKE_COMMAND) -E __run_co_compile --tidy="clang-tidy;-config-file=/mnt/f/study/cplusplus/callbackFunc/.clang-tidy;--extra-arg-before=--driver-mode=g++" --source=/mnt/f/study/cplusplus/callbackFunc/src/getInterface.cpp -- /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/callback_test.dir/src/getInterface.cpp.o -MF CMakeFiles/callback_test.dir/src/getInterface.cpp.o.d -o CMakeFiles/callback_test.dir/src/getInterface.cpp.o -c /mnt/f/study/cplusplus/callbackFunc/src/getInterface.cpp
 
 CMakeFiles/callback_test.dir/src/getInterface.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/callback_test.dir/src/getInterface.cpp.i"
@@ -87,7 +87,7 @@ CMakeFiles/callback_test.dir/src/main.cpp.o: CMakeFiles/callback_test.dir/flags.
 CMakeFiles/callback_test.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/callback_test.dir/src/main.cpp.o: CMakeFiles/callback_test.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/study/cplusplus/callbackFunc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/callback_test.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/callback_test.dir/src/main.cpp.o -MF CMakeFiles/callback_test.dir/src/main.cpp.o.d -o CMakeFiles/callback_test.dir/src/main.cpp.o -c /mnt/f/study/cplusplus/callbackFunc/src/main.cpp
+	$(CMAKE_COMMAND) -E __run_co_compile --tidy="clang-tidy;-config-file=/mnt/f/study/cplusplus/callbackFunc/.clang-tidy;--extra-arg-before=--driver-mode=g++" --source=/mnt/f/study/cplusplus/callbackFunc/src/main.cpp -- /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/callback_test.dir/src/main.cpp.o -MF CMakeFiles/callback_test.dir/src/main.cpp.o.d -o CMakeFiles/callback_test.dir/src/main.cpp.o -c /mnt/f/study/cplusplus/callbackFunc/src/main.cpp
 
 CMakeFiles/callback_test.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/callback_test.dir/src/main.cpp.i"
@@ -101,7 +101,7 @@ CMakeFiles/callback_test.dir/src/syncCallback.cpp.o: CMakeFiles/callback_test.di
 CMakeFiles/callback_test.dir/src/syncCallback.cpp.o: ../src/syncCallback.cpp
 CMakeFiles/callback_test.dir/src/syncCallback.cpp.o: CMakeFiles/callback_test.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/study/cplusplus/callbackFunc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/callback_test.dir/src/syncCallback.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/callback_test.dir/src/syncCallback.cpp.o -MF CMakeFiles/callback_test.dir/src/syncCallback.cpp.o.d -o CMakeFiles/callback_test.dir/src/syncCallback.cpp.o -c /mnt/f/study/cplusplus/callbackFunc/src/syncCallback.cpp
+	$(CMAKE_COMMAND) -E __run_co_compile --tidy="clang-tidy;-config-file=/mnt/f/study/cplusplus/callbackFunc/.clang-tidy;--extra-arg-before=--driver-mode=g++" --source=/mnt/f/study/cplusplus/callbackFunc/src/syncCallback.cpp -- /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/callback_test.dir/src/syncCallback.cpp.o -MF CMakeFiles/callback_test.dir/src/syncCallback.cpp.o.d -o CMakeFiles/callback_test.dir/src/syncCallback.cpp.o -c /mnt/f/study/cplusplus/callbackFunc/src/syncCallback.cpp
 
 CMakeFiles/callback_test.dir/src/syncCallback.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/callback_test.dir/src/syncCallback.cpp.i"
@@ -124,6 +124,7 @@ callback_test: CMakeFiles/callback_test.dir/src/getInterface.cpp.o
 callback_test: CMakeFiles/callback_test.dir/src/main.cpp.o
 callback_test: CMakeFiles/callback_test.dir/src/syncCallback.cpp.o
 callback_test: CMakeFiles/callback_test.dir/build.make
+callback_test: libalg_test.a
 callback_test: CMakeFiles/callback_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/f/study/cplusplus/callbackFunc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable callback_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/callback_test.dir/link.txt --verbose=$(VERBOSE)

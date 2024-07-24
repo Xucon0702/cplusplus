@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include "typedef_callback.h"
- #include "getInterface.h"
+#include "getInterface.h"
 //-----------------------底层实现A-----------------------------
 
-void fCallBack(int a)
+void FCallBack(int a)
 {
 
-    printf("fCallBack:%d\n",a);
+    printf("FCallBack:%d\n",a);
 }
 
  
@@ -20,7 +20,7 @@ void SetCallBackFun(int a, pcb callback)
 
 void callbackTest()
 {
-    SetCallBackFun(4,fCallBack);
+    SetCallBackFun(4,FCallBack);
 }
 
  CRecvInterface::~CRecvInterface()
@@ -30,7 +30,7 @@ void callbackTest()
  }
 
 CGetInterface gCGetInterface;
-void CRecvInterface::getNum(int a)
+void CRecvInterface::GetNum1(int a)
 {
-    gCGetInterface.getNum1(a);
+    gCGetInterface.GetNum1(a);
 }

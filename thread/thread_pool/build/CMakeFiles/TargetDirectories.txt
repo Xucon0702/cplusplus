@@ -1,0 +1,7 @@
+/mnt/f/study/cplusplus/thread/thread_pool/build/CMakeFiles/thread_priority.dir
+/mnt/f/study/cplusplus/thread/thread_pool/build/CMakeFiles/edit_cache.dir
+/mnt/f/study/cplusplus/thread/thread_pool/build/CMakeFiles/rebuild_cache.dir
+/mnt/f/study/cplusplus/thread/thread_pool/build/CMakeFiles/list_install_components.dir
+/mnt/f/study/cplusplus/thread/thread_pool/build/CMakeFiles/install.dir
+/mnt/f/study/cplusplus/thread/thread_pool/build/CMakeFiles/install/local.dir
+/mnt/f/study/cplusplus/thread/thread_pool/build/CMakeFiles/install/strip.dir

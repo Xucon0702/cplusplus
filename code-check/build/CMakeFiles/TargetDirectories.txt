@@ -1,0 +1,3 @@
+/mnt/f/study/cplusplus/code-check/build/CMakeFiles/codeCheck.dir
+/mnt/f/study/cplusplus/code-check/build/CMakeFiles/edit_cache.dir
+/mnt/f/study/cplusplus/code-check/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/codeCheck.dir/src/main.cpp.o -o codeCheck 

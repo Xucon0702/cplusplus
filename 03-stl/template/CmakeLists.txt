@@ -1,0 +1,10 @@
+set(TEST  ON)
+
+
+include_directories(./)
+
+if(TEST)
+message("test on")
+endif()
+
+add_executable(test main.cpp classTemplate.cpp)

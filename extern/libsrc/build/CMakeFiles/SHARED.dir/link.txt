@@ -1,0 +1,2 @@
+/usr/bin/ar qc libSHARED.a CMakeFiles/SHARED.dir/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp.o CMakeFiles/SHARED.dir/test.cpp.o
+/usr/bin/ranlib libSHARED.a

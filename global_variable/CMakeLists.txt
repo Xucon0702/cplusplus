@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.10)
 
 project(global_variable_test)
 
+#添加clang检测
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 include_directories(
     ${PROJECT_SOURCE_DIR}/include
 

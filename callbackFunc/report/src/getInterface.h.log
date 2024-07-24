@@ -1,0 +1,5 @@
+2 warnings generated.
+warning: invalid identifier naming option 'FunctionHungarianPrefix' [clang-tidy-config]
+/mnt/f/study/cplusplus/callbackFunc/src/getInterface.h:5:29: warning: parameter name 'a' is too short, expected at least 3 characters [readability-identifier-length]
+    static void GetNum1(int a);
+                            ^

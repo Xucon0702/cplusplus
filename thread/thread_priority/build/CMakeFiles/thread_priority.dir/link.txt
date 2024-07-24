@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/thread_priority.dir/src/main.cpp.o CMakeFiles/thread_priority.dir/src/thread_tools.cpp.o -o thread_priority  -lpthread 

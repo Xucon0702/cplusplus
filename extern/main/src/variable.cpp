@@ -1,0 +1,2 @@
+// int MACRO_TEST = 100;
+int MACRO_TEST = 100;

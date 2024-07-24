@@ -1,0 +1,46 @@
+3857 warnings generated.
+warning: invalid identifier naming option 'FunctionHungarianPrefix' [clang-tidy-config]
+/mnt/f/study/cplusplus/callbackFunc/src/main.cpp:14:10: warning: variable 'gCnt' is non-const and globally accessible, consider making it const [cppcoreguidelines-avoid-non-const-global-variables]
+uint32_t gCnt = 0;
+         ^
+/mnt/f/study/cplusplus/callbackFunc/src/main.cpp:20:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("Hello, this is Callback_1 \n");
+  ^
+/mnt/f/study/cplusplus/callbackFunc/src/main.cpp:26:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("Hello, this is Callback_2 \n");
+  ^
+/mnt/f/study/cplusplus/callbackFunc/src/main.cpp:32:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("Hello, this is Callback_3 \n");
+  ^
+/mnt/f/study/cplusplus/callbackFunc/src/main.cpp:33:7: warning: variable name 'nA' is too short, expected at least 3 characters [readability-identifier-length]
+  int nA = 0;
+      ^
+/mnt/f/study/cplusplus/callbackFunc/src/main.cpp:39:9: warning: narrowing conversion from 'uint32_t' (aka 'unsigned int') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
+  tmp = gCnt;
+        ^
+/mnt/f/study/cplusplus/callbackFunc/src/main.cpp:40:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("Hello, this is Callback_int_1;tmp = %d\n", tmp);
+  ^
+/mnt/f/study/cplusplus/callbackFunc/src/main.cpp:45:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("Entering Handle Function. \n");
+  ^
+/mnt/f/study/cplusplus/callbackFunc/src/main.cpp:47:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("Leaving Handle Function. \n");
+  ^
+/mnt/f/study/cplusplus/callbackFunc/src/main.cpp:53:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("Entering Handle Function. \n");
+  ^
+/mnt/f/study/cplusplus/callbackFunc/src/main.cpp:54:12: warning: 999 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+  Callback(999);
+           ^
+/mnt/f/study/cplusplus/callbackFunc/src/main.cpp:55:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("Leaving Handle Function. \n");
+  ^
+/mnt/f/study/cplusplus/callbackFunc/src/main.cpp:63:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("Entering Main Function. \n");
+  ^
+/mnt/f/study/cplusplus/callbackFunc/src/main.cpp:67:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("Leaving Main Function. \n");
+  ^
+Suppressed 3828 warnings (3828 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

@@ -1,0 +1,3 @@
+/mnt/f/study/cplusplus/extern/libsrc/build/CMakeFiles/testLib.dir
+/mnt/f/study/cplusplus/extern/libsrc/build/CMakeFiles/edit_cache.dir
+/mnt/f/study/cplusplus/extern/libsrc/build/CMakeFiles/rebuild_cache.dir

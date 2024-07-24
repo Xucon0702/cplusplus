@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named alg_test
+
+# Build rule for target.
+alg_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 alg_test
+.PHONY : alg_test
+
+# fast build rule for target.
+alg_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/alg_test.dir/build.make CMakeFiles/alg_test.dir/build
+.PHONY : alg_test/fast
+
+#=============================================================================
 # Target rules for targets named callback_test
 
 # Build rule for target.
@@ -128,6 +141,30 @@ callback_test: cmake_check_build_system
 callback_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/callback_test.dir/build.make CMakeFiles/callback_test.dir/build
 .PHONY : callback_test/fast
+
+lib/alg_test.o: lib/alg_test.cpp.o
+.PHONY : lib/alg_test.o
+
+# target to build an object file
+lib/alg_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/alg_test.dir/build.make CMakeFiles/alg_test.dir/lib/alg_test.cpp.o
+.PHONY : lib/alg_test.cpp.o
+
+lib/alg_test.i: lib/alg_test.cpp.i
+.PHONY : lib/alg_test.i
+
+# target to preprocess a source file
+lib/alg_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/alg_test.dir/build.make CMakeFiles/alg_test.dir/lib/alg_test.cpp.i
+.PHONY : lib/alg_test.cpp.i
+
+lib/alg_test.s: lib/alg_test.cpp.s
+.PHONY : lib/alg_test.s
+
+# target to generate assembly for a file
+lib/alg_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/alg_test.dir/build.make CMakeFiles/alg_test.dir/lib/alg_test.cpp.s
+.PHONY : lib/alg_test.cpp.s
 
 src/getInterface.o: src/getInterface.cpp.o
 .PHONY : src/getInterface.o
@@ -209,7 +246,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... alg_test"
 	@echo "... callback_test"
+	@echo "... lib/alg_test.o"
+	@echo "... lib/alg_test.i"
+	@echo "... lib/alg_test.s"
 	@echo "... src/getInterface.o"
 	@echo "... src/getInterface.i"
 	@echo "... src/getInterface.s"

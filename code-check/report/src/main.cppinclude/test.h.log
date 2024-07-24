@@ -1,0 +1,7 @@
+Error reading configuration from /mnt/f/study/cplusplus/code-check/src/main.cppinclude: directory doesn't exist.
+Error reading configuration from /mnt/f/study/cplusplus/code-check/src/main.cppinclude: directory doesn't exist.
+Error while processing /mnt/f/study/cplusplus/code-check/src/main.cppinclude/test.h.
+error: no input files [clang-diagnostic-error]
+error: no such file or directory: '/mnt/f/study/cplusplus/code-check/src/main.cppinclude/test.h' [clang-diagnostic-error]
+error: unable to handle compilation, expected exactly one compiler job in '' [clang-diagnostic-error]
+Found compiler error(s).

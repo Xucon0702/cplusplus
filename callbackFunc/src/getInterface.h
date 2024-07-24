@@ -2,5 +2,5 @@
 class CGetInterface
 {
 public:
-    void getNum1(int a);
+    static void GetNum1(int a);
 };

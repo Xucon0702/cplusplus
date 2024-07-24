@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/mnt/f/study/cplusplus/callbackFunc/build",
+  "command": "/usr/bin/c++  -I/mnt/f/study/cplusplus/callbackFunc/include -I/mnt/f/study/cplusplus/callbackFunc/src  -o CMakeFiles/alg_test.dir/lib/alg_test.cpp.o -c /mnt/f/study/cplusplus/callbackFunc/lib/alg_test.cpp",
+  "file": "/mnt/f/study/cplusplus/callbackFunc/lib/alg_test.cpp"
+},
+{
+  "directory": "/mnt/f/study/cplusplus/callbackFunc/build",
+  "command": "/usr/bin/c++  -I/mnt/f/study/cplusplus/callbackFunc/include -I/mnt/f/study/cplusplus/callbackFunc/src  -o CMakeFiles/callback_test.dir/src/getInterface.cpp.o -c /mnt/f/study/cplusplus/callbackFunc/src/getInterface.cpp",
+  "file": "/mnt/f/study/cplusplus/callbackFunc/src/getInterface.cpp"
+},
+{
+  "directory": "/mnt/f/study/cplusplus/callbackFunc/build",
+  "command": "/usr/bin/c++  -I/mnt/f/study/cplusplus/callbackFunc/include -I/mnt/f/study/cplusplus/callbackFunc/src  -o CMakeFiles/callback_test.dir/src/main.cpp.o -c /mnt/f/study/cplusplus/callbackFunc/src/main.cpp",
+  "file": "/mnt/f/study/cplusplus/callbackFunc/src/main.cpp"
+},
+{
+  "directory": "/mnt/f/study/cplusplus/callbackFunc/build",
+  "command": "/usr/bin/c++  -I/mnt/f/study/cplusplus/callbackFunc/include -I/mnt/f/study/cplusplus/callbackFunc/src  -o CMakeFiles/callback_test.dir/src/syncCallback.cpp.o -c /mnt/f/study/cplusplus/callbackFunc/src/syncCallback.cpp",
+  "file": "/mnt/f/study/cplusplus/callbackFunc/src/syncCallback.cpp"
+}
+]

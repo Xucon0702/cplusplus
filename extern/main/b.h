@@ -1,0 +1,1 @@
+extern int MACRO_TEST;

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/externTest.dir/src/main.cpp.o CMakeFiles/externTest.dir/src/variable.cpp.o -o externTest   -L/mnt/f/study/cplusplus/extern/main/./../libsrc/build  -Wl,-rpath,/mnt/f/study/cplusplus/extern/main/./../libsrc/build -ltestLib 
