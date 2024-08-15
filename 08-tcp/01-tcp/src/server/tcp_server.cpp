@@ -51,23 +51,24 @@ void TCPServer::accept_connections() {
     std::cout << "Accepted connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port) << std::endl;
 
     // Handle the client in a separate thread.
+    // std::thread client_thread(&TCPServer::handle_client, this, client_sock);
     std::thread client_thread(&TCPServer::handle_client, this, client_sock);
     client_thread.detach();
 }
 
-void TCPServer::handle_client(int client_sock) {
-    char buffer[256];
-    ssize_t bytes_received = recv(client_sock, buffer, sizeof(buffer) - 1, 0);
-    if (bytes_received > 0) {
-        buffer[bytes_received] = 'm';
-        buffer[bytes_received+1] = 'v';
-        buffer[bytes_received+2] = '\0';
-        std::cout << "Received: " << buffer << std::endl;
-        // send(client_sock, "Echo: " + std::string(buffer), strlen(buffer) + 7, 0);
-        send(client_sock,(void*)buffer, strlen(buffer) + 3, 0);//7
-    } else {
-        perror("Error receiving data");
-    }
+// void TCPServer::handle_client(int client_sock) {
+//     char buffer[256];
+//     ssize_t bytes_received = recv(client_sock, buffer, sizeof(buffer) - 1, 0);
+//     if (bytes_received > 0) {
+//         buffer[bytes_received] = 'm';
+//         buffer[bytes_received+1] = 'v';
+//         buffer[bytes_received+2] = '\0';
+//         std::cout << "Received: " << buffer << std::endl;
+//         // send(client_sock, "Echo: " + std::string(buffer), strlen(buffer) + 7, 0);
+//         send(client_sock,(void*)buffer, strlen(buffer) + 3, 0);//7
+//     } else {
+//         perror("Error receiving data");
+//     }
 
-    close(client_sock);
-}
+//     close(client_sock);
+// }
