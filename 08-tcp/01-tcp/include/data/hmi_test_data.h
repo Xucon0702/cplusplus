@@ -2,7 +2,28 @@
 #define HMI_TEST_DATA_H
 #include <stdint.h>
 
-typedef enum /*class*/ ApaParkOutDir_ {
+#define HMI_TEST_DATA_VERSION "1.0.0" //2024-08-15
+
+//数据协议
+#define CRC_HEAD 0x6D76  //"mv"
+#define PAYLOAD_LENGTH 4   //存放有效数据的实际长度的数据长度
+#define TOTAL_HEAD_LENGTH 7
+// #define CRC_TAIL 0x6D76
+
+#define PAYLOAD_LENGTH_MAX 10240 //最大数据长度
+
+//判断具体是什么数据
+typedef enum : uint8_t{
+    // HMI输出的信息
+    HMI_OUT_INFO = 0X01, //Hmi_test_info
+    //域控输出的信息
+    TRANSPORT_PARK_INFO = 0X11, //车位信息
+    TRANSPORT_OD_INFO = 0X12, // OD信息
+    TRANSPORT_APA_STATE_INFO = 0X13, // APA状态机信息
+    INFO_HEAD_MAX = 0XFF
+} INFO_HEAD_E;
+
+typedef enum  ApaParkOutDir_ {
     ParkOutVertHdLeAvl = 1, // 垂直向左前
     ParkOutVertHdRiAvl = 2, // 垂直向右前
     ParkOutForwardAvl = 3,  // 向前直出
@@ -14,8 +35,18 @@ typedef enum /*class*/ ApaParkOutDir_ {
 } ApaParkOutDir;
 
 #pragma pack(1)
+//数据头结构
+typedef struct Data_head_interaction_
+{
+    uint16_t    crc_head;       //校验头
+    uint8_t     info_head;      //信息头
+    uint32_t    payload_length; //有效数据实际长度
+}Data_head_interaction;
+
+
+#pragma pack(1)
 //上位机测试信息
-#define Hmi_test_info "Hmi_test_info"
+#define TRANSPORT_HMI_TEST_INFO "Transport_hmi_test_info"
 typedef struct
 {
     uint64_t    lTimestamp_ms;       //时间戳:ms
