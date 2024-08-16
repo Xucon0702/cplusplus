@@ -40,6 +40,21 @@ void TCPClient::send_message(const std::string& message) {
     }
 }
 
+void TCPClient::send_message(const void* message, size_t size) {
+    uint32_t send_size = 0;
+    if (_sock == -1) {
+        std::cerr << "Not connected." << std::endl;
+        return;
+    }
+
+    send_size = send(_sock, message, size, 0);
+    if(send_size == -1||send_size != size)
+    {
+        printf("send num error:send_size = %d,size = %d\n",send_size,size);
+    }
+    printf("send num = %d\n",send_size);
+}
+
 std::string TCPClient::receive_message() {
     if (_sock == -1) {
         std::cerr << "Not connected." << std::endl;

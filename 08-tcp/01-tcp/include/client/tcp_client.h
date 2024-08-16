@@ -13,6 +13,8 @@ public:
     TCPClient(const std::string& host, unsigned short port);
     bool connect_to_server();
     void send_message(const std::string& message);
+    
+    void send_message(const void* message, size_t size);
     std::string receive_message();
 
     ~TCPClient();

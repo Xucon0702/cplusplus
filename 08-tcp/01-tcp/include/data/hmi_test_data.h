@@ -7,7 +7,7 @@
 //数据协议
 #define CRC_HEAD 0x6D76  //"mv"
 #define PAYLOAD_LENGTH 4   //存放有效数据的实际长度的数据长度
-#define TOTAL_HEAD_LENGTH 7
+#define TOTAL_HEAD_LENGTH 8
 // #define CRC_TAIL 0x6D76
 
 #define PAYLOAD_LENGTH_MAX 10240 //最大数据长度
@@ -41,6 +41,7 @@ typedef struct Data_head_interaction_
     uint16_t    crc_head;       //校验头
     uint8_t     info_head;      //信息头
     uint32_t    payload_length; //有效数据实际长度
+    uint8_t     Reserve[1];
 }Data_head_interaction;
 
 
@@ -64,6 +65,13 @@ typedef struct
     uint8_t Reserve[64-40];
 }Hmi_test_info;
 #pragma pack()
+
+
+typedef struct
+{
+    Data_head_interaction tHead;
+    Hmi_test_info tData;
+}Hmi_test_packet;
 
 //车位信息
 typedef struct

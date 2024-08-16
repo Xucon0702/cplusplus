@@ -20,6 +20,10 @@ void TCPServer::start() {
     server_addr.sin_port = htons(_port);
     server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 
+    int opt = REUSER_IP_SWITCH;
+    setsockopt(_listen_sock,SOL_SOCKET,SO_REUSEADDR,&opt,sizeof(opt));
+
+
     if (bind(_listen_sock, (struct sockaddr *)&server_addr, sizeof(server_addr)) == -1) {
         perror("Error binding socket");
         close(_listen_sock);

@@ -8,6 +8,8 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 
+#define REUSER_IP_SWITCH  1
+
 class TCPServer {
 public:
     TCPServer(unsigned short port);
