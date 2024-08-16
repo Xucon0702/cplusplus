@@ -71,6 +71,24 @@ void TCPServer::start() {
     }
 }
 
+int TCPServer::checkCreatRecvHandle(void)
+{
+    int ret = 0;
+    if(m_handle_multiples_client_swtich)
+    {
+        ret = 1;
+    }
+    else
+    {
+        if(!m_NetQueueHandle.aRecvHandleInfo.b_recv_data_thread)
+        {
+            ret = 1;
+        }
+    }
+
+	return ret;
+}
+
 void TCPServer::accept_connections() {
     int nClientNo = 0;
     sockaddr_in client_addr;
@@ -105,29 +123,38 @@ void TCPServer::accept_connections() {
                 // }
                 // m_NetQueueHandle.aClientFd[nClientNo].recv_handle_id = 0;
             }
+            m_NetQueueHandle.aRecvHandleInfo.b_recv_data_thread = 0;
+            m_NetQueueHandle.aRecvHandleInfo.recv_handle_id = 0;
         }
 
-        for (nClientNo = 0; nClientNo < m_NetQueueHandle.nMaxClient; nClientNo++)
-        {				
-            if (m_NetQueueHandle.aClientFd[nClientNo].client_fd <= 0)
-            {					
-                m_NetQueueHandle.aClientFd[nClientNo].client_fd = client_sock;
-                // nAcceptConnfd = 0;	
-                m_NetQueueHandle.nClientConnectNum++;			
+        
+        if(checkCreatRecvHandle())
+        {
+            for (nClientNo = 0; nClientNo < m_NetQueueHandle.nMaxClient; nClientNo++)
+            {				
+                if (m_NetQueueHandle.aClientFd[nClientNo].client_fd <= 0)
+                {					
+                    m_NetQueueHandle.aClientFd[nClientNo].client_fd = client_sock;
+                    // nAcceptConnfd = 0;	
+                    m_NetQueueHandle.nClientConnectNum++;			
 
-                //创建接收处理线程:可同时接收多个客户端数据
-                std::thread client_thread(&TCPServer::handle_client, this, client_sock);  //接收
-                client_thread.detach();
-                
-                m_NetQueueHandle.aClientFd[nClientNo].b_creat_recv_handle = 1;
-                m_NetQueueHandle.aClientFd[nClientNo].recv_handle_id = *(unsigned int*)&(client_thread.get_id());  //结果为0,待优化
+                    //创建接收处理线程:可同时接收多个客户端数据
+                    std::thread client_thread(&TCPServer::handle_client, this, client_sock);  //接收
+                    client_thread.detach();
+                    
+                    m_NetQueueHandle.aClientFd[nClientNo].b_creat_recv_handle = 1;
+                    m_NetQueueHandle.aClientFd[nClientNo].recv_handle_id = *(unsigned int*)&(client_thread.get_id());  //结果为0,待优化
 
-                std::cout<<"client_thread.get_id()"<<client_thread.get_id()<<std::endl;
+                    m_NetQueueHandle.aRecvHandleInfo.b_recv_data_thread = 1;
+                    m_NetQueueHandle.aRecvHandleInfo.recv_handle_id = m_NetQueueHandle.aClientFd[nClientNo].recv_handle_id;
 
-                printf("Now connect num %d, allow %s to connect server!;recv_handle_id %d\n", m_NetQueueHandle.nClientConnectNum, inet_ntoa(client_addr.sin_addr),m_NetQueueHandle.aClientFd[nClientNo].recv_handle_id);
+                    std::cout<<"client_thread.get_id()"<<client_thread.get_id()<<std::endl;
 
-                break;						
-            }				
+                    printf("Now connect num %d, allow %s to connect server!;recv_handle_id %d\n", m_NetQueueHandle.nClientConnectNum, inet_ntoa(client_addr.sin_addr),m_NetQueueHandle.aClientFd[nClientNo].recv_handle_id);
+
+                    break;						
+                }				
+            }
         }
     }
 

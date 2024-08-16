@@ -15,10 +15,15 @@
 #define MAX_CLIENT_NUM  5   //初始化时不能超过这个数
 #define MAX_BUF_NUM  4
 
+typedef struct{
+    uint8_t b_recv_data_thread;//是否已有处理接收数据的线程
+    pthread_t recv_handle_id;  //接收处理线程的id
+}Recv_handle_info;
+
 typedef struct ClientLinkInfo_
 {
     uint8_t b_creat_recv_handle; //是否已创建接收的处理线程
-    pthread_t recv_handle_id;   //待优化
+    pthread_t recv_handle_id;   //创建的接收处理线程;待优化
     int client_fd;
 }ClientLinkInfo;
 
@@ -34,6 +39,7 @@ typedef struct
 	uint32_t nResetFlag;   //发送重置缓存标志
 	pthread_t tThreadRecvID;
 	pthread_t tThreadSendID;
+    Recv_handle_info aRecvHandleInfo;
 } NetQueueHandle;
 
 class TCPServer {
@@ -46,6 +52,7 @@ protected:
 
 private:
     void accept_connections();
+    int checkCreatRecvHandle(void);
 
     int _listen_sock;
     uint16_t _port;
