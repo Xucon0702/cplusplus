@@ -61,8 +61,9 @@ typedef struct
     uint8_t     Hmi_tragParkConfSwt; //循迹倒车确认按键：1-发出请求  
     uint32_t    Hmi_parkslot_id;     //选择的泊入车位ID     
     uint32_t    Hmi_parkout_dir;     //选择的泊出方向,参考ApaParkOutDir
-    float       Hmi_slot_points[4];  //选中的车位角点，主要用于自选     
-    uint8_t Reserve[64-40];
+    float       Hmi_slot_points[4];  //选中的车位角点，主要用于自选
+    uint32_t    Hmi_slot_num;        //发送的包数     
+    uint8_t Reserve[64-44];
 }Hmi_test_info;
 #pragma pack()
 

@@ -150,7 +150,7 @@ public:
 
 class server
 {
-#define MAX_CLINET_NUM 5//最大连接数量
+#define MAX_CLINET_NUM 7000//最大连接数量
 	//这里利用m_rwIdList去管理客户端的无序表的ID，每次有新客户端连接进来，就从m_rwIdList的头部取一个ID,并将该ID从m_rwIdList中删除
 	//如果有客户端异常或者主动断开，则根据客户端ID去移除无序表中的rwhandle，然后将该ID放回m_rwIdList的尾部
 public:
