@@ -4,6 +4,8 @@
 
 TCPServer::TCPServer(uint16_t port,uint32_t nMaxClient, uint32_t nMaxBufNum) : _listen_sock(0), _port(port),_nMaxClient(nMaxClient),_nMaxBufNum(nMaxBufNum)
 {
+    m_exitFlag = 0;
+
     memset(&m_NetQueueHandle,0,sizeof(NetQueueHandle));
     m_NetQueueHandle.nMaxClient = _nMaxClient;
     m_NetQueueHandle.nMaxBufNum = _nMaxBufNum;
@@ -65,9 +67,10 @@ void TCPServer::start() {
     // pthread_create(&m_NetQueueHandle.tThreadRecvID, NULL, recv_thread, (void *)&m_NetQueueHandle);
     // pthread_create(&m_NetQueueHandle.tThreadSendID, NULL, send_thread, (void *)&m_NetQueueHandle);
 
+    //这里需要在调用start()函数的线程去做退出
     while (true) {
         accept_connections();
-        sleep(3);
+        usleep(200*100);
     }
 }
 
@@ -146,7 +149,7 @@ void TCPServer::accept_connections() {
                     m_NetQueueHandle.aClientFd[nClientNo].recv_handle_id = *(unsigned int*)&(client_thread.get_id());  //结果为0,待优化
 
                     m_NetQueueHandle.aRecvHandleInfo.b_recv_data_thread = 1;
-                    m_NetQueueHandle.aRecvHandleInfo.recv_handle_id = m_NetQueueHandle.aClientFd[nClientNo].recv_handle_id;
+                    m_NetQueueHandle.aRecvHandleInfo.recv_handle_id = 0;
 
                     std::cout<<"client_thread.get_id()"<<client_thread.get_id()<<std::endl;
 
@@ -170,3 +173,23 @@ void TCPServer::accept_connections() {
 // {
 // 	return m_NetQueueHandle.nSendTotalNum;
 // }
+void TCPServer::setExitFlag(uint8_t flag)
+{
+    static uint8_t tmp_flag = 0;
+    if(flag != tmp_flag)
+    {
+        printf("setExitFlag %d\n",flag);
+        tmp_flag = flag;
+    }
+    
+    m_exitFlag = flag;
+}
+uint8_t TCPServer::getExitFlag()
+{
+    if(m_exitFlag)
+    {
+        printf("getExitFlag 1\n");
+    }
+
+    return m_exitFlag;
+}

@@ -8,6 +8,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <mutex> 
+#include <atomic>
 
 #define SUPORT_RECV_MULTIPLE_CLIENTS_SWTICH  0 //是否支持接收多个客户端数据做处理:1-支持;0-不支持,只接收处理第一个接入的客户端数据;不影响发送
 
@@ -23,6 +24,7 @@ typedef struct{
 typedef struct ClientLinkInfo_
 {
     uint8_t b_creat_recv_handle; //是否已创建接收的处理线程
+    uint8_t b_creat_send_handle_done; //是否已创建发送的处理线程
     pthread_t recv_handle_id;   //创建的接收处理线程;待优化
     int client_fd;
 }ClientLinkInfo;
@@ -45,14 +47,20 @@ typedef struct
 class TCPServer {
 public:
     TCPServer(uint16_t port,uint32_t nMaxClient, uint32_t nMaxBufNum);
-    void start();
+    void start();  //需要单独开启线程运行start
+
+    void setExitFlag(uint8_t flag);
+    uint8_t getExitFlag();
     
 protected:
     virtual void handle_client(int client_sock) = 0;
 
 private:
     void accept_connections();
+    // void* accept_connections(void* arg); 
     int checkCreatRecvHandle(void);
+
+    std::atomic<uint8_t> m_exitFlag;
 
     int _listen_sock;
     uint16_t _port;

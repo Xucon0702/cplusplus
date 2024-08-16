@@ -17,14 +17,10 @@ void CMvHmiServerTest::handle_client(int client_sock) {
 }
 #else
 void CMvHmiServerTest::handle_client(int client_sock) {
-// void CMvHmiServerTest::handle_client(void* client_sock) {
-    // char buffer[256];
-    // ssize_t bytes_received = recv(client_sock, buffer, sizeof(buffer) - 1, 0);
-    // int client_sock_fd = (int*)client_sock;
-    int client_sock_fd = client_sock;
-    while(1)
+
+    while(!getExitFlag())
     {
-        ssize_t bytes_received = recv(client_sock_fd, &m_data_head, sizeof(Data_head_interaction), 0);
+        ssize_t bytes_received = recv(client_sock, &m_data_head, sizeof(Data_head_interaction), 0);
 
         // std::cout <<"m_data_head:"<<"CRC_HEAD:"<<m_data_head.crc_head<<";info_head:"<<m_data_head.info_head<<";payload_length:"<<m_data_head.payload_length<<std::endl;
         printf("bytes_received:%d;m_data_head:crc_head 0X%x;info_head 0x%x;payload_length %d\n",bytes_received,m_data_head.crc_head,m_data_head.info_head,m_data_head.payload_length);
@@ -35,7 +31,7 @@ void CMvHmiServerTest::handle_client(int client_sock) {
                 switch (m_data_head.info_head)
                 {
                 case HMI_OUT_INFO:
-                    handle_hmi_test_data(client_sock_fd,m_data_head.payload_length);
+                    handle_hmi_test_data(client_sock,m_data_head.payload_length);
                     break;
                 
                 default:
@@ -54,7 +50,7 @@ void CMvHmiServerTest::handle_client(int client_sock) {
 
         usleep(50*1000);
     }
-    close(client_sock_fd);
+    close(client_sock);
 }
 #endif
 
@@ -83,6 +79,12 @@ void CMvHmiServerTest::handle_hmi_test_data(int client_sock,uint32_t payload_len
         printf("m_hmi_test_info:Hmi_parkslot_id %d\n",m_hmi_test_info.Hmi_parkslot_id);
         #endif
         //冰凌转发
+
+        //验证退出逻辑
+        // if(m_hmi_test_info.lTimestamp_ms > 20)
+        // {
+        //     setExitFlag(1);
+        // }
     }
     else {
         printf("Error receiving Hmi_test_info data:bytes_received %d != sizeof(Hmi_test_info) %d\n",bytes_received,sizeof(Hmi_test_info));
