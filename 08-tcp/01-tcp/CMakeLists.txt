@@ -51,10 +51,10 @@ add_executable(${PRJ_TCP_CLIETN}
 
 target_link_libraries(${PRJ_TCP_SERVER}
 
-
+    pthread
 )
 
 target_link_libraries(${PRJ_TCP_CLIETN}
 
-
+    pthread
 )

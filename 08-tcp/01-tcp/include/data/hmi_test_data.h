@@ -45,7 +45,7 @@ typedef struct Data_head_interaction_
 }Data_head_interaction;
 
 
-#pragma pack(1)
+// #pragma pack(1)
 //上位机测试信息
 #define TRANSPORT_HMI_TEST_INFO "Transport_hmi_test_info"
 typedef struct

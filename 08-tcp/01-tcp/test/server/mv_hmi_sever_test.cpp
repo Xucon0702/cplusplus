@@ -3,41 +3,60 @@
 #include "mv_hmi_sever_test.h"
 
 
-CMvHmiServerTest::CMvHmiServerTest(unsigned short port) : TCPServer(port) {}
+CMvHmiServerTest::CMvHmiServerTest(uint16_t port,uint32_t nMaxClient, uint32_t nMaxBufNum) : TCPServer(port,nMaxClient,nMaxBufNum) {}
 
+#if 0
 void CMvHmiServerTest::handle_client(int client_sock) {
+
+    while(1)
+    {
+        printf("handle_client runing\n");
+
+        usleep(50*1000);
+    }
+}
+#else
+void CMvHmiServerTest::handle_client(int client_sock) {
+// void CMvHmiServerTest::handle_client(void* client_sock) {
     // char buffer[256];
     // ssize_t bytes_received = recv(client_sock, buffer, sizeof(buffer) - 1, 0);
-    ssize_t bytes_received = recv(client_sock, &m_data_head, sizeof(Data_head_interaction), 0);
+    // int client_sock_fd = (int*)client_sock;
+    int client_sock_fd = client_sock;
+    while(1)
+    {
+        ssize_t bytes_received = recv(client_sock_fd, &m_data_head, sizeof(Data_head_interaction), 0);
 
-    // std::cout <<"m_data_head:"<<"CRC_HEAD:"<<m_data_head.crc_head<<";info_head:"<<m_data_head.info_head<<";payload_length:"<<m_data_head.payload_length<<std::endl;
-    printf("bytes_received:%d;m_data_head:crc_head 0X%x;info_head 0x%x;payload_length %d\n",bytes_received,m_data_head.crc_head,m_data_head.info_head,m_data_head.payload_length);
-    if (bytes_received > 0) {
-        //判断是否是正确的数据
-        if(m_data_head.crc_head == CRC_HEAD)
-        {
-            switch (m_data_head.info_head)
+        // std::cout <<"m_data_head:"<<"CRC_HEAD:"<<m_data_head.crc_head<<";info_head:"<<m_data_head.info_head<<";payload_length:"<<m_data_head.payload_length<<std::endl;
+        printf("bytes_received:%d;m_data_head:crc_head 0X%x;info_head 0x%x;payload_length %d\n",bytes_received,m_data_head.crc_head,m_data_head.info_head,m_data_head.payload_length);
+        if (bytes_received > 0) {
+            //判断是否是正确的数据
+            if(m_data_head.crc_head == CRC_HEAD)
             {
-            case HMI_OUT_INFO:
-                handle_hmi_test_data(client_sock,m_data_head.payload_length);
-                break;
-            
-            default:
-                std::cout << "Received: wrong info_head"<< std::endl;
-                break;
+                switch (m_data_head.info_head)
+                {
+                case HMI_OUT_INFO:
+                    handle_hmi_test_data(client_sock_fd,m_data_head.payload_length);
+                    break;
+                
+                default:
+                    std::cout << "Received: wrong info_head"<< std::endl;
+                    break;
+                }
             }
-        }
-        else
-        {
-            std::cout << "Received: wrong crc_head"<< std::endl;
+            else
+            {
+                std::cout << "Received: wrong crc_head"<< std::endl;
+            }
+
+        } else {
+            perror("Error receiving data");
         }
 
-    } else {
-        perror("Error receiving data");
+        usleep(50*1000);
     }
-
-    close(client_sock);
+    close(client_sock_fd);
 }
+#endif
 
 void CMvHmiServerTest::handle_hmi_test_data(int client_sock,uint32_t payload_length)
 {

@@ -15,6 +15,7 @@ int main() {
     }
     // TCPServer server(8080);
     CMvHmiServerTest server(8080);
+    // CMvHmiServerTest server(8080,100,99);
     server.start();
 
     return 0;
