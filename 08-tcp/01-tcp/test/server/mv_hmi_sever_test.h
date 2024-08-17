@@ -14,22 +14,29 @@ typedef struct
 	// MvNetBuf aBuf[MAX_QUEUE_BUF_NUM];
 } NetSendQueue;
 
+
+
+
 class CMvHmiServerTest:public TCPServer{
 public:
-    CMvHmiServerTest(uint16_t port,uint32_t nMaxClient = MAX_CLIENT_NUM, uint32_t nMaxBufNum = MAX_BUF_NUM);
+    CMvHmiServerTest(uint16_t port,uint32_t nMaxClient = MAX_CLIENT_NUM, uint32_t nMaxBufNum = MAX_BUF_NUM,Thread_create_set tThread_create_set = m_thread_create_set);
 
 protected:
     void handle_client(int client_sock) override;//重写接收数据的处理
-    // void handle_client(void* client_sock) override;//重写接收数据的处理
+    void send_to_client(int client_sock) override;//重写发送数据的处理
 private:
     void handle_hmi_test_data(int client_sock,uint32_t payload_length);
 private:
+    static const Thread_create_set m_thread_create_set;
+    
     //recv
     Data_head_interaction m_data_head;
     Hmi_test_info m_hmi_test_info;  
 
     //send
 };
+
+
 
 
 

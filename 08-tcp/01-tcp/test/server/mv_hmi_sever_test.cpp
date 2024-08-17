@@ -2,8 +2,9 @@
 #include <iostream>
 #include "mv_hmi_sever_test.h"
 
-
-CMvHmiServerTest::CMvHmiServerTest(uint16_t port,uint32_t nMaxClient, uint32_t nMaxBufNum) : TCPServer(port,nMaxClient,nMaxBufNum) {}
+const Thread_create_set CMvHmiServerTest::m_thread_create_set = {1,1,0,1}; //结构体默认参,默认不支持多客户端接收
+CMvHmiServerTest::CMvHmiServerTest(uint16_t port,uint32_t nMaxClient, uint32_t nMaxBufNum,Thread_create_set tThread_create_set) : \
+TCPServer(port,nMaxClient,nMaxBufNum,tThread_create_set) {}
 
 #if 0
 void CMvHmiServerTest::handle_client(int client_sock) {
@@ -89,4 +90,12 @@ void CMvHmiServerTest::handle_hmi_test_data(int client_sock,uint32_t payload_len
     else {
         printf("Error receiving Hmi_test_info data:bytes_received %d != sizeof(Hmi_test_info) %d\n",bytes_received,sizeof(Hmi_test_info));
     }
+}
+
+
+/*******************************发送处理**********************************/
+void CMvHmiServerTest::send_to_client(int client_sock) {
+
+
+
 }

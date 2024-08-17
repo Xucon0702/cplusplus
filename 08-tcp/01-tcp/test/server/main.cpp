@@ -14,8 +14,15 @@ int main() {
 
     }
     // TCPServer server(8080);
-    CMvHmiServerTest server(8080);
-    // CMvHmiServerTest server(8080,100,99);
+    Thread_create_set thread_create_set;
+    thread_create_set.creat_recv_handle_req = 0;
+    thread_create_set.creat_send_handle_req = 1;
+    thread_create_set.suport_multiple_client_recv = 0;
+    thread_create_set.suport_multiple_client_send = 1;
+
+    // CMvHmiServerTest server(8080);
+    CMvHmiServerTest server(8080,5,4);
+    // CMvHmiServerTest server(8080,5,4,thread_create_set);
     server.start();
 
     return 0;
