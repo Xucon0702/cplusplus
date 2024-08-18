@@ -34,6 +34,8 @@ void send_hmi_info(TCPClient& client)
 
     client.send_message(&t_Hmi_test_packet,sizeof(Hmi_test_packet));
 
+    
+
     #if 1
     printf("t_Hmi_test_packet:crc_head:0x%x\n",t_Hmi_test_packet.tHead.crc_head);
     printf("t_Hmi_test_packet:info_head:0x%x\n",t_Hmi_test_packet.tHead.info_head);
@@ -63,7 +65,8 @@ int main(int argc, char* argv[]) {
     {
         std::cout << "INFO_HEAD_E:" <<sizeof(INFO_HEAD_E)<<std::endl;
         std::cout << "ApaParkOutDir:" <<sizeof(ApaParkOutDir)<<std::endl;
-        std::cout << "Data_head_interaction:" <<sizeof(Data_head_interaction)<<std::endl;
+        // std::cout << "Data_head_interaction:" <<sizeof(Data_head_interaction)<<std::endl;
+        printf("sizeof(Hmi_test_packet) %d;sizeof(Data_head_interaction)\n",sizeof(Hmi_test_packet),sizeof(Data_head_interaction));
         std::cout << "Hmi_test_info:" <<sizeof(Hmi_test_info)<<std::endl;
         std::cout << "ApaAvapSlotOut:" <<sizeof(ApaAvapSlotOut)<<std::endl;
         std::cout << "ApaAvapObjOut:" <<sizeof(ApaAvapObjOut)<<std::endl;

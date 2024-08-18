@@ -22,7 +22,7 @@ void CMvHmiServerTest::handle_client(int client_sock) {
     while(!getExitFlag())
     {
         ssize_t bytes_received = recv(client_sock, &m_data_head, sizeof(Data_head_interaction), 0);
-
+        printf("sizeof(Data_head_interaction) %d\n",sizeof(Data_head_interaction));
         // std::cout <<"m_data_head:"<<"CRC_HEAD:"<<m_data_head.crc_head<<";info_head:"<<m_data_head.info_head<<";payload_length:"<<m_data_head.payload_length<<std::endl;
         printf("bytes_received:%d;m_data_head:crc_head 0X%x;info_head 0x%x;payload_length %d\n",bytes_received,m_data_head.crc_head,m_data_head.info_head,m_data_head.payload_length);
         if (bytes_received > 0) {
