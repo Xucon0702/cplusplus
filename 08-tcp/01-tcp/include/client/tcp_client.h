@@ -11,6 +11,7 @@
 class TCPClient {
 public:
     TCPClient(const std::string& host, unsigned short port);
+    void init();
     bool connect_to_server();
     void send_message(const std::string& message);
     
@@ -19,8 +20,11 @@ public:
 
     ~TCPClient();
 
-private:
+protected:
+    
     int _sock;
+private:
+    
     std::string _host;
     unsigned short _port;
 };

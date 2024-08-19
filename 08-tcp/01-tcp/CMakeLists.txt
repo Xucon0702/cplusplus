@@ -16,6 +16,7 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/include/data
 
     ${PROJECT_SOURCE_DIR}/test/server
+    ${PROJECT_SOURCE_DIR}/test/client
     
 )
 

@@ -92,10 +92,135 @@ void CMvHmiServerTest::handle_hmi_test_data(int client_sock,uint32_t payload_len
     }
 }
 
+void CMvHmiServerTest::create_head(uint8_t *pHeadData, uint8_t nCmdId, uint32_t nLen)
+{
+	pHeadData[0] = (CRC_HEAD & 0xff);
+	pHeadData[1] = ((CRC_HEAD >> 8) & 0xff);
+	pHeadData[2] = nCmdId;
+	pHeadData[3] = (nLen & 0xff);
+	pHeadData[4] = ((nLen>>8) & 0xff);
+	pHeadData[5] = ((nLen>>16) & 0xff);
+	pHeadData[6] = ((nLen>>24) & 0xff);
+}
+
+
 
 /*******************************发送处理**********************************/
+/*
+1、单独开辟一个线程去发送数据，需要添加队列缓存做拷贝发送
+2、直接在数据源头调用send接口发送
+*/
 void CMvHmiServerTest::send_to_client(int client_sock) {
 
+    while(!getExitFlag())
+    {
 
 
+        usleep(50000*1000);
+    }
+
+    close(client_sock);
+    printf("send_to_client thread exit:%d\n",client_sock);
+}
+
+
+void  CMvHmiServerTest::sendData(uint8_t *payload,uint32_t payload_length,uint8_t info_type)
+{
+    if(payload == NULL)
+    {
+        return;
+    }
+
+    int connectedNum = m_NetQueueHandle.nClientConnectNum>5?5:m_NetQueueHandle.nClientConnectNum;
+
+    for (int nClientNo = 0; nClientNo < connectedNum; nClientNo++)
+    {				
+        if (m_NetQueueHandle.aClientFd[nClientNo].client_fd > 0)
+        {
+            //发送数据
+            switch(info_type)
+            {
+                case TRANSPORT_PARK_INFO:
+                    {
+                        sendApaAvapSlotOut(m_NetQueueHandle.aClientFd[nClientNo].client_fd,payload,payload_length,info_type);
+                    }
+                    break;
+                case TRANSPORT_OD_INFO:
+                    {
+                        sendApaAvapObjOut(m_NetQueueHandle.aClientFd[nClientNo].client_fd,payload,payload_length,info_type);
+                    }
+                    break;
+                case TRANSPORT_APA_STATE_INFO:
+                    {
+                        sendApa_to_top_packet(m_NetQueueHandle.aClientFd[nClientNo].client_fd,payload,payload_length,info_type);
+                    }
+                    break;
+                default:
+                    {
+                        printf("unknow info_type\n");
+                    }
+                        
+                    break;
+            }
+            
+            
+        }
+
+        //发送
+    }
+}
+
+void CMvHmiServerTest::sendApaAvapSlotOut(int client_fd,uint8_t *payload,uint32_t payload_length,uint8_t info_type)
+{
+    if(payload == NULL)
+    {
+        return;
+    }
+
+    auto  p_packet = std::make_shared<ApaAvapSlotOut_packet>(); 
+    memcpy(&p_packet->tData,payload,payload_length);   
+    // memset(&p_packet,0,sizeof(ApaAvapSlotOut_packet));
+
+    create_head((uint8_t *)&p_packet->tHead,info_type,payload_length);
+
+    start_send(client_fd,(uint8_t *)p_packet.get(),sizeof(ApaAvapSlotOut_packet));
+
+    uint8_t* buf = (uint8_t *)p_packet.get();
+
+    printf("p_packet[0]=0x%x,p_packet[1]=0x%x\n",buf[0],buf[1]);
+    printf("sendApaAvapSlotOut done:tHead crc_head 0x%x,info_head 0x%x,payload_length %d\n",p_packet->tHead.crc_head,p_packet->tHead.info_head,p_packet->tHead.payload_length);
+}
+
+void CMvHmiServerTest::sendApaAvapObjOut(int client_fd,uint8_t *payload,uint32_t payload_length,uint8_t info_type)
+{
+    if(payload == NULL)
+    {
+        return;
+    }
+
+    auto  p_packet = std::make_shared<ApaAvapObjOut_packet>();    
+    memcpy(&p_packet->tData,payload,payload_length);
+    
+    create_head((uint8_t *)&p_packet->tHead,info_type,payload_length);
+
+    start_send(client_fd,(uint8_t *)p_packet.get(),sizeof(ApaAvapObjOut_packet));
+
+    printf("sendApaAvapObjOut done\n");
+}
+
+void CMvHmiServerTest::sendApa_to_top_packet(int client_fd,uint8_t *payload,uint32_t payload_length,uint8_t info_type)
+{
+    if(payload == NULL)
+    {
+        return;
+    }
+
+    auto  p_packet = std::make_shared<Apa_to_top_packet>();    
+    memcpy(&p_packet->tData,payload,payload_length);
+
+    create_head((uint8_t *)&p_packet->tHead,info_type,payload_length);
+
+    start_send(client_fd,(uint8_t *)p_packet.get(),sizeof(Apa_to_top_packet));
+
+    printf("sendApa_to_top_packet done\n");
 }

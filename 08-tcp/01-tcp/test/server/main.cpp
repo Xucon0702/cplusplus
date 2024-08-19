@@ -1,5 +1,52 @@
 // #include "tcp_server.h"
+#include <cstring>
 #include "mv_hmi_sever_test.h"
+
+
+// CMvHmiServerTest server(8080);
+// CMvHmiServerTest server(8080,5,4);
+// CMvHmiServerTest server(8080,5,4,thread_create_set);
+
+CMvHmiServerTest gServer(8080,5,4);
+void init_server ()
+{
+    // CMvHmiServerTest server(8080);
+    // CMvHmiServerTest server(8080,5,4);
+    // CMvHmiServerTest server(8080,5,4,thread_create_set);
+    gServer.start();
+}
+
+void send_handle ()
+{
+    ApaAvapSlotOut tApaAvapSlotOut;
+    ApaAvapObjOut tApaAvapObjOut;
+    Apa_to_top_info tApa_to_top_info;
+
+    memset(&tApaAvapSlotOut,0,sizeof(ApaAvapSlotOut));
+    memset(&tApaAvapObjOut,0,sizeof(ApaAvapObjOut));
+    memset(&tApa_to_top_info,0,sizeof(Apa_to_top_info));
+
+    uint8_t num = 0;
+
+    while(1)
+    {
+        tApaAvapSlotOut.TimeMsec = num+1;
+        gServer.sendData((uint8_t*)&tApaAvapSlotOut,sizeof(ApaAvapSlotOut),TRANSPORT_PARK_INFO);
+        usleep(100*1000);
+
+        tApaAvapObjOut.TimeMsec = num+2;
+        gServer.sendData((uint8_t*)&tApaAvapObjOut,sizeof(ApaAvapObjOut),TRANSPORT_OD_INFO);
+        usleep(100*1000);
+
+        tApa_to_top_info.lTimestampMs = num+3;
+        gServer.sendData((uint8_t*)&tApa_to_top_info,sizeof(Apa_to_top_info),TRANSPORT_APA_STATE_INFO);
+
+        usleep(200*1000);
+
+        num++;
+    }
+
+}
 
 int main() {
 
@@ -20,10 +67,21 @@ int main() {
     thread_create_set.suport_multiple_client_recv = 0;
     thread_create_set.suport_multiple_client_send = 1;
 
-    // CMvHmiServerTest server(8080);
-    CMvHmiServerTest server(8080,5,4);
-    // CMvHmiServerTest server(8080,5,4,thread_create_set);
-    server.start();
+    std::thread tcp_server(init_server);
+    std::thread server_send(send_handle);
+
+    // // CMvHmiServerTest server(8080);
+    // CMvHmiServerTest server(8080,5,4);
+    // // CMvHmiServerTest server(8080,5,4,thread_create_set);
+    // server.start();
+
+    while(1)
+    {
+
+        usleep(500*1000);
+    }
+    tcp_server.detach();
+    server_send.detach();
 
     return 0;
 }

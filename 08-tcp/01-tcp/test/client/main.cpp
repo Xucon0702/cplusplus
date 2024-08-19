@@ -1,12 +1,17 @@
 
 #include <cstring>
-#include "tcp_client.h"
+#include <thread>
+// #include "tcp_client.h"
+#include "mv_hmi_client_test.h"
 #include "hmi_test_data.h"
+
+
+
 
 void send_error_info(TCPClient& client) //乱数据做验证
 {
-    char buf[4] = "hel";
-    client.send_message(buf,4);
+    char buf[10] = "hel";
+    client.send_message(buf,10);
 }
 void send_hmi_info(TCPClient& client)
 {
@@ -54,6 +59,15 @@ void send_hmi_info(TCPClient& client)
     #endif
 }
 
+// void recv_handle(int socket)
+// {
+//     while(1)
+//     {
+//         client.OnRecv();
+//         usleep(20*1000);
+//     }
+// }
+
 int main(int argc, char* argv[]) {
 
     if(argc<2)
@@ -76,9 +90,11 @@ int main(int argc, char* argv[]) {
 
     const std::string& host_ip = argv[1];
     const int port = std::stoi(argv[2]);    
-    
-    TCPClient client(host_ip, port);
+        
     uint32_t num = 0;
+
+    // TCPClient client(host_ip, port);
+    CMvHmiClientTest client(host_ip, port);
 
     if (client.connect_to_server()) {
             // client.send_message("Hello, Server!");  
@@ -86,9 +102,12 @@ int main(int argc, char* argv[]) {
     else
     {
         return 1;
-    } 
+    }
 
-
+    // std::thread client_recv_handle(recv_handle,client._sock);
+    // std::thread client_recv_handle(&client.recv_handle,client._sock);
+    
+    
     while(1)
     {
         
@@ -104,6 +123,7 @@ int main(int argc, char* argv[]) {
 
         num++;
     }
+    // client_recv_handle.detach();
 
     return 0;
 }

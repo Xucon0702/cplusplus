@@ -66,10 +66,14 @@ public:
 
     void setExitFlag(uint8_t flag);
     uint8_t getExitFlag();
+    int32_t start_send(int32_t nFd, uint8_t *pData, uint32_t nLen);
     
 protected:
     virtual void handle_client(int client_sock) = 0; //接收处理线程
     virtual void send_to_client(int client_sock) = 0;//发送处理线程
+
+    std::mutex m_mutex_NetQueueHandle;
+    NetQueueHandle m_NetQueueHandle;
 
 private:
     void accept_connections();
@@ -86,8 +90,8 @@ private:
     uint32_t m_handle_multiples_client_switch;//接收
     uint32_t m_send_multiples_client_switch;//发送
 
-    std::mutex m_mutex_NetQueueHandle;
-    NetQueueHandle m_NetQueueHandle;
+    // std::mutex m_mutex_NetQueueHandle;
+    // NetQueueHandle m_NetQueueHandle;
 };
 
 #endif // TCP_SERVER_H

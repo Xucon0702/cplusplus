@@ -10,6 +10,8 @@
 #define TOTAL_HEAD_LENGTH 7
 // #define CRC_TAIL 0x6D76
 
+
+
 #define PAYLOAD_LENGTH_MAX 10240 //最大数据长度
 
 //判断具体是什么数据
@@ -41,7 +43,7 @@ typedef struct Data_head_interaction_
     uint16_t    crc_head;       //校验头
     uint8_t     info_head;      //信息头
     uint32_t    payload_length; //有效数据实际长度
-    // uint8_t     Reserve[1];
+    uint8_t     Reserve[1];
 }Data_head_interaction;
 
 
@@ -125,5 +127,23 @@ typedef struct
     uint8_t   Apa_active_request;  //Apa进入泊入阶段的请求：1-请求泊车
     uint8_t   reserved[3];
 }Apa_to_top_info;
+
+typedef struct
+{
+    Data_head_interaction tHead;
+    ApaAvapSlotOut tData;
+}ApaAvapSlotOut_packet;
+
+typedef struct
+{
+    Data_head_interaction tHead;
+    ApaAvapObjOut tData;
+}ApaAvapObjOut_packet;
+
+typedef struct
+{
+    Data_head_interaction tHead;
+    Apa_to_top_info tData;
+}Apa_to_top_packet;
 
 #endif

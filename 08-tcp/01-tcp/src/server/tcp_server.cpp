@@ -221,6 +221,7 @@ void TCPServer::accept_connections() {
         }
     }
 
+
     // Handle the client in a separate thread.
     // std::thread client_thread(&TCPServer::handle_client, this, client_sock);
     // std::thread client_thread(&TCPServer::handle_client, this, client_sock);  //接收
@@ -252,4 +253,24 @@ uint8_t TCPServer::getExitFlag()
     }
 
     return m_exitFlag;
+}
+
+int32_t TCPServer::start_send(int32_t nFd, uint8_t *pData, uint32_t nLen)
+{
+	int32_t nRes = 0;
+	int32_t nSendLen = 0;
+
+    //  printf("start_send pData[0]=0x%x,pData[1]=0x%x\n",pData[0],pData[1]);
+				
+	while (nLen - nRes)
+	{						
+		nSendLen = send(nFd, pData + nRes, nLen - nRes, 0);
+		if (nSendLen <= 0)
+		{	
+			close(nFd);
+			return -1;					
+		}		
+		nRes += nSendLen;
+	}			
+	return 0;
 }

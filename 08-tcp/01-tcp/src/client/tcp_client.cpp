@@ -3,6 +3,7 @@
 TCPClient::TCPClient(const std::string& host, unsigned short port) : _sock(0), _host(host), _port(port) {}
 
 bool TCPClient::connect_to_server() {
+
     _sock = socket(AF_INET, SOCK_STREAM, 0);
     if (_sock == -1) {
         perror("Error creating socket");
@@ -25,7 +26,7 @@ bool TCPClient::connect_to_server() {
         return false;
     }
 
-    std::cout << "Connected to " << _host << ":" << _port << std::endl;
+    std::cout << "Connected to " << _host << ":" << _port <<":_sock:"<<_sock<< std::endl;
     return true;
 }
 
