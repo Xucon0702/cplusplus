@@ -4,7 +4,10 @@
 
 const Thread_create_set CMvHmiServerTest::m_thread_create_set = {1,1,0,1}; //结构体默认参,默认不支持多客户端接收
 CMvHmiServerTest::CMvHmiServerTest(uint16_t port,uint32_t nMaxClient, uint32_t nMaxBufNum,Thread_create_set tThread_create_set) : \
-TCPServer(port,nMaxClient,nMaxBufNum,tThread_create_set) {}
+TCPServer(port,nMaxClient,nMaxBufNum,tThread_create_set) 
+{
+    m_hmi_test_info = std::make_shared<Hmi_test_info>();
+}
 
 #if 0
 void CMvHmiServerTest::handle_client(int client_sock) {
@@ -65,19 +68,19 @@ void CMvHmiServerTest::handle_hmi_test_data(int client_sock,uint32_t payload_len
     }
     //数据处理
     std::cout << "handle_hmi_test_data"<< std::endl;
-    memset(&m_hmi_test_info,0,sizeof(Hmi_test_info));
-    ssize_t bytes_received = recv(client_sock, &m_hmi_test_info, sizeof(Hmi_test_info), 0); 
+    // memset(&m_hmi_test_info,0,sizeof(Hmi_test_info));
+    ssize_t bytes_received = recv(client_sock, m_hmi_test_info.get(), sizeof(Hmi_test_info), 0); 
     if (bytes_received == sizeof(Hmi_test_info)) {
         #if 1
-        printf("m_hmi_test_info:lTimestamp_ms %ld\n",m_hmi_test_info.lTimestamp_ms);
-        printf("m_hmi_test_info:Hmi_apa_sel %d\n",m_hmi_test_info.Hmi_apa_sel);
-        printf("m_hmi_test_info:Hmi_park_mode %d\n",m_hmi_test_info.Hmi_park_mode);
-        printf("m_hmi_test_info:Hmi_start_park %d\n",m_hmi_test_info.Hmi_start_park);
-        printf("m_hmi_test_info:Hmi_cancel_req %d\n",m_hmi_test_info.Hmi_cancel_req);
-        printf("m_hmi_test_info:Hmi_pause_req %d\n",m_hmi_test_info.Hmi_pause_req);
-        printf("m_hmi_test_info:Hmi_resum_req %d\n",m_hmi_test_info.Hmi_resum_req);
-        printf("m_hmi_test_info:Hmi_tragParkConfSwt %d\n",m_hmi_test_info.Hmi_tragParkConfSwt);
-        printf("m_hmi_test_info:Hmi_parkslot_id %d\n",m_hmi_test_info.Hmi_parkslot_id);
+        printf("m_hmi_test_info:lTimestamp_ms %ld\n",m_hmi_test_info->lTimestamp_ms);
+        printf("m_hmi_test_info:Hmi_apa_sel %d\n",m_hmi_test_info->Hmi_apa_sel);
+        printf("m_hmi_test_info:Hmi_park_mode %d\n",m_hmi_test_info->Hmi_park_mode);
+        printf("m_hmi_test_info:Hmi_start_park %d\n",m_hmi_test_info->Hmi_start_park);
+        printf("m_hmi_test_info:Hmi_cancel_req %d\n",m_hmi_test_info->Hmi_cancel_req);
+        printf("m_hmi_test_info:Hmi_pause_req %d\n",m_hmi_test_info->Hmi_pause_req);
+        printf("m_hmi_test_info:Hmi_resum_req %d\n",m_hmi_test_info->Hmi_resum_req);
+        printf("m_hmi_test_info:Hmi_tragParkConfSwt %d\n",m_hmi_test_info->Hmi_tragParkConfSwt);
+        printf("m_hmi_test_info:Hmi_parkslot_id %d\n",m_hmi_test_info->Hmi_parkslot_id);
         #endif
         //冰凌转发
 

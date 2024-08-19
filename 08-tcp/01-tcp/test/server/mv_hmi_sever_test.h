@@ -40,7 +40,9 @@ private:
     
     //recv
     Data_head_interaction m_data_head;
-    Hmi_test_info m_hmi_test_info;  
+    // Hmi_test_info m_hmi_test_info;  
+    std::shared_ptr<Hmi_test_info> m_hmi_test_info = nullptr;
+
 
     //send
 };
