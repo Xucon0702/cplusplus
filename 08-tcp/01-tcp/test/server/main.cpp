@@ -1,11 +1,17 @@
 // #include "tcp_server.h"
 #include <cstring>
 #include "mv_hmi_sever_test.h"
-
+#include <signal.h>
 
 // CMvHmiServerTest server(8080);
 // CMvHmiServerTest server(8080,5,4);
 // CMvHmiServerTest server(8080,5,4,thread_create_set);
+
+void signal_pipe_func()
+{
+    printf("SIGPIPE catched\n");
+}
+
 
 CMvHmiServerTest gServer(8080,5,4);
 void init_server ()
@@ -27,6 +33,8 @@ void send_handle ()
     memset(&tApa_to_top_info,0,sizeof(Apa_to_top_info));
 
     uint8_t num = 0;
+
+    signal(SIGPIPE,signal_pipe_func); //捕获tcp send失败时发送的SIGPIPE导致程序退出的问题
 
     while(1)
     {
@@ -77,11 +85,13 @@ int main() {
 
     while(1)
     {
-
+        printf("man running\n");
         usleep(500*1000);
     }
+
+    printf("man 111\n");
     tcp_server.detach();
     server_send.detach();
-
+    printf("man end\n");
     return 0;
 }

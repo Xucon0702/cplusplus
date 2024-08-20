@@ -49,12 +49,15 @@ void CMvHmiServerTest::handle_client(int client_sock) {
             }
 
         } else {
-            perror("Error receiving data");
+            printf("Error receiving data\n");
+            break;
         }
 
         usleep(50*1000);
     }
     close(client_sock);
+    m_NetQueueHandle.nClientConnectNum --;
+    m_NetQueueHandle.aExistHandleInfo.b_recv_data_thread--;
 }
 #endif
 
@@ -133,6 +136,8 @@ void  CMvHmiServerTest::sendData(uint8_t *payload,uint32_t payload_length,uint8_
     {
         return;
     }
+
+    // std::lock_guard<std::mutex> lk(m_mutex_NetQueueHandle);
 
     int connectedNum = m_NetQueueHandle.nClientConnectNum>5?5:m_NetQueueHandle.nClientConnectNum;
 

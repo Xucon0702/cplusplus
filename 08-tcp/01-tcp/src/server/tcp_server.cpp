@@ -136,6 +136,7 @@ void TCPServer::accept_connections() {
 
     // std::cout << "Accepted connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port) << std::endl;
 
+    printf("accept_connections 1\n");
     //
     if(client_sock > 0)
     {
@@ -221,13 +222,7 @@ void TCPServer::accept_connections() {
         }
     }
 
-
-    // Handle the client in a separate thread.
-    // std::thread client_thread(&TCPServer::handle_client, this, client_sock);
-    // std::thread client_thread(&TCPServer::handle_client, this, client_sock);  //接收
-    // std::thread client_send_thread(&TCPServer::send_to_client, this, client_sock); //发送
-    
-    // client_send_thread.detach();
+    printf("accept_connections end\n");
 }
 
 // int TCPServer::MvGetSendTotalNum(void)
@@ -260,6 +255,10 @@ int32_t TCPServer::start_send(int32_t nFd, uint8_t *pData, uint32_t nLen)
 	int32_t nRes = 0;
 	int32_t nSendLen = 0;
 
+    if(nFd <= 0)
+    {
+        return 0;
+    }
     //  printf("start_send pData[0]=0x%x,pData[1]=0x%x\n",pData[0],pData[1]);
 				
 	while (nLen - nRes)
