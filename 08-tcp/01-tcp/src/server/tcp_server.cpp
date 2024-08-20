@@ -134,7 +134,7 @@ void TCPServer::accept_connections() {
         return;
     }
 
-    std::cout << "Accepted connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port) << std::endl;
+    // std::cout << "Accepted connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port) << std::endl;
 
     //
     if(client_sock > 0)
