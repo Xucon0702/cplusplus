@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+//枚举
+enum DogType {
+   POODLE = 0;//贵宾犬
+   SHEPHERD = 1;//牧羊犬
+   GOLDEN = 2;//金毛犬
+}
+
+message Person {
+  string name = 1;
+  int32 age = 2;
+  //string gender = 3;
+}
+
+message Dog {
+  string name = 1;
+  int32 age = 2;
+  DogType type = 3;
+}
+
+//结构体嵌套使用
+message Animal {
+  Person human = 1;
+  repeated  Dog dog = 2; //动态数组
+}
