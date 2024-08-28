@@ -69,7 +69,8 @@ void CThreadProcess::WaitApaActive()
     {
         printf("WaitApaActive on\n");
     }
-    cv_apa_active.wait(lock,[&]{return flag_apa_active;});
+    // cv_apa_active.wait(lock,[&]{return flag_apa_active;});
+    std::this_thread::sleep_for(std::chrono::milliseconds(10000*1000));
 }
 
 void CThreadProcess::ResumeApa()
