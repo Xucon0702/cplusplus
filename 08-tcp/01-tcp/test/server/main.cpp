@@ -75,7 +75,7 @@ int main() {
     thread_create_set.suport_multiple_client_recv = 0;
     thread_create_set.suport_multiple_client_send = 1;
 
-    std::thread tcp_server(init_server);
+    // std::thread tcp_server(init_server);
     std::thread server_send(send_handle);
 
     // // CMvHmiServerTest server(8080);
@@ -86,11 +86,11 @@ int main() {
     while(1)
     {
         printf("man running\n");
-        usleep(500*1000);
+        usleep(2000*1000);
     }
 
     printf("man 111\n");
-    tcp_server.detach();
+    // tcp_server.detach();
     server_send.detach();
     printf("man end\n");
     return 0;

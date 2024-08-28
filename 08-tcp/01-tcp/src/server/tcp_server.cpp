@@ -16,7 +16,16 @@ TCPServer::TCPServer(uint16_t port,uint32_t nMaxClient, uint32_t nMaxBufNum,Thre
     m_handle_multiples_client_switch =  _Thread_create_set.suport_multiple_client_recv;
     m_send_multiples_client_switch = _Thread_create_set.suport_multiple_client_send;
 
+    std::thread listen_thread(&TCPServer::handle_listen,this);
+    listen_thread.detach();
+
     printf("nMaxClient %d,nMaxBufNum %d\n",m_NetQueueHandle.nMaxClient,m_NetQueueHandle.nMaxBufNum);
+}
+
+void TCPServer::handle_listen()
+{
+    printf("start_listen\n");
+    start();
 }
 
 void TCPServer::start() {

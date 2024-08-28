@@ -62,6 +62,7 @@ typedef struct
 class TCPServer {
 public:
     TCPServer(uint16_t port,uint32_t nMaxClient, uint32_t nMaxBufNum,Thread_create_set tThread_create_set);
+    void handle_listen();
     void start();  //需要单独开启线程运行start
 
     void setExitFlag(uint8_t flag);
