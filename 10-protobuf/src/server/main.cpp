@@ -3,6 +3,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <unistd.h>
 #include "animal/animal.pb.h"
 
 void receiveAnimal(int sock, Animal* animal) {
