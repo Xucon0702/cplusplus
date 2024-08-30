@@ -53,28 +53,28 @@ void CHmi3DReceiver::PrintPB(const PB_UssSectorOutputData* pb_uss_pdc) {
 
     std::cout << "Frame Head:" << std::endl;
     std::cout << "  nFrameId: " << frame_header.nframeid() << std::endl;
-    std::cout << "  nRervered: " << frame_header.nrervered() << std::endl;
+    // std::cout << "  nRervered: " << frame_header.nrervered() << std::endl;
     std::cout << "  ITimeMsec: " << frame_header.itimemsec() << std::endl;
 
     std::cout << "Sector Data:" << std::endl;
     std::cout << "  PDC Distance: ";
-    for (int i = 0; i < sector_info.pdc_distance_size(); ++i) {
+    for (int i = 0; i < sector_info.pdc_distance_size(); i++) {
         std::cout << sector_info.pdc_distance(i) << " ";
     }
     std::cout << std::endl;
 
-    std::cout << "  LAEB Distance: ";
-    for (int i = 0; i < sector_info.laeb_distance_size(); ++i) {
-        std::cout << sector_info.laeb_distance(i) << " ";
-    }
-    std::cout << std::endl;
+    // std::cout << "  LAEB Distance: ";
+    // for (int i = 0; i < sector_info.laeb_distance_size(); ++i) {
+    //     std::cout << sector_info.laeb_distance(i) << " ";
+    // }
+    // std::cout << std::endl;
 
     std::cout << "  Sensor Status: ";
-    for (int i = 0; i < sector_info.sensorstatus_size(); ++i) {
+    for (int i = 0; i < sector_info.sensorstatus_size(); i++) {
         std::cout << static_cast<int>(sector_info.sensorstatus(i)) << " ";
     }
     std::cout << std::endl;
 
     std::cout << "  System Status: " << static_cast<int>(sector_info.systemstatus()) << std::endl;
-    std::cout << "  nRervered: " << sector_info.nrervered() << std::endl;
+    // std::cout << "  nRervered: " << sector_info.nrervered() << std::endl;
 }

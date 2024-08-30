@@ -83,7 +83,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hmi_5f3d_2fmv_5fuss_2eproto::o
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::PB_UssSector_FrameHeader, nframeid_),
-  PROTOBUF_FIELD_OFFSET(::PB_UssSector_FrameHeader, nrervered_),
   PROTOBUF_FIELD_OFFSET(::PB_UssSector_FrameHeader, itimemsec_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::PB_UssSectorInfo, _internal_metadata_),
@@ -91,10 +90,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hmi_5f3d_2fmv_5fuss_2eproto::o
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::PB_UssSectorInfo, pdc_distance_),
-  PROTOBUF_FIELD_OFFSET(::PB_UssSectorInfo, laeb_distance_),
   PROTOBUF_FIELD_OFFSET(::PB_UssSectorInfo, sensorstatus_),
   PROTOBUF_FIELD_OFFSET(::PB_UssSectorInfo, systemstatus_),
-  PROTOBUF_FIELD_OFFSET(::PB_UssSectorInfo, nrervered_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::PB_UssSectorOutputData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -105,8 +102,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hmi_5f3d_2fmv_5fuss_2eproto::o
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::PB_UssSector_FrameHeader)},
-  { 8, -1, sizeof(::PB_UssSectorInfo)},
-  { 18, -1, sizeof(::PB_UssSectorOutputData)},
+  { 7, -1, sizeof(::PB_UssSectorInfo)},
+  { 15, -1, sizeof(::PB_UssSectorOutputData)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -116,15 +113,14 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_hmi_5f3d_2fmv_5fuss_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\023hmi_3d/mv_uss.proto\"R\n\030PB_UssSector_Fr"
-  "ameHeader\022\020\n\010nFrameId\030\001 \001(\r\022\021\n\tnRervered"
-  "\030\002 \001(\r\022\021\n\tITimeMsec\030\003 \001(\004\"~\n\020PB_UssSecto"
-  "rInfo\022\024\n\014PDC_Distance\030\001 \003(\r\022\025\n\rLAEB_Dist"
-  "ance\030\002 \003(\r\022\024\n\014SensorStatus\030\003 \003(\r\022\024\n\014Syst"
-  "emStatus\030\004 \001(\r\022\021\n\tnRervered\030\005 \001(\r\"m\n\026PB_"
-  "UssSectorOutputData\022,\n\tFrameHead\030\001 \001(\0132\031"
-  ".PB_UssSector_FrameHeader\022%\n\nSectorData\030"
-  "\002 \001(\0132\021.PB_UssSectorInfob\006proto3"
+  "\n\023hmi_3d/mv_uss.proto\"\?\n\030PB_UssSector_Fr"
+  "ameHeader\022\020\n\010nFrameId\030\001 \001(\r\022\021\n\tITimeMsec"
+  "\030\002 \001(\004\"T\n\020PB_UssSectorInfo\022\024\n\014PDC_Distan"
+  "ce\030\001 \003(\r\022\024\n\014SensorStatus\030\002 \003(\r\022\024\n\014System"
+  "Status\030\003 \001(\r\"m\n\026PB_UssSectorOutputData\022,"
+  "\n\tFrameHead\030\001 \001(\0132\031.PB_UssSector_FrameHe"
+  "ader\022%\n\nSectorData\030\002 \001(\0132\021.PB_UssSectorI"
+  "nfob\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_hmi_5f3d_2fmv_5fuss_2eproto_deps[1] = {
 };
@@ -135,7 +131,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_hmi
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_hmi_5f3d_2fmv_5fuss_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_hmi_5f3d_2fmv_5fuss_2eproto = {
-  false, false, descriptor_table_protodef_hmi_5f3d_2fmv_5fuss_2eproto, "hmi_3d/mv_uss.proto", 352,
+  false, false, descriptor_table_protodef_hmi_5f3d_2fmv_5fuss_2eproto, "hmi_3d/mv_uss.proto", 291,
   &descriptor_table_hmi_5f3d_2fmv_5fuss_2eproto_once, descriptor_table_hmi_5f3d_2fmv_5fuss_2eproto_sccs, descriptor_table_hmi_5f3d_2fmv_5fuss_2eproto_deps, 3, 0,
   schemas, file_default_instances, TableStruct_hmi_5f3d_2fmv_5fuss_2eproto::offsets,
   file_level_metadata_hmi_5f3d_2fmv_5fuss_2eproto, 3, file_level_enum_descriptors_hmi_5f3d_2fmv_5fuss_2eproto, file_level_service_descriptors_hmi_5f3d_2fmv_5fuss_2eproto,
@@ -161,16 +157,16 @@ PB_UssSector_FrameHeader::PB_UssSector_FrameHeader(::PROTOBUF_NAMESPACE_ID::Aren
 PB_UssSector_FrameHeader::PB_UssSector_FrameHeader(const PB_UssSector_FrameHeader& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&nframeid_, &from.nframeid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&itimemsec_) -
-    reinterpret_cast<char*>(&nframeid_)) + sizeof(itimemsec_));
+  ::memcpy(&itimemsec_, &from.itimemsec_,
+    static_cast<size_t>(reinterpret_cast<char*>(&nframeid_) -
+    reinterpret_cast<char*>(&itimemsec_)) + sizeof(nframeid_));
   // @@protoc_insertion_point(copy_constructor:PB_UssSector_FrameHeader)
 }
 
 void PB_UssSector_FrameHeader::SharedCtor() {
-  ::memset(&nframeid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&itimemsec_) -
-      reinterpret_cast<char*>(&nframeid_)) + sizeof(itimemsec_));
+  ::memset(&itimemsec_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&nframeid_) -
+      reinterpret_cast<char*>(&itimemsec_)) + sizeof(nframeid_));
 }
 
 PB_UssSector_FrameHeader::~PB_UssSector_FrameHeader() {
@@ -204,9 +200,9 @@ void PB_UssSector_FrameHeader::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&nframeid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&itimemsec_) -
-      reinterpret_cast<char*>(&nframeid_)) + sizeof(itimemsec_));
+  ::memset(&itimemsec_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&nframeid_) -
+      reinterpret_cast<char*>(&itimemsec_)) + sizeof(nframeid_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -225,16 +221,9 @@ const char* PB_UssSector_FrameHeader::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 nRervered = 2;
+      // uint64 ITimeMsec = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          nrervered_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // uint64 ITimeMsec = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           itimemsec_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -273,16 +262,10 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_nframeid(), target);
   }
 
-  // uint32 nRervered = 2;
-  if (this->nrervered() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_nrervered(), target);
-  }
-
-  // uint64 ITimeMsec = 3;
+  // uint64 ITimeMsec = 2;
   if (this->itimemsec() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_itimemsec(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_itimemsec(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -301,25 +284,18 @@ size_t PB_UssSector_FrameHeader::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // uint64 ITimeMsec = 2;
+  if (this->itimemsec() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_itimemsec());
+  }
+
   // uint32 nFrameId = 1;
   if (this->nframeid() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_nframeid());
-  }
-
-  // uint32 nRervered = 2;
-  if (this->nrervered() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_nrervered());
-  }
-
-  // uint64 ITimeMsec = 3;
-  if (this->itimemsec() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_itimemsec());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -353,14 +329,11 @@ void PB_UssSector_FrameHeader::MergeFrom(const PB_UssSector_FrameHeader& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.nframeid() != 0) {
-    _internal_set_nframeid(from._internal_nframeid());
-  }
-  if (from.nrervered() != 0) {
-    _internal_set_nrervered(from._internal_nrervered());
-  }
   if (from.itimemsec() != 0) {
     _internal_set_itimemsec(from._internal_itimemsec());
+  }
+  if (from.nframeid() != 0) {
+    _internal_set_nframeid(from._internal_nframeid());
   }
 }
 
@@ -386,11 +359,11 @@ void PB_UssSector_FrameHeader::InternalSwap(PB_UssSector_FrameHeader* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PB_UssSector_FrameHeader, itimemsec_)
-      + sizeof(PB_UssSector_FrameHeader::itimemsec_)
-      - PROTOBUF_FIELD_OFFSET(PB_UssSector_FrameHeader, nframeid_)>(
-          reinterpret_cast<char*>(&nframeid_),
-          reinterpret_cast<char*>(&other->nframeid_));
+      PROTOBUF_FIELD_OFFSET(PB_UssSector_FrameHeader, nframeid_)
+      + sizeof(PB_UssSector_FrameHeader::nframeid_)
+      - PROTOBUF_FIELD_OFFSET(PB_UssSector_FrameHeader, itimemsec_)>(
+          reinterpret_cast<char*>(&itimemsec_),
+          reinterpret_cast<char*>(&other->itimemsec_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata PB_UssSector_FrameHeader::GetMetadata() const {
@@ -409,7 +382,6 @@ class PB_UssSectorInfo::_Internal {
 PB_UssSectorInfo::PB_UssSectorInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   pdc_distance_(arena),
-  laeb_distance_(arena),
   sensorstatus_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
@@ -418,19 +390,14 @@ PB_UssSectorInfo::PB_UssSectorInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 PB_UssSectorInfo::PB_UssSectorInfo(const PB_UssSectorInfo& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       pdc_distance_(from.pdc_distance_),
-      laeb_distance_(from.laeb_distance_),
       sensorstatus_(from.sensorstatus_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&systemstatus_, &from.systemstatus_,
-    static_cast<size_t>(reinterpret_cast<char*>(&nrervered_) -
-    reinterpret_cast<char*>(&systemstatus_)) + sizeof(nrervered_));
+  systemstatus_ = from.systemstatus_;
   // @@protoc_insertion_point(copy_constructor:PB_UssSectorInfo)
 }
 
 void PB_UssSectorInfo::SharedCtor() {
-  ::memset(&systemstatus_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&nrervered_) -
-      reinterpret_cast<char*>(&systemstatus_)) + sizeof(nrervered_));
+  systemstatus_ = 0u;
 }
 
 PB_UssSectorInfo::~PB_UssSectorInfo() {
@@ -465,11 +432,8 @@ void PB_UssSectorInfo::Clear() {
   (void) cached_has_bits;
 
   pdc_distance_.Clear();
-  laeb_distance_.Clear();
   sensorstatus_.Clear();
-  ::memset(&systemstatus_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&nrervered_) -
-      reinterpret_cast<char*>(&systemstatus_)) + sizeof(nrervered_));
+  systemstatus_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -491,37 +455,20 @@ const char* PB_UssSectorInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated uint32 LAEB_Distance = 2;
+      // repeated uint32 SensorStatus = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_laeb_distance(), ptr, ctx);
-          CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16) {
-          _internal_add_laeb_distance(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated uint32 SensorStatus = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_sensorstatus(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24) {
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16) {
           _internal_add_sensorstatus(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 SystemStatus = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+      // uint32 SystemStatus = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           systemstatus_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // uint32 nRervered = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          nrervered_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -562,34 +509,19 @@ failure:
     }
   }
 
-  // repeated uint32 LAEB_Distance = 2;
-  {
-    int byte_size = _laeb_distance_cached_byte_size_.load(std::memory_order_relaxed);
-    if (byte_size > 0) {
-      target = stream->WriteUInt32Packed(
-          2, _internal_laeb_distance(), byte_size, target);
-    }
-  }
-
-  // repeated uint32 SensorStatus = 3;
+  // repeated uint32 SensorStatus = 2;
   {
     int byte_size = _sensorstatus_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
       target = stream->WriteUInt32Packed(
-          3, _internal_sensorstatus(), byte_size, target);
+          2, _internal_sensorstatus(), byte_size, target);
     }
   }
 
-  // uint32 SystemStatus = 4;
+  // uint32 SystemStatus = 3;
   if (this->systemstatus() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_systemstatus(), target);
-  }
-
-  // uint32 nRervered = 5;
-  if (this->nrervered() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_nrervered(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_systemstatus(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -623,22 +555,7 @@ size_t PB_UssSectorInfo::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // repeated uint32 LAEB_Distance = 2;
-  {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      UInt32Size(this->laeb_distance_);
-    if (data_size > 0) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
-    }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _laeb_distance_cached_byte_size_.store(cached_size,
-                                    std::memory_order_relaxed);
-    total_size += data_size;
-  }
-
-  // repeated uint32 SensorStatus = 3;
+  // repeated uint32 SensorStatus = 2;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       UInt32Size(this->sensorstatus_);
@@ -653,18 +570,11 @@ size_t PB_UssSectorInfo::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // uint32 SystemStatus = 4;
+  // uint32 SystemStatus = 3;
   if (this->systemstatus() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_systemstatus());
-  }
-
-  // uint32 nRervered = 5;
-  if (this->nrervered() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_nrervered());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -699,13 +609,9 @@ void PB_UssSectorInfo::MergeFrom(const PB_UssSectorInfo& from) {
   (void) cached_has_bits;
 
   pdc_distance_.MergeFrom(from.pdc_distance_);
-  laeb_distance_.MergeFrom(from.laeb_distance_);
   sensorstatus_.MergeFrom(from.sensorstatus_);
   if (from.systemstatus() != 0) {
     _internal_set_systemstatus(from._internal_systemstatus());
-  }
-  if (from.nrervered() != 0) {
-    _internal_set_nrervered(from._internal_nrervered());
   }
 }
 
@@ -731,14 +637,8 @@ void PB_UssSectorInfo::InternalSwap(PB_UssSectorInfo* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   pdc_distance_.InternalSwap(&other->pdc_distance_);
-  laeb_distance_.InternalSwap(&other->laeb_distance_);
   sensorstatus_.InternalSwap(&other->sensorstatus_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PB_UssSectorInfo, nrervered_)
-      + sizeof(PB_UssSectorInfo::nrervered_)
-      - PROTOBUF_FIELD_OFFSET(PB_UssSectorInfo, systemstatus_)>(
-          reinterpret_cast<char*>(&systemstatus_),
-          reinterpret_cast<char*>(&other->systemstatus_));
+  swap(systemstatus_, other->systemstatus_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata PB_UssSectorInfo::GetMetadata() const {

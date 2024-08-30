@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "hmi_3d/mv_uss.proto";
+import "animal/animal.proto";
+
+
+message PB_Hmi3dPackage
+{    
+    PB_UssSectorOutputData UssSectorData = 1;
+    Animal AnimalData = 2;
+}

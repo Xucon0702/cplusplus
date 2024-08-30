@@ -3,17 +3,14 @@ syntax = "proto3";
 //pdc
 message PB_UssSector_FrameHeader{
     uint32 nFrameId = 1;
-    uint32 nRervered = 2;
-    uint64 ITimeMsec = 3;
+    uint64 ITimeMsec = 2;
 }
 
 message PB_UssSectorInfo
 {
     repeated uint32 PDC_Distance = 1;
-    repeated uint32 LAEB_Distance = 2;
-    repeated uint32  SensorStatus = 3;
-    uint32 SystemStatus = 4;
-    uint32 nRervered = 5;
+    repeated uint32  SensorStatus = 2;
+    uint32 SystemStatus = 3;
 }
 
 message PB_UssSectorOutputData

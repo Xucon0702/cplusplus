@@ -184,10 +184,18 @@ class PB_UssSector_FrameHeader PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kITimeMsecFieldNumber = 2,
     kNFrameIdFieldNumber = 1,
-    kNRerveredFieldNumber = 2,
-    kITimeMsecFieldNumber = 3,
   };
+  // uint64 ITimeMsec = 2;
+  void clear_itimemsec();
+  ::PROTOBUF_NAMESPACE_ID::uint64 itimemsec() const;
+  void set_itimemsec(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_itimemsec() const;
+  void _internal_set_itimemsec(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // uint32 nFrameId = 1;
   void clear_nframeid();
   ::PROTOBUF_NAMESPACE_ID::uint32 nframeid() const;
@@ -197,24 +205,6 @@ class PB_UssSector_FrameHeader PROTOBUF_FINAL :
   void _internal_set_nframeid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 nRervered = 2;
-  void clear_nrervered();
-  ::PROTOBUF_NAMESPACE_ID::uint32 nrervered() const;
-  void set_nrervered(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_nrervered() const;
-  void _internal_set_nrervered(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // uint64 ITimeMsec = 3;
-  void clear_itimemsec();
-  ::PROTOBUF_NAMESPACE_ID::uint64 itimemsec() const;
-  void set_itimemsec(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_itimemsec() const;
-  void _internal_set_itimemsec(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  public:
-
   // @@protoc_insertion_point(class_scope:PB_UssSector_FrameHeader)
  private:
   class _Internal;
@@ -222,9 +212,8 @@ class PB_UssSector_FrameHeader PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 nframeid_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 nrervered_;
   ::PROTOBUF_NAMESPACE_ID::uint64 itimemsec_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 nframeid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_hmi_5f3d_2fmv_5fuss_2eproto;
 };
@@ -344,10 +333,8 @@ class PB_UssSectorInfo PROTOBUF_FINAL :
 
   enum : int {
     kPDCDistanceFieldNumber = 1,
-    kLAEBDistanceFieldNumber = 2,
-    kSensorStatusFieldNumber = 3,
-    kSystemStatusFieldNumber = 4,
-    kNRerveredFieldNumber = 5,
+    kSensorStatusFieldNumber = 2,
+    kSystemStatusFieldNumber = 3,
   };
   // repeated uint32 PDC_Distance = 1;
   int pdc_distance_size() const;
@@ -371,29 +358,7 @@ class PB_UssSectorInfo PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
       mutable_pdc_distance();
 
-  // repeated uint32 LAEB_Distance = 2;
-  int laeb_distance_size() const;
-  private:
-  int _internal_laeb_distance_size() const;
-  public:
-  void clear_laeb_distance();
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_laeb_distance(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-      _internal_laeb_distance() const;
-  void _internal_add_laeb_distance(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-      _internal_mutable_laeb_distance();
-  public:
-  ::PROTOBUF_NAMESPACE_ID::uint32 laeb_distance(int index) const;
-  void set_laeb_distance(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
-  void add_laeb_distance(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-      laeb_distance() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-      mutable_laeb_distance();
-
-  // repeated uint32 SensorStatus = 3;
+  // repeated uint32 SensorStatus = 2;
   int sensorstatus_size() const;
   private:
   int _internal_sensorstatus_size() const;
@@ -415,22 +380,13 @@ class PB_UssSectorInfo PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
       mutable_sensorstatus();
 
-  // uint32 SystemStatus = 4;
+  // uint32 SystemStatus = 3;
   void clear_systemstatus();
   ::PROTOBUF_NAMESPACE_ID::uint32 systemstatus() const;
   void set_systemstatus(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
   ::PROTOBUF_NAMESPACE_ID::uint32 _internal_systemstatus() const;
   void _internal_set_systemstatus(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // uint32 nRervered = 5;
-  void clear_nrervered();
-  ::PROTOBUF_NAMESPACE_ID::uint32 nrervered() const;
-  void set_nrervered(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_nrervered() const;
-  void _internal_set_nrervered(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:PB_UssSectorInfo)
@@ -442,12 +398,9 @@ class PB_UssSectorInfo PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > pdc_distance_;
   mutable std::atomic<int> _pdc_distance_cached_byte_size_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > laeb_distance_;
-  mutable std::atomic<int> _laeb_distance_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > sensorstatus_;
   mutable std::atomic<int> _sensorstatus_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 systemstatus_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 nrervered_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_hmi_5f3d_2fmv_5fuss_2eproto;
 };
@@ -648,27 +601,7 @@ inline void PB_UssSector_FrameHeader::set_nframeid(::PROTOBUF_NAMESPACE_ID::uint
   // @@protoc_insertion_point(field_set:PB_UssSector_FrameHeader.nFrameId)
 }
 
-// uint32 nRervered = 2;
-inline void PB_UssSector_FrameHeader::clear_nrervered() {
-  nrervered_ = 0u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 PB_UssSector_FrameHeader::_internal_nrervered() const {
-  return nrervered_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 PB_UssSector_FrameHeader::nrervered() const {
-  // @@protoc_insertion_point(field_get:PB_UssSector_FrameHeader.nRervered)
-  return _internal_nrervered();
-}
-inline void PB_UssSector_FrameHeader::_internal_set_nrervered(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
-  nrervered_ = value;
-}
-inline void PB_UssSector_FrameHeader::set_nrervered(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_nrervered(value);
-  // @@protoc_insertion_point(field_set:PB_UssSector_FrameHeader.nRervered)
-}
-
-// uint64 ITimeMsec = 3;
+// uint64 ITimeMsec = 2;
 inline void PB_UssSector_FrameHeader::clear_itimemsec() {
   itimemsec_ = PROTOBUF_ULONGLONG(0);
 }
@@ -739,54 +672,7 @@ PB_UssSectorInfo::mutable_pdc_distance() {
   return _internal_mutable_pdc_distance();
 }
 
-// repeated uint32 LAEB_Distance = 2;
-inline int PB_UssSectorInfo::_internal_laeb_distance_size() const {
-  return laeb_distance_.size();
-}
-inline int PB_UssSectorInfo::laeb_distance_size() const {
-  return _internal_laeb_distance_size();
-}
-inline void PB_UssSectorInfo::clear_laeb_distance() {
-  laeb_distance_.Clear();
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 PB_UssSectorInfo::_internal_laeb_distance(int index) const {
-  return laeb_distance_.Get(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 PB_UssSectorInfo::laeb_distance(int index) const {
-  // @@protoc_insertion_point(field_get:PB_UssSectorInfo.LAEB_Distance)
-  return _internal_laeb_distance(index);
-}
-inline void PB_UssSectorInfo::set_laeb_distance(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  laeb_distance_.Set(index, value);
-  // @@protoc_insertion_point(field_set:PB_UssSectorInfo.LAEB_Distance)
-}
-inline void PB_UssSectorInfo::_internal_add_laeb_distance(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  laeb_distance_.Add(value);
-}
-inline void PB_UssSectorInfo::add_laeb_distance(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_add_laeb_distance(value);
-  // @@protoc_insertion_point(field_add:PB_UssSectorInfo.LAEB_Distance)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-PB_UssSectorInfo::_internal_laeb_distance() const {
-  return laeb_distance_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-PB_UssSectorInfo::laeb_distance() const {
-  // @@protoc_insertion_point(field_list:PB_UssSectorInfo.LAEB_Distance)
-  return _internal_laeb_distance();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-PB_UssSectorInfo::_internal_mutable_laeb_distance() {
-  return &laeb_distance_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-PB_UssSectorInfo::mutable_laeb_distance() {
-  // @@protoc_insertion_point(field_mutable_list:PB_UssSectorInfo.LAEB_Distance)
-  return _internal_mutable_laeb_distance();
-}
-
-// repeated uint32 SensorStatus = 3;
+// repeated uint32 SensorStatus = 2;
 inline int PB_UssSectorInfo::_internal_sensorstatus_size() const {
   return sensorstatus_.size();
 }
@@ -833,7 +719,7 @@ PB_UssSectorInfo::mutable_sensorstatus() {
   return _internal_mutable_sensorstatus();
 }
 
-// uint32 SystemStatus = 4;
+// uint32 SystemStatus = 3;
 inline void PB_UssSectorInfo::clear_systemstatus() {
   systemstatus_ = 0u;
 }
@@ -851,26 +737,6 @@ inline void PB_UssSectorInfo::_internal_set_systemstatus(::PROTOBUF_NAMESPACE_ID
 inline void PB_UssSectorInfo::set_systemstatus(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_systemstatus(value);
   // @@protoc_insertion_point(field_set:PB_UssSectorInfo.SystemStatus)
-}
-
-// uint32 nRervered = 5;
-inline void PB_UssSectorInfo::clear_nrervered() {
-  nrervered_ = 0u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 PB_UssSectorInfo::_internal_nrervered() const {
-  return nrervered_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 PB_UssSectorInfo::nrervered() const {
-  // @@protoc_insertion_point(field_get:PB_UssSectorInfo.nRervered)
-  return _internal_nrervered();
-}
-inline void PB_UssSectorInfo::_internal_set_nrervered(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
-  nrervered_ = value;
-}
-inline void PB_UssSectorInfo::set_nrervered(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_nrervered(value);
-  // @@protoc_insertion_point(field_set:PB_UssSectorInfo.nRervered)
 }
 
 // -------------------------------------------------------------------

@@ -80,7 +80,7 @@ int32_t CHmi3DSendInf::ConvertUssPdcToPB(const ZU2UssSectorOutputData_t& uss_pdc
             return -1;
         }
         p_frame_header->set_nframeid(uss_pdc.FrameHead.nFrameId);
-        p_frame_header->set_nrervered(uss_pdc.FrameHead.nRervered);
+        // p_frame_header->set_nrervered(uss_pdc.FrameHead.nRervered);
         p_frame_header->set_itimemsec(uss_pdc.FrameHead.ITimeMsec);
 
         // 转换SectorData
@@ -90,17 +90,19 @@ int32_t CHmi3DSendInf::ConvertUssPdcToPB(const ZU2UssSectorOutputData_t& uss_pdc
             printf("p_UssSectorInfo is null\n");
             return -1;
         }
-        for (int i = 0; i < 32; ++i) {
+        // for (int i = 0; i < 32; ++i) 
+        for (int i = 0; i < 12; i++) 
+        {
             p_UssSectorInfo->add_pdc_distance(uss_pdc.SectorData.PDC_Distance[i]);
-            p_UssSectorInfo->add_laeb_distance(uss_pdc.SectorData.LAEB_Distance[i]);
+            // p_UssSectorInfo->add_laeb_distance(uss_pdc.SectorData.LAEB_Distance[i]);
         }
 
-        for (int i = 0; i < 12; ++i) {
+        for (int i = 0; i < 12; i++) {
             p_UssSectorInfo->add_sensorstatus(uss_pdc.SectorData.SensorStatus[i]);
         }
 
         p_UssSectorInfo->set_systemstatus(uss_pdc.SectorData.SystemStatus);
-        p_UssSectorInfo->set_nrervered(uss_pdc.SectorData.nRervered);
+        // p_UssSectorInfo->set_nrervered(uss_pdc.SectorData.nRervered);
 
     return 0;
 }
