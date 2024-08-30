@@ -28,13 +28,13 @@ file(GLOB_RECURSE SRC_PROTOBUF_FILES
 file(GLOB SRC_CLIENT_FILES
     ${CMAKE_CURRENT_LIST_DIR}/src/client/*.cpp
     ${CMAKE_CURRENT_LIST_DIR}/src/client/animal_test/*.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/src/client/hmi_3d/*.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/client/hmi_3d_transfer/*.cpp
 )
 
 file(GLOB SRC_SERVER_FILES
     ${CMAKE_CURRENT_LIST_DIR}/src/server/*.cpp
     ${CMAKE_CURRENT_LIST_DIR}/src/server/animal_test/*.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/src/server/hmi_3d/*.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/server/hmi_3d_transfer/*.cpp
 )
 
 link_directories(

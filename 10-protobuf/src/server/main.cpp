@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include "animal_test/recv_animal.h"
 
+#include "hmi_3d_transfer/hmi_3d_recever.h"
 
 int main() {
   // 创建 socket 服务器
@@ -32,6 +33,10 @@ int main() {
 
   std::cout << "Waiting for connection..." << std::endl;
 
+  //hmi-3d接收
+  CHmi3DReceiver receiver_3d;
+  PB_UssSectorOutputData PB_uss_pdc;
+
   while (true) {
     sockaddr_in client_addr;
     socklen_t client_len = sizeof(client_addr);
@@ -45,6 +50,8 @@ int main() {
 
     Animal animal;
     receiveAnimal(client_socket, &animal);
+
+    receiver_3d.ReceiveUssPdc(client_socket,&PB_uss_pdc);
 
     // 关闭连接
     close(client_socket);

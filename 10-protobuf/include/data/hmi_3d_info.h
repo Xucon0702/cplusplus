@@ -6,8 +6,11 @@
 //protobuf头文件
 #include "hmi_3d/mv_uss.pb.h"
 
+#define MAX_HMI_3D_INFO_LEN 1024
+
 #if 1
 
+//界面信息
 typedef struct
 {
     uint64_t    lTimestamp_ms;       //时间戳:ms
@@ -25,7 +28,7 @@ typedef struct
     uint8_t Reserve[64-56];
 }Hmi_test_info;
 
-
+//slot
 typedef struct
 {
     uint64_t TimeMsec;            // 时间戳(ms)
@@ -45,6 +48,27 @@ typedef struct
        } PrkgSlot[16];
 } ApaAvapSlotOut;     
 
+//PDC
+typedef struct
+{
+    uint32_t nFrameId;
+    uint32_t nRervered;
+    uint64_t ITimeMsec;
+} ZU2UssSector_FrameHeader_t;
+typedef struct
+{
+    uint16_t PDC_Distance[32]; /* 12传感器各自对应一个Sector，侧面左右各2个虚拟Sector，剩余16个Setor预留 */
+    uint16_t LAEB_Distance[32];
+    uint8_t SensorStatus[12];
+       uint8_t SystemStatus;
+    uint8_t nRervered;
+} ZU2UssSectorInfo_t;
+
+typedef struct
+{
+    ZU2UssSector_FrameHeader_t FrameHead;
+    ZU2UssSectorInfo_t SectorData;
+} ZU2UssSectorOutputData_t;
 
 
 #endif
