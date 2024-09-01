@@ -32,8 +32,13 @@
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
+#include "hmi_3d/mv_can.pb.h"
 #include "hmi_3d/mv_uss.pb.h"
-#include "animal/animal.pb.h"
+#include "hmi_3d/mv_slot.pb.h"
+#include "hmi_3d/mv_od.pb.h"
+#include "hmi_3d/mv_apa_state_info.pb.h"
+#include "hmi_3d/mv_plan_full_path.pb.h"
+#include "hmi_3d/mv_plan_track_info.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_hmi_5f3d_5fpackage_2eproto
@@ -178,10 +183,35 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kUssSectorDataFieldNumber = 1,
-    kAnimalDataFieldNumber = 2,
+    kCanDataFieldNumber = 3,
+    kUssSectorDataFieldNumber = 4,
+    kApaStateDataFieldNumber = 5,
+    kSlotDataFieldNumber = 6,
+    kOdDataFieldNumber = 7,
+    kPlanTrackDataFieldNumber = 8,
+    kPlanFullPathDataFieldNumber = 9,
+    kLSendTimsMsFieldNumber = 1,
+    kUSendNumFieldNumber = 2,
   };
-  // .PB_UssSectorOutputData UssSectorData = 1;
+  // .PB_CanData CanData = 3;
+  bool has_candata() const;
+  private:
+  bool _internal_has_candata() const;
+  public:
+  void clear_candata();
+  const ::PB_CanData& candata() const;
+  ::PB_CanData* release_candata();
+  ::PB_CanData* mutable_candata();
+  void set_allocated_candata(::PB_CanData* candata);
+  private:
+  const ::PB_CanData& _internal_candata() const;
+  ::PB_CanData* _internal_mutable_candata();
+  public:
+  void unsafe_arena_set_allocated_candata(
+      ::PB_CanData* candata);
+  ::PB_CanData* unsafe_arena_release_candata();
+
+  // .PB_UssSectorOutputData UssSectorData = 4;
   bool has_usssectordata() const;
   private:
   bool _internal_has_usssectordata() const;
@@ -199,23 +229,113 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
       ::PB_UssSectorOutputData* usssectordata);
   ::PB_UssSectorOutputData* unsafe_arena_release_usssectordata();
 
-  // .Animal AnimalData = 2;
-  bool has_animaldata() const;
+  // .PB_ApaStateInfo ApaStateData = 5;
+  bool has_apastatedata() const;
   private:
-  bool _internal_has_animaldata() const;
+  bool _internal_has_apastatedata() const;
   public:
-  void clear_animaldata();
-  const ::Animal& animaldata() const;
-  ::Animal* release_animaldata();
-  ::Animal* mutable_animaldata();
-  void set_allocated_animaldata(::Animal* animaldata);
+  void clear_apastatedata();
+  const ::PB_ApaStateInfo& apastatedata() const;
+  ::PB_ApaStateInfo* release_apastatedata();
+  ::PB_ApaStateInfo* mutable_apastatedata();
+  void set_allocated_apastatedata(::PB_ApaStateInfo* apastatedata);
   private:
-  const ::Animal& _internal_animaldata() const;
-  ::Animal* _internal_mutable_animaldata();
+  const ::PB_ApaStateInfo& _internal_apastatedata() const;
+  ::PB_ApaStateInfo* _internal_mutable_apastatedata();
   public:
-  void unsafe_arena_set_allocated_animaldata(
-      ::Animal* animaldata);
-  ::Animal* unsafe_arena_release_animaldata();
+  void unsafe_arena_set_allocated_apastatedata(
+      ::PB_ApaStateInfo* apastatedata);
+  ::PB_ApaStateInfo* unsafe_arena_release_apastatedata();
+
+  // .PB_SlotInfo SlotData = 6;
+  bool has_slotdata() const;
+  private:
+  bool _internal_has_slotdata() const;
+  public:
+  void clear_slotdata();
+  const ::PB_SlotInfo& slotdata() const;
+  ::PB_SlotInfo* release_slotdata();
+  ::PB_SlotInfo* mutable_slotdata();
+  void set_allocated_slotdata(::PB_SlotInfo* slotdata);
+  private:
+  const ::PB_SlotInfo& _internal_slotdata() const;
+  ::PB_SlotInfo* _internal_mutable_slotdata();
+  public:
+  void unsafe_arena_set_allocated_slotdata(
+      ::PB_SlotInfo* slotdata);
+  ::PB_SlotInfo* unsafe_arena_release_slotdata();
+
+  // .PB_OdInfo OdData = 7;
+  bool has_oddata() const;
+  private:
+  bool _internal_has_oddata() const;
+  public:
+  void clear_oddata();
+  const ::PB_OdInfo& oddata() const;
+  ::PB_OdInfo* release_oddata();
+  ::PB_OdInfo* mutable_oddata();
+  void set_allocated_oddata(::PB_OdInfo* oddata);
+  private:
+  const ::PB_OdInfo& _internal_oddata() const;
+  ::PB_OdInfo* _internal_mutable_oddata();
+  public:
+  void unsafe_arena_set_allocated_oddata(
+      ::PB_OdInfo* oddata);
+  ::PB_OdInfo* unsafe_arena_release_oddata();
+
+  // .PB_PlanTrackInfo PlanTrackData = 8;
+  bool has_plantrackdata() const;
+  private:
+  bool _internal_has_plantrackdata() const;
+  public:
+  void clear_plantrackdata();
+  const ::PB_PlanTrackInfo& plantrackdata() const;
+  ::PB_PlanTrackInfo* release_plantrackdata();
+  ::PB_PlanTrackInfo* mutable_plantrackdata();
+  void set_allocated_plantrackdata(::PB_PlanTrackInfo* plantrackdata);
+  private:
+  const ::PB_PlanTrackInfo& _internal_plantrackdata() const;
+  ::PB_PlanTrackInfo* _internal_mutable_plantrackdata();
+  public:
+  void unsafe_arena_set_allocated_plantrackdata(
+      ::PB_PlanTrackInfo* plantrackdata);
+  ::PB_PlanTrackInfo* unsafe_arena_release_plantrackdata();
+
+  // .PB_PlanFullPath PlanFullPathData = 9;
+  bool has_planfullpathdata() const;
+  private:
+  bool _internal_has_planfullpathdata() const;
+  public:
+  void clear_planfullpathdata();
+  const ::PB_PlanFullPath& planfullpathdata() const;
+  ::PB_PlanFullPath* release_planfullpathdata();
+  ::PB_PlanFullPath* mutable_planfullpathdata();
+  void set_allocated_planfullpathdata(::PB_PlanFullPath* planfullpathdata);
+  private:
+  const ::PB_PlanFullPath& _internal_planfullpathdata() const;
+  ::PB_PlanFullPath* _internal_mutable_planfullpathdata();
+  public:
+  void unsafe_arena_set_allocated_planfullpathdata(
+      ::PB_PlanFullPath* planfullpathdata);
+  ::PB_PlanFullPath* unsafe_arena_release_planfullpathdata();
+
+  // uint64 LSendTimsMs = 1;
+  void clear_lsendtimsms();
+  ::PROTOBUF_NAMESPACE_ID::uint64 lsendtimsms() const;
+  void set_lsendtimsms(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_lsendtimsms() const;
+  void _internal_set_lsendtimsms(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // uint32 uSendNum = 2;
+  void clear_usendnum();
+  ::PROTOBUF_NAMESPACE_ID::uint32 usendnum() const;
+  void set_usendnum(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_usendnum() const;
+  void _internal_set_usendnum(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
 
   // @@protoc_insertion_point(class_scope:PB_Hmi3dPackage)
  private:
@@ -224,8 +344,15 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PB_CanData* candata_;
   ::PB_UssSectorOutputData* usssectordata_;
-  ::Animal* animaldata_;
+  ::PB_ApaStateInfo* apastatedata_;
+  ::PB_SlotInfo* slotdata_;
+  ::PB_OdInfo* oddata_;
+  ::PB_PlanTrackInfo* plantrackdata_;
+  ::PB_PlanFullPath* planfullpathdata_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 lsendtimsms_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 usendnum_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_hmi_5f3d_5fpackage_2eproto;
 };
@@ -240,7 +367,122 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
 #endif  // __GNUC__
 // PB_Hmi3dPackage
 
-// .PB_UssSectorOutputData UssSectorData = 1;
+// uint64 LSendTimsMs = 1;
+inline void PB_Hmi3dPackage::clear_lsendtimsms() {
+  lsendtimsms_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 PB_Hmi3dPackage::_internal_lsendtimsms() const {
+  return lsendtimsms_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 PB_Hmi3dPackage::lsendtimsms() const {
+  // @@protoc_insertion_point(field_get:PB_Hmi3dPackage.LSendTimsMs)
+  return _internal_lsendtimsms();
+}
+inline void PB_Hmi3dPackage::_internal_set_lsendtimsms(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  lsendtimsms_ = value;
+}
+inline void PB_Hmi3dPackage::set_lsendtimsms(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_lsendtimsms(value);
+  // @@protoc_insertion_point(field_set:PB_Hmi3dPackage.LSendTimsMs)
+}
+
+// uint32 uSendNum = 2;
+inline void PB_Hmi3dPackage::clear_usendnum() {
+  usendnum_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PB_Hmi3dPackage::_internal_usendnum() const {
+  return usendnum_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PB_Hmi3dPackage::usendnum() const {
+  // @@protoc_insertion_point(field_get:PB_Hmi3dPackage.uSendNum)
+  return _internal_usendnum();
+}
+inline void PB_Hmi3dPackage::_internal_set_usendnum(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  usendnum_ = value;
+}
+inline void PB_Hmi3dPackage::set_usendnum(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_usendnum(value);
+  // @@protoc_insertion_point(field_set:PB_Hmi3dPackage.uSendNum)
+}
+
+// .PB_CanData CanData = 3;
+inline bool PB_Hmi3dPackage::_internal_has_candata() const {
+  return this != internal_default_instance() && candata_ != nullptr;
+}
+inline bool PB_Hmi3dPackage::has_candata() const {
+  return _internal_has_candata();
+}
+inline const ::PB_CanData& PB_Hmi3dPackage::_internal_candata() const {
+  const ::PB_CanData* p = candata_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::PB_CanData*>(
+      &::_PB_CanData_default_instance_);
+}
+inline const ::PB_CanData& PB_Hmi3dPackage::candata() const {
+  // @@protoc_insertion_point(field_get:PB_Hmi3dPackage.CanData)
+  return _internal_candata();
+}
+inline void PB_Hmi3dPackage::unsafe_arena_set_allocated_candata(
+    ::PB_CanData* candata) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(candata_);
+  }
+  candata_ = candata;
+  if (candata) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PB_Hmi3dPackage.CanData)
+}
+inline ::PB_CanData* PB_Hmi3dPackage::release_candata() {
+  auto temp = unsafe_arena_release_candata();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::PB_CanData* PB_Hmi3dPackage::unsafe_arena_release_candata() {
+  // @@protoc_insertion_point(field_release:PB_Hmi3dPackage.CanData)
+  
+  ::PB_CanData* temp = candata_;
+  candata_ = nullptr;
+  return temp;
+}
+inline ::PB_CanData* PB_Hmi3dPackage::_internal_mutable_candata() {
+  
+  if (candata_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PB_CanData>(GetArena());
+    candata_ = p;
+  }
+  return candata_;
+}
+inline ::PB_CanData* PB_Hmi3dPackage::mutable_candata() {
+  // @@protoc_insertion_point(field_mutable:PB_Hmi3dPackage.CanData)
+  return _internal_mutable_candata();
+}
+inline void PB_Hmi3dPackage::set_allocated_candata(::PB_CanData* candata) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(candata_);
+  }
+  if (candata) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(candata)->GetArena();
+    if (message_arena != submessage_arena) {
+      candata = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, candata, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  candata_ = candata;
+  // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.CanData)
+}
+
+// .PB_UssSectorOutputData UssSectorData = 4;
 inline bool PB_Hmi3dPackage::_internal_has_usssectordata() const {
   return this != internal_default_instance() && usssectordata_ != nullptr;
 }
@@ -315,79 +557,379 @@ inline void PB_Hmi3dPackage::set_allocated_usssectordata(::PB_UssSectorOutputDat
   // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.UssSectorData)
 }
 
-// .Animal AnimalData = 2;
-inline bool PB_Hmi3dPackage::_internal_has_animaldata() const {
-  return this != internal_default_instance() && animaldata_ != nullptr;
+// .PB_ApaStateInfo ApaStateData = 5;
+inline bool PB_Hmi3dPackage::_internal_has_apastatedata() const {
+  return this != internal_default_instance() && apastatedata_ != nullptr;
 }
-inline bool PB_Hmi3dPackage::has_animaldata() const {
-  return _internal_has_animaldata();
+inline bool PB_Hmi3dPackage::has_apastatedata() const {
+  return _internal_has_apastatedata();
 }
-inline const ::Animal& PB_Hmi3dPackage::_internal_animaldata() const {
-  const ::Animal* p = animaldata_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::Animal*>(
-      &::_Animal_default_instance_);
+inline const ::PB_ApaStateInfo& PB_Hmi3dPackage::_internal_apastatedata() const {
+  const ::PB_ApaStateInfo* p = apastatedata_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::PB_ApaStateInfo*>(
+      &::_PB_ApaStateInfo_default_instance_);
 }
-inline const ::Animal& PB_Hmi3dPackage::animaldata() const {
-  // @@protoc_insertion_point(field_get:PB_Hmi3dPackage.AnimalData)
-  return _internal_animaldata();
+inline const ::PB_ApaStateInfo& PB_Hmi3dPackage::apastatedata() const {
+  // @@protoc_insertion_point(field_get:PB_Hmi3dPackage.ApaStateData)
+  return _internal_apastatedata();
 }
-inline void PB_Hmi3dPackage::unsafe_arena_set_allocated_animaldata(
-    ::Animal* animaldata) {
+inline void PB_Hmi3dPackage::unsafe_arena_set_allocated_apastatedata(
+    ::PB_ApaStateInfo* apastatedata) {
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(animaldata_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(apastatedata_);
   }
-  animaldata_ = animaldata;
-  if (animaldata) {
+  apastatedata_ = apastatedata;
+  if (apastatedata) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PB_Hmi3dPackage.AnimalData)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PB_Hmi3dPackage.ApaStateData)
 }
-inline ::Animal* PB_Hmi3dPackage::release_animaldata() {
-  auto temp = unsafe_arena_release_animaldata();
+inline ::PB_ApaStateInfo* PB_Hmi3dPackage::release_apastatedata() {
+  auto temp = unsafe_arena_release_apastatedata();
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::Animal* PB_Hmi3dPackage::unsafe_arena_release_animaldata() {
-  // @@protoc_insertion_point(field_release:PB_Hmi3dPackage.AnimalData)
+inline ::PB_ApaStateInfo* PB_Hmi3dPackage::unsafe_arena_release_apastatedata() {
+  // @@protoc_insertion_point(field_release:PB_Hmi3dPackage.ApaStateData)
   
-  ::Animal* temp = animaldata_;
-  animaldata_ = nullptr;
+  ::PB_ApaStateInfo* temp = apastatedata_;
+  apastatedata_ = nullptr;
   return temp;
 }
-inline ::Animal* PB_Hmi3dPackage::_internal_mutable_animaldata() {
+inline ::PB_ApaStateInfo* PB_Hmi3dPackage::_internal_mutable_apastatedata() {
   
-  if (animaldata_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Animal>(GetArena());
-    animaldata_ = p;
+  if (apastatedata_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PB_ApaStateInfo>(GetArena());
+    apastatedata_ = p;
   }
-  return animaldata_;
+  return apastatedata_;
 }
-inline ::Animal* PB_Hmi3dPackage::mutable_animaldata() {
-  // @@protoc_insertion_point(field_mutable:PB_Hmi3dPackage.AnimalData)
-  return _internal_mutable_animaldata();
+inline ::PB_ApaStateInfo* PB_Hmi3dPackage::mutable_apastatedata() {
+  // @@protoc_insertion_point(field_mutable:PB_Hmi3dPackage.ApaStateData)
+  return _internal_mutable_apastatedata();
 }
-inline void PB_Hmi3dPackage::set_allocated_animaldata(::Animal* animaldata) {
+inline void PB_Hmi3dPackage::set_allocated_apastatedata(::PB_ApaStateInfo* apastatedata) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(animaldata_);
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(apastatedata_);
   }
-  if (animaldata) {
+  if (apastatedata) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(animaldata)->GetArena();
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(apastatedata)->GetArena();
     if (message_arena != submessage_arena) {
-      animaldata = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, animaldata, submessage_arena);
+      apastatedata = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, apastatedata, submessage_arena);
     }
     
   } else {
     
   }
-  animaldata_ = animaldata;
-  // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.AnimalData)
+  apastatedata_ = apastatedata;
+  // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.ApaStateData)
+}
+
+// .PB_SlotInfo SlotData = 6;
+inline bool PB_Hmi3dPackage::_internal_has_slotdata() const {
+  return this != internal_default_instance() && slotdata_ != nullptr;
+}
+inline bool PB_Hmi3dPackage::has_slotdata() const {
+  return _internal_has_slotdata();
+}
+inline const ::PB_SlotInfo& PB_Hmi3dPackage::_internal_slotdata() const {
+  const ::PB_SlotInfo* p = slotdata_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::PB_SlotInfo*>(
+      &::_PB_SlotInfo_default_instance_);
+}
+inline const ::PB_SlotInfo& PB_Hmi3dPackage::slotdata() const {
+  // @@protoc_insertion_point(field_get:PB_Hmi3dPackage.SlotData)
+  return _internal_slotdata();
+}
+inline void PB_Hmi3dPackage::unsafe_arena_set_allocated_slotdata(
+    ::PB_SlotInfo* slotdata) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(slotdata_);
+  }
+  slotdata_ = slotdata;
+  if (slotdata) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PB_Hmi3dPackage.SlotData)
+}
+inline ::PB_SlotInfo* PB_Hmi3dPackage::release_slotdata() {
+  auto temp = unsafe_arena_release_slotdata();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::PB_SlotInfo* PB_Hmi3dPackage::unsafe_arena_release_slotdata() {
+  // @@protoc_insertion_point(field_release:PB_Hmi3dPackage.SlotData)
+  
+  ::PB_SlotInfo* temp = slotdata_;
+  slotdata_ = nullptr;
+  return temp;
+}
+inline ::PB_SlotInfo* PB_Hmi3dPackage::_internal_mutable_slotdata() {
+  
+  if (slotdata_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PB_SlotInfo>(GetArena());
+    slotdata_ = p;
+  }
+  return slotdata_;
+}
+inline ::PB_SlotInfo* PB_Hmi3dPackage::mutable_slotdata() {
+  // @@protoc_insertion_point(field_mutable:PB_Hmi3dPackage.SlotData)
+  return _internal_mutable_slotdata();
+}
+inline void PB_Hmi3dPackage::set_allocated_slotdata(::PB_SlotInfo* slotdata) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(slotdata_);
+  }
+  if (slotdata) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(slotdata)->GetArena();
+    if (message_arena != submessage_arena) {
+      slotdata = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, slotdata, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  slotdata_ = slotdata;
+  // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.SlotData)
+}
+
+// .PB_OdInfo OdData = 7;
+inline bool PB_Hmi3dPackage::_internal_has_oddata() const {
+  return this != internal_default_instance() && oddata_ != nullptr;
+}
+inline bool PB_Hmi3dPackage::has_oddata() const {
+  return _internal_has_oddata();
+}
+inline const ::PB_OdInfo& PB_Hmi3dPackage::_internal_oddata() const {
+  const ::PB_OdInfo* p = oddata_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::PB_OdInfo*>(
+      &::_PB_OdInfo_default_instance_);
+}
+inline const ::PB_OdInfo& PB_Hmi3dPackage::oddata() const {
+  // @@protoc_insertion_point(field_get:PB_Hmi3dPackage.OdData)
+  return _internal_oddata();
+}
+inline void PB_Hmi3dPackage::unsafe_arena_set_allocated_oddata(
+    ::PB_OdInfo* oddata) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oddata_);
+  }
+  oddata_ = oddata;
+  if (oddata) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PB_Hmi3dPackage.OdData)
+}
+inline ::PB_OdInfo* PB_Hmi3dPackage::release_oddata() {
+  auto temp = unsafe_arena_release_oddata();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::PB_OdInfo* PB_Hmi3dPackage::unsafe_arena_release_oddata() {
+  // @@protoc_insertion_point(field_release:PB_Hmi3dPackage.OdData)
+  
+  ::PB_OdInfo* temp = oddata_;
+  oddata_ = nullptr;
+  return temp;
+}
+inline ::PB_OdInfo* PB_Hmi3dPackage::_internal_mutable_oddata() {
+  
+  if (oddata_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PB_OdInfo>(GetArena());
+    oddata_ = p;
+  }
+  return oddata_;
+}
+inline ::PB_OdInfo* PB_Hmi3dPackage::mutable_oddata() {
+  // @@protoc_insertion_point(field_mutable:PB_Hmi3dPackage.OdData)
+  return _internal_mutable_oddata();
+}
+inline void PB_Hmi3dPackage::set_allocated_oddata(::PB_OdInfo* oddata) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(oddata_);
+  }
+  if (oddata) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oddata)->GetArena();
+    if (message_arena != submessage_arena) {
+      oddata = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, oddata, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  oddata_ = oddata;
+  // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.OdData)
+}
+
+// .PB_PlanTrackInfo PlanTrackData = 8;
+inline bool PB_Hmi3dPackage::_internal_has_plantrackdata() const {
+  return this != internal_default_instance() && plantrackdata_ != nullptr;
+}
+inline bool PB_Hmi3dPackage::has_plantrackdata() const {
+  return _internal_has_plantrackdata();
+}
+inline const ::PB_PlanTrackInfo& PB_Hmi3dPackage::_internal_plantrackdata() const {
+  const ::PB_PlanTrackInfo* p = plantrackdata_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::PB_PlanTrackInfo*>(
+      &::_PB_PlanTrackInfo_default_instance_);
+}
+inline const ::PB_PlanTrackInfo& PB_Hmi3dPackage::plantrackdata() const {
+  // @@protoc_insertion_point(field_get:PB_Hmi3dPackage.PlanTrackData)
+  return _internal_plantrackdata();
+}
+inline void PB_Hmi3dPackage::unsafe_arena_set_allocated_plantrackdata(
+    ::PB_PlanTrackInfo* plantrackdata) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(plantrackdata_);
+  }
+  plantrackdata_ = plantrackdata;
+  if (plantrackdata) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PB_Hmi3dPackage.PlanTrackData)
+}
+inline ::PB_PlanTrackInfo* PB_Hmi3dPackage::release_plantrackdata() {
+  auto temp = unsafe_arena_release_plantrackdata();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::PB_PlanTrackInfo* PB_Hmi3dPackage::unsafe_arena_release_plantrackdata() {
+  // @@protoc_insertion_point(field_release:PB_Hmi3dPackage.PlanTrackData)
+  
+  ::PB_PlanTrackInfo* temp = plantrackdata_;
+  plantrackdata_ = nullptr;
+  return temp;
+}
+inline ::PB_PlanTrackInfo* PB_Hmi3dPackage::_internal_mutable_plantrackdata() {
+  
+  if (plantrackdata_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PB_PlanTrackInfo>(GetArena());
+    plantrackdata_ = p;
+  }
+  return plantrackdata_;
+}
+inline ::PB_PlanTrackInfo* PB_Hmi3dPackage::mutable_plantrackdata() {
+  // @@protoc_insertion_point(field_mutable:PB_Hmi3dPackage.PlanTrackData)
+  return _internal_mutable_plantrackdata();
+}
+inline void PB_Hmi3dPackage::set_allocated_plantrackdata(::PB_PlanTrackInfo* plantrackdata) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(plantrackdata_);
+  }
+  if (plantrackdata) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(plantrackdata)->GetArena();
+    if (message_arena != submessage_arena) {
+      plantrackdata = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, plantrackdata, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  plantrackdata_ = plantrackdata;
+  // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.PlanTrackData)
+}
+
+// .PB_PlanFullPath PlanFullPathData = 9;
+inline bool PB_Hmi3dPackage::_internal_has_planfullpathdata() const {
+  return this != internal_default_instance() && planfullpathdata_ != nullptr;
+}
+inline bool PB_Hmi3dPackage::has_planfullpathdata() const {
+  return _internal_has_planfullpathdata();
+}
+inline const ::PB_PlanFullPath& PB_Hmi3dPackage::_internal_planfullpathdata() const {
+  const ::PB_PlanFullPath* p = planfullpathdata_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::PB_PlanFullPath*>(
+      &::_PB_PlanFullPath_default_instance_);
+}
+inline const ::PB_PlanFullPath& PB_Hmi3dPackage::planfullpathdata() const {
+  // @@protoc_insertion_point(field_get:PB_Hmi3dPackage.PlanFullPathData)
+  return _internal_planfullpathdata();
+}
+inline void PB_Hmi3dPackage::unsafe_arena_set_allocated_planfullpathdata(
+    ::PB_PlanFullPath* planfullpathdata) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(planfullpathdata_);
+  }
+  planfullpathdata_ = planfullpathdata;
+  if (planfullpathdata) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PB_Hmi3dPackage.PlanFullPathData)
+}
+inline ::PB_PlanFullPath* PB_Hmi3dPackage::release_planfullpathdata() {
+  auto temp = unsafe_arena_release_planfullpathdata();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::PB_PlanFullPath* PB_Hmi3dPackage::unsafe_arena_release_planfullpathdata() {
+  // @@protoc_insertion_point(field_release:PB_Hmi3dPackage.PlanFullPathData)
+  
+  ::PB_PlanFullPath* temp = planfullpathdata_;
+  planfullpathdata_ = nullptr;
+  return temp;
+}
+inline ::PB_PlanFullPath* PB_Hmi3dPackage::_internal_mutable_planfullpathdata() {
+  
+  if (planfullpathdata_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PB_PlanFullPath>(GetArena());
+    planfullpathdata_ = p;
+  }
+  return planfullpathdata_;
+}
+inline ::PB_PlanFullPath* PB_Hmi3dPackage::mutable_planfullpathdata() {
+  // @@protoc_insertion_point(field_mutable:PB_Hmi3dPackage.PlanFullPathData)
+  return _internal_mutable_planfullpathdata();
+}
+inline void PB_Hmi3dPackage::set_allocated_planfullpathdata(::PB_PlanFullPath* planfullpathdata) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(planfullpathdata_);
+  }
+  if (planfullpathdata) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(planfullpathdata)->GetArena();
+    if (message_arena != submessage_arena) {
+      planfullpathdata = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, planfullpathdata, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  planfullpathdata_ = planfullpathdata;
+  // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.PlanFullPathData)
 }
 
 #ifdef __GNUC__

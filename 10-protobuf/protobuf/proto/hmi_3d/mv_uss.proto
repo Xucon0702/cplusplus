@@ -8,7 +8,7 @@ message PB_UssSector_FrameHeader{
 
 message PB_UssSectorInfo
 {
-    repeated uint32 PDC_Distance = 1;
+    repeated uint32 PDC_Distance = 1;  //mm
     repeated uint32  SensorStatus = 2;
     uint32 SystemStatus = 3;
 }

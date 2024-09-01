@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+message PB_ApaPathPoint
+{
+    float fx = 1;
+    float fY = 2;
+    float fCurv = 3;
+}
+
+message PB_PathPointsInfo
+{
+    uint32 validNum = 1;
+    repeated PB_ApaPathPoint aPoints = 2;
+}
+
+message PB_PlanFullPath
+{
+    uint64 TimeMsec = 1;
+    uint32 APATotalStep = 2;
+    uint32 APACurStep = 3;
+    uint32 APAPathGear = 4;
+    uint32 reserved = 5;
+    uint32 APAPathLen = 6;
+    uint32 APARmPathLen = 7;
+    uint32 StopDistance = 8;
+    uint32 validNum = 9;
+    repeated PB_PathPointsInfo Array_APAPathPoints = 10;
+}

@@ -1,11 +1,24 @@
 syntax = "proto3";
 
+//hmi的输入
+import "hmi_3d/mv_can.proto";
 import "hmi_3d/mv_uss.proto";
-import "animal/animal.proto";
+import "hmi_3d/mv_slot.proto";
+import "hmi_3d/mv_od.proto";
+import "hmi_3d/mv_apa_state_info.proto";
+import "hmi_3d/mv_plan_full_path.proto";
+import "hmi_3d/mv_plan_track_info.proto";
 
 
 message PB_Hmi3dPackage
 {    
-    PB_UssSectorOutputData UssSectorData = 1;
-    Animal AnimalData = 2;
+    uint64 LSendTimsMs = 1; //发送时的时间戳
+    uint32 uSendNum = 2;  //发送次数
+    PB_CanData CanData = 3;
+    PB_UssSectorOutputData UssSectorData = 4;
+    PB_ApaStateInfo ApaStateData = 5;
+    PB_SlotInfo SlotData = 6;
+    PB_OdInfo OdData = 7;
+    PB_PlanTrackInfo PlanTrackData = 8;
+    PB_PlanFullPath PlanFullPathData = 9;    
 }

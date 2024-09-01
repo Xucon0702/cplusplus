@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+message PB_Vector2D
+{
+    float x = 1;
+    float y = 2;
+}
+
+message PB_Location
+{
+    float x = 1;
+    float y = 2;
+    float yaw = 3;
+}
+
+message PB_TargetTrack
+{
+    PB_Vector2D point = 1;
+    float yaw = 2;
+    float curvature = 3;
+    float speed = 4;
+    int32 nDetectStates = 5;
+}
+
+message PB_PlanToHdmi
+{
+    uint32 uCmd = 1;
+    uint32 uStatue = 2;
+    uint32 uTotalStep = 3;
+    uint32 uCurrentStep = 4;
+    uint32 uDisStep = 5;
+    uint32 uPlanOutDetectSts = 6;
+    repeated float px = 7;
+    repeated float py = 8;
+}
+
+message PB_PlanTrackInfo
+{
+    uint64 lTimeMsec = 1;
+    uint32 validNum = 2;
+    PB_PlanToHdmi tPlanToHdmi = 3;
+    repeated PB_TargetTrack aTracksPlan = 4;
+    PB_Location syncDr = 5;
+}

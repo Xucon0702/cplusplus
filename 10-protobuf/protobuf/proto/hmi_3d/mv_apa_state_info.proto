@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message PB_ApaStateInfo
+{
+    uint64 lTimestampMs = 1;
+    uint32 AVAP_APAFunDispSts = 2;
+    uint32 AVAP_InfoMsgs = 3;
+    uint32 AVAP_PrkgPauseMsgs = 4;
+    uint32 APA_CnclMsgs = 5;
+    uint32 APA_FctUnavlMsgs = 6;
+}

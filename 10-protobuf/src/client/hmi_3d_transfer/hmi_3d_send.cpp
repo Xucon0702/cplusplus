@@ -63,6 +63,67 @@ int32_t CHmi3DSendInf::SendUssPdc(int sock, const ZU2UssSectorOutputData_t& uss_
     return 0;
 }
 
+int32_t CHmi3DSendInf::SendHmi3dPackage(int sock, const ZU2UssSectorOutputData_t& uss_pdc)
+{
+    if (sock < 0)
+    {
+        return -1;
+    }
+
+    //转换数据
+    
+    if(ConvertHmi3dPackagePB(uss_pdc,&m_PB_Hmi3dPackage))
+    {
+        printf("fail to ConvertHmi3dPackagePB\n");
+        return -1;
+    }
+
+
+    // 序列化protobuf消息
+    std::string serialized_data;
+    // if (!pb_uss_pdc.SerializeToString(&serialized_data)) {
+    //     std::cerr << "Failed to serialize PB_UssSectorOutputData." << std::endl;
+    //     return -1;
+    // }
+    
+    if (!m_PB_Hmi3dPackage.SerializeToString(&serialized_data)) {
+        std::cerr << "Failed to serialize PB_UssSectorOutputData." << std::endl;
+        return -1;
+    }
+
+    // 发送序列化后的数据
+    ssize_t bytes_sent = send(sock, serialized_data.data(), serialized_data.size(), 0);
+    if (bytes_sent == -1) {
+        std::cerr << "Failed to send data." << std::endl;
+        return -1;
+    }
+    
+
+    return 0;
+}
+
+int32_t CHmi3DSendInf::ConvertHmi3dPackagePB(const ZU2UssSectorOutputData_t& uss_pdc, PB_Hmi3dPackage* pb_hmi_3d) {
+        
+    if(pb_hmi_3d == NULL)
+    {
+        printf("pb_hmi_3d is null\n");
+        return -1;
+    }
+
+    //UssSectorData
+    p_uss_sector_data = pb_hmi_3d->mutable_usssectordata();
+    if(p_uss_sector_data == NULL)
+    {
+        printf("p_uss_sector_data is null\n");
+    }
+    ConvertUssPdcToPB(uss_pdc,p_uss_sector_data);
+
+    // //AnimalData
+    // p_Animal = pb_hmi_3d->mutable_animaldata();
+    // ConvertAnimalPB(p_Animal);
+
+    return 0;
+}
 
 int32_t CHmi3DSendInf::ConvertUssPdcToPB(const ZU2UssSectorOutputData_t& uss_pdc, PB_UssSectorOutputData* pb_uss_pdc) {
         
@@ -93,8 +154,8 @@ int32_t CHmi3DSendInf::ConvertUssPdcToPB(const ZU2UssSectorOutputData_t& uss_pdc
         // for (int i = 0; i < 32; ++i) 
         for (int i = 0; i < 12; i++) 
         {
-            p_UssSectorInfo->add_pdc_distance(uss_pdc.SectorData.PDC_Distance[i]);
-            // p_UssSectorInfo->add_laeb_distance(uss_pdc.SectorData.LAEB_Distance[i]);
+            // p_UssSectorInfo->add_pdc_distance((uss_pdc.SectorData.PDC_Distance[i])*F_CONVERT_RATE);
+            p_UssSectorInfo->add_pdc_distance(uss_pdc.SectorData.LAEB_Distance[i]);
         }
 
         for (int i = 0; i < 12; i++) {
@@ -106,3 +167,36 @@ int32_t CHmi3DSendInf::ConvertUssPdcToPB(const ZU2UssSectorOutputData_t& uss_pdc
 
     return 0;
 }
+
+// int32_t CHmi3DSendInf::ConvertAnimalPB(Animal* pb_animal) {
+        
+//         if(pb_animal == NULL)
+//         {
+//             printf("pb_uss_pdc is null\n");
+//             return -1;
+//         }
+
+//         // 创建 Person 对象
+//         Person* person = pb_animal->mutable_human();
+//         person->set_name("Alice");
+//         person->set_age(30);
+
+//         // 创建 Dog 对象
+//         Dog dog1;
+//         dog1.set_name("Buddy");
+//         dog1.set_age(5);
+//         dog1.set_type(DogType::POODLE);
+
+//         Dog dog2;
+//         dog2.set_name("Max");
+//         dog2.set_age(3);
+//         dog2.set_type(DogType::GOLDEN);
+
+//         // 创建 Animal 对象
+//         // Animal animal;
+//         // pb_animal->mutable_human() = person;
+//         pb_animal->add_dog()->CopyFrom(dog1);
+//         pb_animal->add_dog()->CopyFrom(dog2);
+
+//     return 0;
+// }

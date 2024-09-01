@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+//can
+
+message PB_CanData
+{
+    uint32 nStructLen = 1;
+    uint32 nFrameId = 2;
+    uint64 lTimeMsec = 3;
+    int32 nBrake = 4;
+    int32 nLLight = 5;
+    int32 nRLight = 6;
+    float fVelocity = 7;
+    int32 nBrakeValue = 8;
+    float fAccelPedalPosition = 9;
+    float fLongiAccel = 10;
+    float fLateralAccel = 11;
+    float fYawRate = 12;
+    int32 nTransmissionStatus = 13;
+    float fAlpha = 14;
+    float fSteeingWheelAngle = 15;
+    float fSteeingWheelRate = 16;
+    int32 nParkBrake = 17;
+    int32 nWipeWasherSwitch = 18;
+    int32 nHazardLightSwitch = 19;
+    int32 nHighLowBeamSwitch = 20;
+
+    uint32 nFLWheelSpeedRC = 21;
+    uint32 nFRWheelSpeedRC = 22;
+    uint32 nRLWheelSpeedRC = 23;
+    uint32 nRRWheelSpeedRC = 24;
+    repeated uint32 nDoorStat = 25;
+    int32 nPulseDirection = 26;
+
+    float fWheelSpd = 27;
+    float x = 28;
+    float y = 29;
+    float yaw = 30;
+
+    uint32 nBonnetSts = 31;
+    uint32 nTrunkSts = 32;
+    uint32 nSRFSts = 33;
+    //uint32 nReserve = 34;
+
+    uint32 BCM_KeySt = 35;
+    uint32 ACU_SVM_Button = 36;
+    uint32 ACU_VR_SVM_Switch = 37;
+    uint32 hazardLampSt = 38;
+
+    uint32 ExternalTemperature = 39;
+    uint32 ExternalTemperatureValidity = 40;
+    uint64 lTimeMsecWheelPulse = 41;
+    uint64 lTimeMsecWheelSpeed = 42;
+    uint64 lTimeMsecSteerAngle = 43;
+
+    uint32 nFLWheelSpeedRC_Vld = 44;
+    uint32 nFRWheelSpeedRC_Vld = 45;
+    uint32 nRLWheelSpeedRC_Vld = 46;
+    uint32 nRRWheelSpeedRC_Vld = 47;
+    uint32 nSteeingWheelRateVld = 48;
+    uint32 nBrakeVld = 49;
+    uint32 nWhlSpdVld_LF = 50;
+
+    uint32 nAccelPedalPositionVld = 51;
+    uint32 YRS_LgtSnsrSts = 52;
+    uint32 YRS_LatSnsrSts = 53;
+    uint32 YRS_YawRateSnsrSts = 54;
+    uint32 nSteeingWheelAngleVld = 55;
+    uint32 nRvsLampOutpCmd = 56;
+
+    uint64 lTimeSec = 57;
+    uint32 TrailHook = 58;
+    uint32 ExternalHumidity = 59;
+    uint32 ExternalHumidityValidity = 60;
+}

@@ -46,7 +46,9 @@ int main() {
 
     CHmi3DSendInf transfer;
 
-    int result = transfer.SendUssPdc(sock, uss_pdc);
+    // int result = transfer.SendUssPdc(sock, uss_pdc);
+    int result = transfer.SendHmi3dPackage(sock, uss_pdc);
+    
 
     if (result > 0) {
         std::cout << "Sent " << result << " bytes." << std::endl;

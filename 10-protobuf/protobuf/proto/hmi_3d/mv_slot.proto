@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+//slot
+message PB_PrkgSlot
+{
+    uint32  APA_PrkgSlot_Sts = 1;
+    float  APA_SlotACoorX = 2;  //m
+    float  APA_SlotACoorY = 3;
+    float  APA_SlotBCoorX = 4;
+    float  APA_SlotBCoorY = 5;
+    float  APA_SlotCCoorX = 6;
+    float  APA_SlotCCoorY = 7;
+    float  APA_SlotDCoorX = 8;
+    float  APA_SlotDCoorY = 9;
+    uint32  bias_valid_direction = 10;  //暂不传输
+    uint32  APA_PrkgSlotLimit_Sts = 11; //暂不传输
+}
+
+message PB_SlotInfo
+{
+    uint64 TimeMsec = 1;
+    PB_PrkgSlot PrkgSlot = 2;
+}

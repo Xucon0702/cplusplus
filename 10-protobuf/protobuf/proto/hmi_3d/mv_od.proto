@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+//OD
+message PB_AVAP_StcBarrier
+{
+    uint32  AVAP_StcBarrierType = 1;
+    float  AVAP_StcBarrier_X = 2; //m
+    float  AVAP_StcBarrier_Y = 3;
+    uint32  AVAP_StcBarrierDrct = 4;
+}
+
+message PB_AVAP_DynBarrier
+{
+    uint32  AVAP_DynBarrierType = 1;
+    float  AVAP_DynBarrier_X = 2; //m
+    float  AVAP_DynBarrier_Y = 3;
+    uint32  AVAP_DynBarrierDrct = 4;
+}
+
+message PB_AVAP_Speedbump
+{
+    float  AVAP_Speedbump_A_X = 1; //m
+    float  AVAP_Speedbump_A_Y = 2; 
+    float  AVAP_Speedbump_B_X = 3;
+    float  AVAP_Speedbump_B_Y = 4;
+}
+
+message PB_OdInfo
+{
+    uint64 TimeMsec = 1;
+    repeated PB_AVAP_StcBarrier aStcBarrier = 2;
+    repeated PB_AVAP_DynBarrier aDynBarrier = 3;
+    repeated PB_AVAP_Speedbump aSpeedbump = 4;
+}
