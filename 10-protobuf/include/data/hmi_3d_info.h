@@ -1,20 +1,21 @@
 #ifndef HMI_3D_INFO_H_
 #define HMI_3D_INFO_H_
 
-#include <stdint.h>
+#include <cstdint>
 
 //protobuf头文件
 #include "hmi_3d/mv_uss.pb.h"
 #include "hmi_3d_package.pb.h"
 #include "hmi_3d/mv_slot.pb.h"
-
+#include <atomic>
 
 #define MAX_HMI_3D_INFO_LEN 1024
 
 #define F_CONVERT_RATE (0.001)
 
-#if 1
+#define MAX_QUEUE_SIZE    16
 
+#if 1
 //界面信息
 typedef struct
 {
@@ -250,8 +251,61 @@ typedef struct
     uint16_t validNum; //有效路径段数
     PathPointsInfo  Array_APAPathPoints[MAX_PATHS_SIZE];
 } PlanFullPath;
-
-
 #endif
+
+//整包数据缓存
+typedef struct
+{
+    std::atomic<uint32_t> nReadId;
+	std::atomic<uint32_t> nWriteId;
+	ApaStateToHmiTestInfo aApaStateInfo[MAX_QUEUE_SIZE];
+}ApaStateInfoQueue;
+typedef struct
+{
+    std::atomic<uint32_t> nReadId;
+	std::atomic<uint32_t> nWriteId;
+	MvCanCarInfo aCanInfo[MAX_QUEUE_SIZE];
+}CanInfoQueue;
+typedef struct
+{
+    std::atomic<uint32_t> nReadId;
+	std::atomic<uint32_t> nWriteId;
+	MvApaAvapObjOut aOdInfo[MAX_QUEUE_SIZE];
+}OdInfoQueue;
+typedef struct
+{
+    std::atomic<uint32_t> nReadId;
+	std::atomic<uint32_t> nWriteId;
+	PlanFullPath aPlanFullPath[MAX_QUEUE_SIZE];
+}PlanFullPathQueue;
+typedef struct
+{
+    std::atomic<uint32_t> nReadId;
+	std::atomic<uint32_t> nWriteId;
+	ApaPlanTrackInfo aPlanTrack[MAX_QUEUE_SIZE];
+}PlanTrackQueue;
+typedef struct
+{
+    std::atomic<uint32_t> nReadId;
+	std::atomic<uint32_t> nWriteId;
+	ApaAvapSlotOut aSlotInfo[MAX_QUEUE_SIZE];
+}SlotInfoQueue;
+typedef struct
+{
+    std::atomic<uint32_t> nReadId;
+	std::atomic<uint32_t> nWriteId;
+	ZU2UssSectorOutputData_t aUssPdcInfo[MAX_QUEUE_SIZE];
+}UssInfoQueue;
+
+typedef struct
+{
+    ApaStateInfoQueue tApaStateInfoQueue;
+    CanInfoQueue tCanInfoQueue;
+    OdInfoQueue tOdInfoQueue;
+    PlanFullPathQueue tPlanFullPathQueue;
+    PlanTrackQueue tPlanTrackQueue;
+    SlotInfoQueue tSlotInfoQueue;
+    UssInfoQueue tUssInfoQueue;
+}Hmi3dBufQueue;
 
 #endif

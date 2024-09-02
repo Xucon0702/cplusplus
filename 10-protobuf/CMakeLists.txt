@@ -46,8 +46,8 @@ add_library(${MV_PROTO_LIB} ${SRC_PROTOBUF_FILES})
 add_executable(${PROTO_SERVER} ${SRC_SERVER_FILES})
 add_executable(${PROTO_CLIENT} ${SRC_CLIENT_FILES})
 
-message("${CMAKE_CURRENT_LIST_DIR}/src/server/")
-message("SRC_SERVER_FILES:" ${SRC_SERVER_FILES})
+# message("${CMAKE_CURRENT_LIST_DIR}/src/server/")
+# message("SRC_SERVER_FILES:" ${SRC_SERVER_FILES})
 
 TARGET_LINK_LIBRARIES(${PROTO_SERVER} 
     ${PROTOBUF_LIBRARIES}

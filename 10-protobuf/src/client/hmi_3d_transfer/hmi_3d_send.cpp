@@ -7,6 +7,8 @@ CHmi3DSendInf::CHmi3DSendInf()
     p_frame_header == NULL;
     p_UssSectorInfo == NULL;
     // p_frame_header == NULL;
+
+    memset(&m_Hmi3dBufQueue,0,sizeof(Hmi3dBufQueue));
 }
 
 CHmi3DSendInf::~CHmi3DSendInf()
@@ -168,35 +170,4 @@ int32_t CHmi3DSendInf::ConvertUssPdcToPB(const ZU2UssSectorOutputData_t& uss_pdc
     return 0;
 }
 
-// int32_t CHmi3DSendInf::ConvertAnimalPB(Animal* pb_animal) {
-        
-//         if(pb_animal == NULL)
-//         {
-//             printf("pb_uss_pdc is null\n");
-//             return -1;
-//         }
-
-//         // 创建 Person 对象
-//         Person* person = pb_animal->mutable_human();
-//         person->set_name("Alice");
-//         person->set_age(30);
-
-//         // 创建 Dog 对象
-//         Dog dog1;
-//         dog1.set_name("Buddy");
-//         dog1.set_age(5);
-//         dog1.set_type(DogType::POODLE);
-
-//         Dog dog2;
-//         dog2.set_name("Max");
-//         dog2.set_age(3);
-//         dog2.set_type(DogType::GOLDEN);
-
-//         // 创建 Animal 对象
-//         // Animal animal;
-//         // pb_animal->mutable_human() = person;
-//         pb_animal->add_dog()->CopyFrom(dog1);
-//         pb_animal->add_dog()->CopyFrom(dog2);
-
-//     return 0;
-// }
+/***************************DATA CACHE*****************************/

@@ -32,6 +32,8 @@ private:
     PB_UssSectorOutputData* p_uss_sector_data;
     // Animal* p_Animal;
 
+    //Data cache
+    Hmi3dBufQueue m_Hmi3dBufQueue;
 };
 
 
