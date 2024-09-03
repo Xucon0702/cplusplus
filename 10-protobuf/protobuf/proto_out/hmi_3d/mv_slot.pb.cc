@@ -101,7 +101,7 @@ const char descriptor_table_protodef_hmi_5f3d_2fmv_5fslot_2eproto[] PROTOBUF_SEC
   "SlotDCoorY\030\t \001(\002\022\034\n\024bias_valid_direction"
   "\030\n \001(\r\022\035\n\025APA_PrkgSlotLimit_Sts\030\013 \001(\r\"\?\n"
   "\013PB_SlotInfo\022\020\n\010TimeMsec\030\001 \001(\004\022\036\n\010PrkgSl"
-  "ot\030\002 \001(\0132\014.PB_PrkgSlotb\006proto3"
+  "ot\030\002 \003(\0132\014.PB_PrkgSlotb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_hmi_5f3d_2fmv_5fslot_2eproto_deps[1] = {
 };
@@ -545,41 +545,29 @@ void PB_PrkgSlot::InternalSwap(PB_PrkgSlot* other) {
 // ===================================================================
 
 void PB_SlotInfo::InitAsDefaultInstance() {
-  ::_PB_SlotInfo_default_instance_._instance.get_mutable()->prkgslot_ = const_cast< ::PB_PrkgSlot*>(
-      ::PB_PrkgSlot::internal_default_instance());
 }
 class PB_SlotInfo::_Internal {
  public:
-  static const ::PB_PrkgSlot& prkgslot(const PB_SlotInfo* msg);
 };
 
-const ::PB_PrkgSlot&
-PB_SlotInfo::_Internal::prkgslot(const PB_SlotInfo* msg) {
-  return *msg->prkgslot_;
-}
 PB_SlotInfo::PB_SlotInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  prkgslot_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:PB_SlotInfo)
 }
 PB_SlotInfo::PB_SlotInfo(const PB_SlotInfo& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      prkgslot_(from.prkgslot_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_prkgslot()) {
-    prkgslot_ = new ::PB_PrkgSlot(*from.prkgslot_);
-  } else {
-    prkgslot_ = nullptr;
-  }
   timemsec_ = from.timemsec_;
   // @@protoc_insertion_point(copy_constructor:PB_SlotInfo)
 }
 
 void PB_SlotInfo::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_PB_SlotInfo_hmi_5f3d_2fmv_5fslot_2eproto.base);
-  ::memset(&prkgslot_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&timemsec_) -
-      reinterpret_cast<char*>(&prkgslot_)) + sizeof(timemsec_));
+  timemsec_ = PROTOBUF_ULONGLONG(0);
 }
 
 PB_SlotInfo::~PB_SlotInfo() {
@@ -590,7 +578,6 @@ PB_SlotInfo::~PB_SlotInfo() {
 
 void PB_SlotInfo::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete prkgslot_;
 }
 
 void PB_SlotInfo::ArenaDtor(void* object) {
@@ -614,10 +601,7 @@ void PB_SlotInfo::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArena() == nullptr && prkgslot_ != nullptr) {
-    delete prkgslot_;
-  }
-  prkgslot_ = nullptr;
+  prkgslot_.Clear();
   timemsec_ = PROTOBUF_ULONGLONG(0);
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -637,11 +621,16 @@ const char* PB_SlotInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .PB_PrkgSlot PrkgSlot = 2;
+      // repeated .PB_PrkgSlot PrkgSlot = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_prkgslot(), ptr);
-          CHK_(ptr);
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_prkgslot(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -678,12 +667,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_timemsec(), target);
   }
 
-  // .PB_PrkgSlot PrkgSlot = 2;
-  if (this->has_prkgslot()) {
+  // repeated .PB_PrkgSlot PrkgSlot = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_prkgslot_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::prkgslot(this), target, stream);
+      InternalWriteMessage(2, this->_internal_prkgslot(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -702,11 +691,11 @@ size_t PB_SlotInfo::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .PB_PrkgSlot PrkgSlot = 2;
-  if (this->has_prkgslot()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *prkgslot_);
+  // repeated .PB_PrkgSlot PrkgSlot = 2;
+  total_size += 1UL * this->_internal_prkgslot_size();
+  for (const auto& msg : this->prkgslot_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
   // uint64 TimeMsec = 1;
@@ -747,9 +736,7 @@ void PB_SlotInfo::MergeFrom(const PB_SlotInfo& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_prkgslot()) {
-    _internal_mutable_prkgslot()->::PB_PrkgSlot::MergeFrom(from._internal_prkgslot());
-  }
+  prkgslot_.MergeFrom(from.prkgslot_);
   if (from.timemsec() != 0) {
     _internal_set_timemsec(from._internal_timemsec());
   }
@@ -776,12 +763,8 @@ bool PB_SlotInfo::IsInitialized() const {
 void PB_SlotInfo::InternalSwap(PB_SlotInfo* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PB_SlotInfo, timemsec_)
-      + sizeof(PB_SlotInfo::timemsec_)
-      - PROTOBUF_FIELD_OFFSET(PB_SlotInfo, prkgslot_)>(
-          reinterpret_cast<char*>(&prkgslot_),
-          reinterpret_cast<char*>(&other->prkgslot_));
+  prkgslot_.InternalSwap(&other->prkgslot_);
+  swap(timemsec_, other->timemsec_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata PB_SlotInfo::GetMetadata() const {

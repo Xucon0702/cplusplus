@@ -249,7 +249,7 @@ typedef struct
     uint16_t uint16_APARmPathLen;
     uint16_t uint16_StopDistance;
     uint16_t validNum; //有效路径段数
-    PathPointsInfo  Array_APAPathPoints[MAX_PATHS_SIZE];
+    PathPointsInfo  Array_APAPathPoints[MAX_PATHS_SIZE]; //优化为vector
 } PlanFullPath;
 #endif
 
@@ -297,15 +297,27 @@ typedef struct
 	ZU2UssSectorOutputData_t aUssPdcInfo[MAX_QUEUE_SIZE];
 }UssInfoQueue;
 
+//Caching is done to reduce the use of locks
 typedef struct
 {
     ApaStateInfoQueue tApaStateInfoQueue;
     CanInfoQueue tCanInfoQueue;
-    OdInfoQueue tOdInfoQueue;
-    PlanFullPathQueue tPlanFullPathQueue;
-    PlanTrackQueue tPlanTrackQueue;
     SlotInfoQueue tSlotInfoQueue;
+    OdInfoQueue tOdInfoQueue;
     UssInfoQueue tUssInfoQueue;
+    PlanTrackQueue tPlanTrackQueue;
+    PlanFullPathQueue tPlanFullPathQueue;    
 }Hmi3dBufQueue;
+
+typedef struct
+{
+    ApaStateToHmiTestInfo tApaStateInfo;
+    MvCanCarInfo tMvCanCarInfo;
+    ApaAvapSlotOut  tApaAvapSlotOut;
+    MvApaAvapObjOut tMvApaAvapObjOut;
+    ZU2UssSectorOutputData_t tUssPdc;
+    ApaPlanTrackInfo tPlanTrackInfo;
+    PlanFullPath tPlanFullPath;
+}MvHmi3dInfo;
 
 #endif

@@ -47,7 +47,8 @@ int main() {
     CHmi3DSendInf transfer;
 
     // int result = transfer.SendUssPdc(sock, uss_pdc);
-    int result = transfer.SendHmi3dPackage(sock, uss_pdc);
+    int result = transfer.SendHmi3dPackage(sock);
+    // int result = transfer.SendHmi3dPackage(sock, uss_pdc);
     
 
     if (result > 0) {

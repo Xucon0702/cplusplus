@@ -19,5 +19,5 @@ message PB_PrkgSlot
 message PB_SlotInfo
 {
     uint64 TimeMsec = 1;
-    PB_PrkgSlot PrkgSlot = 2;
+    repeated PB_PrkgSlot PrkgSlot = 2;
 }

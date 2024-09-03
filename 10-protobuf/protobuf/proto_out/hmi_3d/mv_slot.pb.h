@@ -430,23 +430,23 @@ class PB_SlotInfo PROTOBUF_FINAL :
     kPrkgSlotFieldNumber = 2,
     kTimeMsecFieldNumber = 1,
   };
-  // .PB_PrkgSlot PrkgSlot = 2;
-  bool has_prkgslot() const;
+  // repeated .PB_PrkgSlot PrkgSlot = 2;
+  int prkgslot_size() const;
   private:
-  bool _internal_has_prkgslot() const;
+  int _internal_prkgslot_size() const;
   public:
   void clear_prkgslot();
-  const ::PB_PrkgSlot& prkgslot() const;
-  ::PB_PrkgSlot* release_prkgslot();
-  ::PB_PrkgSlot* mutable_prkgslot();
-  void set_allocated_prkgslot(::PB_PrkgSlot* prkgslot);
+  ::PB_PrkgSlot* mutable_prkgslot(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::PB_PrkgSlot >*
+      mutable_prkgslot();
   private:
-  const ::PB_PrkgSlot& _internal_prkgslot() const;
-  ::PB_PrkgSlot* _internal_mutable_prkgslot();
+  const ::PB_PrkgSlot& _internal_prkgslot(int index) const;
+  ::PB_PrkgSlot* _internal_add_prkgslot();
   public:
-  void unsafe_arena_set_allocated_prkgslot(
-      ::PB_PrkgSlot* prkgslot);
-  ::PB_PrkgSlot* unsafe_arena_release_prkgslot();
+  const ::PB_PrkgSlot& prkgslot(int index) const;
+  ::PB_PrkgSlot* add_prkgslot();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::PB_PrkgSlot >&
+      prkgslot() const;
 
   // uint64 TimeMsec = 1;
   void clear_timemsec();
@@ -464,7 +464,7 @@ class PB_SlotInfo PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PB_PrkgSlot* prkgslot_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::PB_PrkgSlot > prkgslot_;
   ::PROTOBUF_NAMESPACE_ID::uint64 timemsec_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_hmi_5f3d_2fmv_5fslot_2eproto;
@@ -724,85 +724,43 @@ inline void PB_SlotInfo::set_timemsec(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   // @@protoc_insertion_point(field_set:PB_SlotInfo.TimeMsec)
 }
 
-// .PB_PrkgSlot PrkgSlot = 2;
-inline bool PB_SlotInfo::_internal_has_prkgslot() const {
-  return this != internal_default_instance() && prkgslot_ != nullptr;
+// repeated .PB_PrkgSlot PrkgSlot = 2;
+inline int PB_SlotInfo::_internal_prkgslot_size() const {
+  return prkgslot_.size();
 }
-inline bool PB_SlotInfo::has_prkgslot() const {
-  return _internal_has_prkgslot();
+inline int PB_SlotInfo::prkgslot_size() const {
+  return _internal_prkgslot_size();
 }
 inline void PB_SlotInfo::clear_prkgslot() {
-  if (GetArena() == nullptr && prkgslot_ != nullptr) {
-    delete prkgslot_;
-  }
-  prkgslot_ = nullptr;
+  prkgslot_.Clear();
 }
-inline const ::PB_PrkgSlot& PB_SlotInfo::_internal_prkgslot() const {
-  const ::PB_PrkgSlot* p = prkgslot_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::PB_PrkgSlot*>(
-      &::_PB_PrkgSlot_default_instance_);
-}
-inline const ::PB_PrkgSlot& PB_SlotInfo::prkgslot() const {
-  // @@protoc_insertion_point(field_get:PB_SlotInfo.PrkgSlot)
-  return _internal_prkgslot();
-}
-inline void PB_SlotInfo::unsafe_arena_set_allocated_prkgslot(
-    ::PB_PrkgSlot* prkgslot) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(prkgslot_);
-  }
-  prkgslot_ = prkgslot;
-  if (prkgslot) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PB_SlotInfo.PrkgSlot)
-}
-inline ::PB_PrkgSlot* PB_SlotInfo::release_prkgslot() {
-  auto temp = unsafe_arena_release_prkgslot();
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::PB_PrkgSlot* PB_SlotInfo::unsafe_arena_release_prkgslot() {
-  // @@protoc_insertion_point(field_release:PB_SlotInfo.PrkgSlot)
-  
-  ::PB_PrkgSlot* temp = prkgslot_;
-  prkgslot_ = nullptr;
-  return temp;
-}
-inline ::PB_PrkgSlot* PB_SlotInfo::_internal_mutable_prkgslot() {
-  
-  if (prkgslot_ == nullptr) {
-    auto* p = CreateMaybeMessage<::PB_PrkgSlot>(GetArena());
-    prkgslot_ = p;
-  }
-  return prkgslot_;
-}
-inline ::PB_PrkgSlot* PB_SlotInfo::mutable_prkgslot() {
+inline ::PB_PrkgSlot* PB_SlotInfo::mutable_prkgslot(int index) {
   // @@protoc_insertion_point(field_mutable:PB_SlotInfo.PrkgSlot)
-  return _internal_mutable_prkgslot();
+  return prkgslot_.Mutable(index);
 }
-inline void PB_SlotInfo::set_allocated_prkgslot(::PB_PrkgSlot* prkgslot) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete prkgslot_;
-  }
-  if (prkgslot) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(prkgslot);
-    if (message_arena != submessage_arena) {
-      prkgslot = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, prkgslot, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  prkgslot_ = prkgslot;
-  // @@protoc_insertion_point(field_set_allocated:PB_SlotInfo.PrkgSlot)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::PB_PrkgSlot >*
+PB_SlotInfo::mutable_prkgslot() {
+  // @@protoc_insertion_point(field_mutable_list:PB_SlotInfo.PrkgSlot)
+  return &prkgslot_;
+}
+inline const ::PB_PrkgSlot& PB_SlotInfo::_internal_prkgslot(int index) const {
+  return prkgslot_.Get(index);
+}
+inline const ::PB_PrkgSlot& PB_SlotInfo::prkgslot(int index) const {
+  // @@protoc_insertion_point(field_get:PB_SlotInfo.PrkgSlot)
+  return _internal_prkgslot(index);
+}
+inline ::PB_PrkgSlot* PB_SlotInfo::_internal_add_prkgslot() {
+  return prkgslot_.Add();
+}
+inline ::PB_PrkgSlot* PB_SlotInfo::add_prkgslot() {
+  // @@protoc_insertion_point(field_add:PB_SlotInfo.PrkgSlot)
+  return _internal_add_prkgslot();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::PB_PrkgSlot >&
+PB_SlotInfo::prkgslot() const {
+  // @@protoc_insertion_point(field_list:PB_SlotInfo.PrkgSlot)
+  return prkgslot_;
 }
 
 #ifdef __GNUC__
