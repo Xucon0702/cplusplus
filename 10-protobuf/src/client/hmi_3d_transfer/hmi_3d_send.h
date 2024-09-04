@@ -1,7 +1,7 @@
 #ifndef HMI_3D_SEND_H_
 #define HMI_3D_SEND_H_
 
-/*client hmi 3d transfer interface*/
+/*hmi 3d send interface*/
 
 #include "data/hmi_3d_info.h"
 // #include "hmi_3d/mv_uss.pb.h"
@@ -39,6 +39,7 @@ private:
     int32_t ConvertPlanTrackToPB(const ApaPlanTrackInfo& src_plantrack, PB_PlanTrackInfo* pb_plantrack);
     int32_t ConvertFullPathToPB(const PlanFullPath& src_fullpath, PB_PlanFullPath* pb_fullpath);
 
+    
 private:
     /*protobuf data*/
     //uss

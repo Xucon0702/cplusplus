@@ -7,6 +7,8 @@
 #include "hmi_3d/mv_uss.pb.h"
 #include "hmi_3d_package.pb.h"
 #include "hmi_3d/mv_slot.pb.h"
+
+#include "hmi_3d_output.pb.h"
 #include <atomic>
 
 #define MAX_HMI_3D_INFO_LEN 1024

@@ -8,7 +8,8 @@
 
 #include "animal_test/animal_test.h"
 #include "hmi_3d_transfer/hmi_3d_send.h"
- 
+#include "hmi_3d_transfer/hmi_3d_recv.h"
+
 int main() {
 
 
