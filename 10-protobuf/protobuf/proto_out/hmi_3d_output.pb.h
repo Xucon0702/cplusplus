@@ -32,6 +32,7 @@
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
+#include "base_head.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_hmi_5f3d_5foutput_2eproto
@@ -176,20 +177,22 @@ class PB_Hmi3dOutputData PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kHmiSlotPointsFieldNumber = 12,
-    kLTimestampMsFieldNumber = 1,
-    kHmiApaSelFieldNumber = 2,
-    kHmiParkModeFieldNumber = 3,
-    kHmiStartParkFieldNumber = 4,
-    kHmiCancelReqFieldNumber = 5,
-    kHmiSelectedFieldNumber = 6,
-    kHmiPauseReqFieldNumber = 7,
-    kHmiResumReqFieldNumber = 8,
-    kHmiTragParkConfSwtFieldNumber = 9,
-    kHmiParkslotIdFieldNumber = 10,
-    kHmiParkoutDirFieldNumber = 11,
+    kHmiSlotPointsFieldNumber = 14,
+    kBaseHeadFieldNumber = 1,
+    kLTimestampMsFieldNumber = 2,
+    kHmiDataNumFieldNumber = 3,
+    kHmiApaSelFieldNumber = 4,
+    kHmiParkModeFieldNumber = 5,
+    kHmiStartParkFieldNumber = 6,
+    kHmiCancelReqFieldNumber = 7,
+    kHmiSelectedFieldNumber = 8,
+    kHmiPauseReqFieldNumber = 9,
+    kHmiResumReqFieldNumber = 10,
+    kHmiTragParkConfSwtFieldNumber = 11,
+    kHmiParkslotIdFieldNumber = 12,
+    kHmiParkoutDirFieldNumber = 13,
   };
-  // repeated float Hmi_slot_points = 12;
+  // repeated float Hmi_slot_points = 14;
   int hmi_slot_points_size() const;
   private:
   int _internal_hmi_slot_points_size() const;
@@ -211,7 +214,25 @@ class PB_Hmi3dOutputData PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
       mutable_hmi_slot_points();
 
-  // uint64 lTimestamp_ms = 1;
+  // .PB_BaseHead BaseHead = 1;
+  bool has_basehead() const;
+  private:
+  bool _internal_has_basehead() const;
+  public:
+  void clear_basehead();
+  const ::PB_BaseHead& basehead() const;
+  ::PB_BaseHead* release_basehead();
+  ::PB_BaseHead* mutable_basehead();
+  void set_allocated_basehead(::PB_BaseHead* basehead);
+  private:
+  const ::PB_BaseHead& _internal_basehead() const;
+  ::PB_BaseHead* _internal_mutable_basehead();
+  public:
+  void unsafe_arena_set_allocated_basehead(
+      ::PB_BaseHead* basehead);
+  ::PB_BaseHead* unsafe_arena_release_basehead();
+
+  // uint64 lTimestamp_ms = 2;
   void clear_ltimestamp_ms();
   ::PROTOBUF_NAMESPACE_ID::uint64 ltimestamp_ms() const;
   void set_ltimestamp_ms(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -220,7 +241,16 @@ class PB_Hmi3dOutputData PROTOBUF_FINAL :
   void _internal_set_ltimestamp_ms(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint32 Hmi_apa_sel = 2;
+  // uint32 Hmi_data_num = 3;
+  void clear_hmi_data_num();
+  ::PROTOBUF_NAMESPACE_ID::uint32 hmi_data_num() const;
+  void set_hmi_data_num(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_hmi_data_num() const;
+  void _internal_set_hmi_data_num(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // uint32 Hmi_apa_sel = 4;
   void clear_hmi_apa_sel();
   ::PROTOBUF_NAMESPACE_ID::uint32 hmi_apa_sel() const;
   void set_hmi_apa_sel(::PROTOBUF_NAMESPACE_ID::uint32 value);
@@ -229,7 +259,7 @@ class PB_Hmi3dOutputData PROTOBUF_FINAL :
   void _internal_set_hmi_apa_sel(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 Hmi_park_mode = 3;
+  // uint32 Hmi_park_mode = 5;
   void clear_hmi_park_mode();
   ::PROTOBUF_NAMESPACE_ID::uint32 hmi_park_mode() const;
   void set_hmi_park_mode(::PROTOBUF_NAMESPACE_ID::uint32 value);
@@ -238,7 +268,7 @@ class PB_Hmi3dOutputData PROTOBUF_FINAL :
   void _internal_set_hmi_park_mode(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 Hmi_start_park = 4;
+  // uint32 Hmi_start_park = 6;
   void clear_hmi_start_park();
   ::PROTOBUF_NAMESPACE_ID::uint32 hmi_start_park() const;
   void set_hmi_start_park(::PROTOBUF_NAMESPACE_ID::uint32 value);
@@ -247,7 +277,7 @@ class PB_Hmi3dOutputData PROTOBUF_FINAL :
   void _internal_set_hmi_start_park(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 Hmi_cancel_req = 5;
+  // uint32 Hmi_cancel_req = 7;
   void clear_hmi_cancel_req();
   ::PROTOBUF_NAMESPACE_ID::uint32 hmi_cancel_req() const;
   void set_hmi_cancel_req(::PROTOBUF_NAMESPACE_ID::uint32 value);
@@ -256,7 +286,7 @@ class PB_Hmi3dOutputData PROTOBUF_FINAL :
   void _internal_set_hmi_cancel_req(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 Hmi_Selected = 6;
+  // uint32 Hmi_Selected = 8;
   void clear_hmi_selected();
   ::PROTOBUF_NAMESPACE_ID::uint32 hmi_selected() const;
   void set_hmi_selected(::PROTOBUF_NAMESPACE_ID::uint32 value);
@@ -265,7 +295,7 @@ class PB_Hmi3dOutputData PROTOBUF_FINAL :
   void _internal_set_hmi_selected(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 Hmi_pause_req = 7;
+  // uint32 Hmi_pause_req = 9;
   void clear_hmi_pause_req();
   ::PROTOBUF_NAMESPACE_ID::uint32 hmi_pause_req() const;
   void set_hmi_pause_req(::PROTOBUF_NAMESPACE_ID::uint32 value);
@@ -274,7 +304,7 @@ class PB_Hmi3dOutputData PROTOBUF_FINAL :
   void _internal_set_hmi_pause_req(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 Hmi_resum_req = 8;
+  // uint32 Hmi_resum_req = 10;
   void clear_hmi_resum_req();
   ::PROTOBUF_NAMESPACE_ID::uint32 hmi_resum_req() const;
   void set_hmi_resum_req(::PROTOBUF_NAMESPACE_ID::uint32 value);
@@ -283,7 +313,7 @@ class PB_Hmi3dOutputData PROTOBUF_FINAL :
   void _internal_set_hmi_resum_req(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 Hmi_tragParkConfSwt = 9;
+  // uint32 Hmi_tragParkConfSwt = 11;
   void clear_hmi_tragparkconfswt();
   ::PROTOBUF_NAMESPACE_ID::uint32 hmi_tragparkconfswt() const;
   void set_hmi_tragparkconfswt(::PROTOBUF_NAMESPACE_ID::uint32 value);
@@ -292,7 +322,7 @@ class PB_Hmi3dOutputData PROTOBUF_FINAL :
   void _internal_set_hmi_tragparkconfswt(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 Hmi_parkslot_id = 10;
+  // uint32 Hmi_parkslot_id = 12;
   void clear_hmi_parkslot_id();
   ::PROTOBUF_NAMESPACE_ID::uint32 hmi_parkslot_id() const;
   void set_hmi_parkslot_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
@@ -301,7 +331,7 @@ class PB_Hmi3dOutputData PROTOBUF_FINAL :
   void _internal_set_hmi_parkslot_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 Hmi_parkout_dir = 11;
+  // uint32 Hmi_parkout_dir = 13;
   void clear_hmi_parkout_dir();
   ::PROTOBUF_NAMESPACE_ID::uint32 hmi_parkout_dir() const;
   void set_hmi_parkout_dir(::PROTOBUF_NAMESPACE_ID::uint32 value);
@@ -319,7 +349,9 @@ class PB_Hmi3dOutputData PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > hmi_slot_points_;
   mutable std::atomic<int> _hmi_slot_points_cached_byte_size_;
+  ::PB_BaseHead* basehead_;
   ::PROTOBUF_NAMESPACE_ID::uint64 ltimestamp_ms_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 hmi_data_num_;
   ::PROTOBUF_NAMESPACE_ID::uint32 hmi_apa_sel_;
   ::PROTOBUF_NAMESPACE_ID::uint32 hmi_park_mode_;
   ::PROTOBUF_NAMESPACE_ID::uint32 hmi_start_park_;
@@ -344,7 +376,82 @@ class PB_Hmi3dOutputData PROTOBUF_FINAL :
 #endif  // __GNUC__
 // PB_Hmi3dOutputData
 
-// uint64 lTimestamp_ms = 1;
+// .PB_BaseHead BaseHead = 1;
+inline bool PB_Hmi3dOutputData::_internal_has_basehead() const {
+  return this != internal_default_instance() && basehead_ != nullptr;
+}
+inline bool PB_Hmi3dOutputData::has_basehead() const {
+  return _internal_has_basehead();
+}
+inline const ::PB_BaseHead& PB_Hmi3dOutputData::_internal_basehead() const {
+  const ::PB_BaseHead* p = basehead_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::PB_BaseHead*>(
+      &::_PB_BaseHead_default_instance_);
+}
+inline const ::PB_BaseHead& PB_Hmi3dOutputData::basehead() const {
+  // @@protoc_insertion_point(field_get:PB_Hmi3dOutputData.BaseHead)
+  return _internal_basehead();
+}
+inline void PB_Hmi3dOutputData::unsafe_arena_set_allocated_basehead(
+    ::PB_BaseHead* basehead) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(basehead_);
+  }
+  basehead_ = basehead;
+  if (basehead) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PB_Hmi3dOutputData.BaseHead)
+}
+inline ::PB_BaseHead* PB_Hmi3dOutputData::release_basehead() {
+  auto temp = unsafe_arena_release_basehead();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::PB_BaseHead* PB_Hmi3dOutputData::unsafe_arena_release_basehead() {
+  // @@protoc_insertion_point(field_release:PB_Hmi3dOutputData.BaseHead)
+  
+  ::PB_BaseHead* temp = basehead_;
+  basehead_ = nullptr;
+  return temp;
+}
+inline ::PB_BaseHead* PB_Hmi3dOutputData::_internal_mutable_basehead() {
+  
+  if (basehead_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PB_BaseHead>(GetArena());
+    basehead_ = p;
+  }
+  return basehead_;
+}
+inline ::PB_BaseHead* PB_Hmi3dOutputData::mutable_basehead() {
+  // @@protoc_insertion_point(field_mutable:PB_Hmi3dOutputData.BaseHead)
+  return _internal_mutable_basehead();
+}
+inline void PB_Hmi3dOutputData::set_allocated_basehead(::PB_BaseHead* basehead) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(basehead_);
+  }
+  if (basehead) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(basehead)->GetArena();
+    if (message_arena != submessage_arena) {
+      basehead = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, basehead, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  basehead_ = basehead;
+  // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dOutputData.BaseHead)
+}
+
+// uint64 lTimestamp_ms = 2;
 inline void PB_Hmi3dOutputData::clear_ltimestamp_ms() {
   ltimestamp_ms_ = PROTOBUF_ULONGLONG(0);
 }
@@ -364,7 +471,27 @@ inline void PB_Hmi3dOutputData::set_ltimestamp_ms(::PROTOBUF_NAMESPACE_ID::uint6
   // @@protoc_insertion_point(field_set:PB_Hmi3dOutputData.lTimestamp_ms)
 }
 
-// uint32 Hmi_apa_sel = 2;
+// uint32 Hmi_data_num = 3;
+inline void PB_Hmi3dOutputData::clear_hmi_data_num() {
+  hmi_data_num_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PB_Hmi3dOutputData::_internal_hmi_data_num() const {
+  return hmi_data_num_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PB_Hmi3dOutputData::hmi_data_num() const {
+  // @@protoc_insertion_point(field_get:PB_Hmi3dOutputData.Hmi_data_num)
+  return _internal_hmi_data_num();
+}
+inline void PB_Hmi3dOutputData::_internal_set_hmi_data_num(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  hmi_data_num_ = value;
+}
+inline void PB_Hmi3dOutputData::set_hmi_data_num(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_hmi_data_num(value);
+  // @@protoc_insertion_point(field_set:PB_Hmi3dOutputData.Hmi_data_num)
+}
+
+// uint32 Hmi_apa_sel = 4;
 inline void PB_Hmi3dOutputData::clear_hmi_apa_sel() {
   hmi_apa_sel_ = 0u;
 }
@@ -384,7 +511,7 @@ inline void PB_Hmi3dOutputData::set_hmi_apa_sel(::PROTOBUF_NAMESPACE_ID::uint32 
   // @@protoc_insertion_point(field_set:PB_Hmi3dOutputData.Hmi_apa_sel)
 }
 
-// uint32 Hmi_park_mode = 3;
+// uint32 Hmi_park_mode = 5;
 inline void PB_Hmi3dOutputData::clear_hmi_park_mode() {
   hmi_park_mode_ = 0u;
 }
@@ -404,7 +531,7 @@ inline void PB_Hmi3dOutputData::set_hmi_park_mode(::PROTOBUF_NAMESPACE_ID::uint3
   // @@protoc_insertion_point(field_set:PB_Hmi3dOutputData.Hmi_park_mode)
 }
 
-// uint32 Hmi_start_park = 4;
+// uint32 Hmi_start_park = 6;
 inline void PB_Hmi3dOutputData::clear_hmi_start_park() {
   hmi_start_park_ = 0u;
 }
@@ -424,7 +551,7 @@ inline void PB_Hmi3dOutputData::set_hmi_start_park(::PROTOBUF_NAMESPACE_ID::uint
   // @@protoc_insertion_point(field_set:PB_Hmi3dOutputData.Hmi_start_park)
 }
 
-// uint32 Hmi_cancel_req = 5;
+// uint32 Hmi_cancel_req = 7;
 inline void PB_Hmi3dOutputData::clear_hmi_cancel_req() {
   hmi_cancel_req_ = 0u;
 }
@@ -444,7 +571,7 @@ inline void PB_Hmi3dOutputData::set_hmi_cancel_req(::PROTOBUF_NAMESPACE_ID::uint
   // @@protoc_insertion_point(field_set:PB_Hmi3dOutputData.Hmi_cancel_req)
 }
 
-// uint32 Hmi_Selected = 6;
+// uint32 Hmi_Selected = 8;
 inline void PB_Hmi3dOutputData::clear_hmi_selected() {
   hmi_selected_ = 0u;
 }
@@ -464,7 +591,7 @@ inline void PB_Hmi3dOutputData::set_hmi_selected(::PROTOBUF_NAMESPACE_ID::uint32
   // @@protoc_insertion_point(field_set:PB_Hmi3dOutputData.Hmi_Selected)
 }
 
-// uint32 Hmi_pause_req = 7;
+// uint32 Hmi_pause_req = 9;
 inline void PB_Hmi3dOutputData::clear_hmi_pause_req() {
   hmi_pause_req_ = 0u;
 }
@@ -484,7 +611,7 @@ inline void PB_Hmi3dOutputData::set_hmi_pause_req(::PROTOBUF_NAMESPACE_ID::uint3
   // @@protoc_insertion_point(field_set:PB_Hmi3dOutputData.Hmi_pause_req)
 }
 
-// uint32 Hmi_resum_req = 8;
+// uint32 Hmi_resum_req = 10;
 inline void PB_Hmi3dOutputData::clear_hmi_resum_req() {
   hmi_resum_req_ = 0u;
 }
@@ -504,7 +631,7 @@ inline void PB_Hmi3dOutputData::set_hmi_resum_req(::PROTOBUF_NAMESPACE_ID::uint3
   // @@protoc_insertion_point(field_set:PB_Hmi3dOutputData.Hmi_resum_req)
 }
 
-// uint32 Hmi_tragParkConfSwt = 9;
+// uint32 Hmi_tragParkConfSwt = 11;
 inline void PB_Hmi3dOutputData::clear_hmi_tragparkconfswt() {
   hmi_tragparkconfswt_ = 0u;
 }
@@ -524,7 +651,7 @@ inline void PB_Hmi3dOutputData::set_hmi_tragparkconfswt(::PROTOBUF_NAMESPACE_ID:
   // @@protoc_insertion_point(field_set:PB_Hmi3dOutputData.Hmi_tragParkConfSwt)
 }
 
-// uint32 Hmi_parkslot_id = 10;
+// uint32 Hmi_parkslot_id = 12;
 inline void PB_Hmi3dOutputData::clear_hmi_parkslot_id() {
   hmi_parkslot_id_ = 0u;
 }
@@ -544,7 +671,7 @@ inline void PB_Hmi3dOutputData::set_hmi_parkslot_id(::PROTOBUF_NAMESPACE_ID::uin
   // @@protoc_insertion_point(field_set:PB_Hmi3dOutputData.Hmi_parkslot_id)
 }
 
-// uint32 Hmi_parkout_dir = 11;
+// uint32 Hmi_parkout_dir = 13;
 inline void PB_Hmi3dOutputData::clear_hmi_parkout_dir() {
   hmi_parkout_dir_ = 0u;
 }
@@ -564,7 +691,7 @@ inline void PB_Hmi3dOutputData::set_hmi_parkout_dir(::PROTOBUF_NAMESPACE_ID::uin
   // @@protoc_insertion_point(field_set:PB_Hmi3dOutputData.Hmi_parkout_dir)
 }
 
-// repeated float Hmi_slot_points = 12;
+// repeated float Hmi_slot_points = 14;
 inline int PB_Hmi3dOutputData::_internal_hmi_slot_points_size() const {
   return hmi_slot_points_.size();
 }

@@ -1,18 +1,22 @@
 syntax = "proto3";
 
+import "base_head.proto";
+
 //界面输出信息
 message PB_Hmi3dOutputData
 {
-    uint64  lTimestamp_ms = 1;
-    uint32  Hmi_apa_sel = 2;
-    uint32  Hmi_park_mode = 3;
-    uint32  Hmi_start_park = 4;
-    uint32  Hmi_cancel_req = 5;
-    uint32  Hmi_Selected = 6;
-    uint32  Hmi_pause_req = 7;
-    uint32  Hmi_resum_req = 8;
-    uint32  Hmi_tragParkConfSwt = 9;
-    uint32  Hmi_parkslot_id = 10;
-    uint32  Hmi_parkout_dir = 11;
-    repeated float  Hmi_slot_points = 12;
+    PB_BaseHead BaseHead = 1;
+    uint64  lTimestamp_ms = 2;
+    uint32  Hmi_data_num = 3;
+    uint32  Hmi_apa_sel = 4;
+    uint32  Hmi_park_mode = 5;
+    uint32  Hmi_start_park = 6;
+    uint32  Hmi_cancel_req = 7;
+    uint32  Hmi_Selected = 8;
+    uint32  Hmi_pause_req = 9;
+    uint32  Hmi_resum_req = 10;
+    uint32  Hmi_tragParkConfSwt = 11;
+    uint32  Hmi_parkslot_id = 12;
+    uint32  Hmi_parkout_dir = 13;
+    repeated float  Hmi_slot_points = 14;
 }

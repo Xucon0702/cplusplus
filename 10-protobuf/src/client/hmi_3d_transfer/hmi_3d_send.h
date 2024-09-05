@@ -28,8 +28,11 @@ public:
     int32_t  SetHmi3DUssPdcBuf(ZU2UssSectorOutputData_t *pBuf);
     int32_t  SetHmi3DPlanTrackBuf(ApaPlanTrackInfo *pBuf);
     int32_t  SetHmi3DPlanFullPathBuf(PlanFullPath *pBuf);
+    
+    uint64_t GetCurrentTimestampMs(); 
 private:
     int32_t IsEqualToZero(const float fData);
+    void AddPbBaseHead(uint32_t uHead,uint32_t uDataType,PB_Hmi3dPackage* pb_hmi_3d);
     int32_t ConvertHmi3dPackagePB(const MvHmi3dInfo& tHmi3dInfo, PB_Hmi3dPackage* pb_hmi_3d);
     int32_t ConvertUssPdcToPB(const ZU2UssSectorOutputData_t& uss_pdc, PB_UssSectorOutputData* pb_uss_pdc);
     int32_t ConvertCanToPB(const MvCanCarInfo& src_can, PB_CanData* pb_can);
@@ -62,7 +65,9 @@ private:
     PB_ApaPathPoint m_pb_point;
 
     //用于数据整包
+    uint32_t m_sendPackageId;
     PB_Hmi3dPackage m_PB_Hmi3dPackage;
+    PB_BaseHead* p_base_head;
     PB_UssSectorOutputData* p_uss_sector_data;
     PB_ApaStateInfo* p_apa_state_info;
     PB_CanData* p_can_car_info;
@@ -70,7 +75,7 @@ private:
     PB_OdInfo* p_apa_obj_out;
     PB_PlanTrackInfo* p_plan_track_info;
     PB_PlanFullPath* p_plan_full_path;
-
+    
     //Data cache
     Hmi3dBufQueue m_Hmi3dBufQueue;
     MvHmi3dInfo m_MvHmi3dInfo;

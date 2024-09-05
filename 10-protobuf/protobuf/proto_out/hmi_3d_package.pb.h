@@ -39,6 +39,7 @@
 #include "hmi_3d/mv_apa_state_info.pb.h"
 #include "hmi_3d/mv_plan_full_path.pb.h"
 #include "hmi_3d/mv_plan_track_info.pb.h"
+#include "base_head.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_hmi_5f3d_5fpackage_2eproto
@@ -183,17 +184,36 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kCanDataFieldNumber = 3,
-    kUssSectorDataFieldNumber = 4,
-    kApaStateDataFieldNumber = 5,
-    kSlotDataFieldNumber = 6,
-    kOdDataFieldNumber = 7,
-    kPlanTrackDataFieldNumber = 8,
-    kPlanFullPathDataFieldNumber = 9,
-    kLSendTimsMsFieldNumber = 1,
-    kUSendNumFieldNumber = 2,
+    kBaseHeadFieldNumber = 1,
+    kCanDataFieldNumber = 4,
+    kUssSectorDataFieldNumber = 5,
+    kApaStateDataFieldNumber = 6,
+    kSlotDataFieldNumber = 7,
+    kOdDataFieldNumber = 8,
+    kPlanTrackDataFieldNumber = 9,
+    kPlanFullPathDataFieldNumber = 10,
+    kLSendTimsMsFieldNumber = 2,
+    kUSendNumFieldNumber = 3,
   };
-  // .PB_CanData CanData = 3;
+  // .PB_BaseHead BaseHead = 1;
+  bool has_basehead() const;
+  private:
+  bool _internal_has_basehead() const;
+  public:
+  void clear_basehead();
+  const ::PB_BaseHead& basehead() const;
+  ::PB_BaseHead* release_basehead();
+  ::PB_BaseHead* mutable_basehead();
+  void set_allocated_basehead(::PB_BaseHead* basehead);
+  private:
+  const ::PB_BaseHead& _internal_basehead() const;
+  ::PB_BaseHead* _internal_mutable_basehead();
+  public:
+  void unsafe_arena_set_allocated_basehead(
+      ::PB_BaseHead* basehead);
+  ::PB_BaseHead* unsafe_arena_release_basehead();
+
+  // .PB_CanData CanData = 4;
   bool has_candata() const;
   private:
   bool _internal_has_candata() const;
@@ -211,7 +231,7 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
       ::PB_CanData* candata);
   ::PB_CanData* unsafe_arena_release_candata();
 
-  // .PB_UssSectorOutputData UssSectorData = 4;
+  // .PB_UssSectorOutputData UssSectorData = 5;
   bool has_usssectordata() const;
   private:
   bool _internal_has_usssectordata() const;
@@ -229,7 +249,7 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
       ::PB_UssSectorOutputData* usssectordata);
   ::PB_UssSectorOutputData* unsafe_arena_release_usssectordata();
 
-  // .PB_ApaStateInfo ApaStateData = 5;
+  // .PB_ApaStateInfo ApaStateData = 6;
   bool has_apastatedata() const;
   private:
   bool _internal_has_apastatedata() const;
@@ -247,7 +267,7 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
       ::PB_ApaStateInfo* apastatedata);
   ::PB_ApaStateInfo* unsafe_arena_release_apastatedata();
 
-  // .PB_SlotInfo SlotData = 6;
+  // .PB_SlotInfo SlotData = 7;
   bool has_slotdata() const;
   private:
   bool _internal_has_slotdata() const;
@@ -265,7 +285,7 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
       ::PB_SlotInfo* slotdata);
   ::PB_SlotInfo* unsafe_arena_release_slotdata();
 
-  // .PB_OdInfo OdData = 7;
+  // .PB_OdInfo OdData = 8;
   bool has_oddata() const;
   private:
   bool _internal_has_oddata() const;
@@ -283,7 +303,7 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
       ::PB_OdInfo* oddata);
   ::PB_OdInfo* unsafe_arena_release_oddata();
 
-  // .PB_PlanTrackInfo PlanTrackData = 8;
+  // .PB_PlanTrackInfo PlanTrackData = 9;
   bool has_plantrackdata() const;
   private:
   bool _internal_has_plantrackdata() const;
@@ -301,7 +321,7 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
       ::PB_PlanTrackInfo* plantrackdata);
   ::PB_PlanTrackInfo* unsafe_arena_release_plantrackdata();
 
-  // .PB_PlanFullPath PlanFullPathData = 9;
+  // .PB_PlanFullPath PlanFullPathData = 10;
   bool has_planfullpathdata() const;
   private:
   bool _internal_has_planfullpathdata() const;
@@ -319,7 +339,7 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
       ::PB_PlanFullPath* planfullpathdata);
   ::PB_PlanFullPath* unsafe_arena_release_planfullpathdata();
 
-  // uint64 LSendTimsMs = 1;
+  // uint64 LSendTimsMs = 2;
   void clear_lsendtimsms();
   ::PROTOBUF_NAMESPACE_ID::uint64 lsendtimsms() const;
   void set_lsendtimsms(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -328,7 +348,7 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
   void _internal_set_lsendtimsms(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint32 uSendNum = 2;
+  // uint32 uSendNum = 3;
   void clear_usendnum();
   ::PROTOBUF_NAMESPACE_ID::uint32 usendnum() const;
   void set_usendnum(::PROTOBUF_NAMESPACE_ID::uint32 value);
@@ -344,6 +364,7 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PB_BaseHead* basehead_;
   ::PB_CanData* candata_;
   ::PB_UssSectorOutputData* usssectordata_;
   ::PB_ApaStateInfo* apastatedata_;
@@ -367,7 +388,82 @@ class PB_Hmi3dPackage PROTOBUF_FINAL :
 #endif  // __GNUC__
 // PB_Hmi3dPackage
 
-// uint64 LSendTimsMs = 1;
+// .PB_BaseHead BaseHead = 1;
+inline bool PB_Hmi3dPackage::_internal_has_basehead() const {
+  return this != internal_default_instance() && basehead_ != nullptr;
+}
+inline bool PB_Hmi3dPackage::has_basehead() const {
+  return _internal_has_basehead();
+}
+inline const ::PB_BaseHead& PB_Hmi3dPackage::_internal_basehead() const {
+  const ::PB_BaseHead* p = basehead_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::PB_BaseHead*>(
+      &::_PB_BaseHead_default_instance_);
+}
+inline const ::PB_BaseHead& PB_Hmi3dPackage::basehead() const {
+  // @@protoc_insertion_point(field_get:PB_Hmi3dPackage.BaseHead)
+  return _internal_basehead();
+}
+inline void PB_Hmi3dPackage::unsafe_arena_set_allocated_basehead(
+    ::PB_BaseHead* basehead) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(basehead_);
+  }
+  basehead_ = basehead;
+  if (basehead) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PB_Hmi3dPackage.BaseHead)
+}
+inline ::PB_BaseHead* PB_Hmi3dPackage::release_basehead() {
+  auto temp = unsafe_arena_release_basehead();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::PB_BaseHead* PB_Hmi3dPackage::unsafe_arena_release_basehead() {
+  // @@protoc_insertion_point(field_release:PB_Hmi3dPackage.BaseHead)
+  
+  ::PB_BaseHead* temp = basehead_;
+  basehead_ = nullptr;
+  return temp;
+}
+inline ::PB_BaseHead* PB_Hmi3dPackage::_internal_mutable_basehead() {
+  
+  if (basehead_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PB_BaseHead>(GetArena());
+    basehead_ = p;
+  }
+  return basehead_;
+}
+inline ::PB_BaseHead* PB_Hmi3dPackage::mutable_basehead() {
+  // @@protoc_insertion_point(field_mutable:PB_Hmi3dPackage.BaseHead)
+  return _internal_mutable_basehead();
+}
+inline void PB_Hmi3dPackage::set_allocated_basehead(::PB_BaseHead* basehead) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(basehead_);
+  }
+  if (basehead) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(basehead)->GetArena();
+    if (message_arena != submessage_arena) {
+      basehead = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, basehead, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  basehead_ = basehead;
+  // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.BaseHead)
+}
+
+// uint64 LSendTimsMs = 2;
 inline void PB_Hmi3dPackage::clear_lsendtimsms() {
   lsendtimsms_ = PROTOBUF_ULONGLONG(0);
 }
@@ -387,7 +483,7 @@ inline void PB_Hmi3dPackage::set_lsendtimsms(::PROTOBUF_NAMESPACE_ID::uint64 val
   // @@protoc_insertion_point(field_set:PB_Hmi3dPackage.LSendTimsMs)
 }
 
-// uint32 uSendNum = 2;
+// uint32 uSendNum = 3;
 inline void PB_Hmi3dPackage::clear_usendnum() {
   usendnum_ = 0u;
 }
@@ -407,7 +503,7 @@ inline void PB_Hmi3dPackage::set_usendnum(::PROTOBUF_NAMESPACE_ID::uint32 value)
   // @@protoc_insertion_point(field_set:PB_Hmi3dPackage.uSendNum)
 }
 
-// .PB_CanData CanData = 3;
+// .PB_CanData CanData = 4;
 inline bool PB_Hmi3dPackage::_internal_has_candata() const {
   return this != internal_default_instance() && candata_ != nullptr;
 }
@@ -482,7 +578,7 @@ inline void PB_Hmi3dPackage::set_allocated_candata(::PB_CanData* candata) {
   // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.CanData)
 }
 
-// .PB_UssSectorOutputData UssSectorData = 4;
+// .PB_UssSectorOutputData UssSectorData = 5;
 inline bool PB_Hmi3dPackage::_internal_has_usssectordata() const {
   return this != internal_default_instance() && usssectordata_ != nullptr;
 }
@@ -557,7 +653,7 @@ inline void PB_Hmi3dPackage::set_allocated_usssectordata(::PB_UssSectorOutputDat
   // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.UssSectorData)
 }
 
-// .PB_ApaStateInfo ApaStateData = 5;
+// .PB_ApaStateInfo ApaStateData = 6;
 inline bool PB_Hmi3dPackage::_internal_has_apastatedata() const {
   return this != internal_default_instance() && apastatedata_ != nullptr;
 }
@@ -632,7 +728,7 @@ inline void PB_Hmi3dPackage::set_allocated_apastatedata(::PB_ApaStateInfo* apast
   // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.ApaStateData)
 }
 
-// .PB_SlotInfo SlotData = 6;
+// .PB_SlotInfo SlotData = 7;
 inline bool PB_Hmi3dPackage::_internal_has_slotdata() const {
   return this != internal_default_instance() && slotdata_ != nullptr;
 }
@@ -707,7 +803,7 @@ inline void PB_Hmi3dPackage::set_allocated_slotdata(::PB_SlotInfo* slotdata) {
   // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.SlotData)
 }
 
-// .PB_OdInfo OdData = 7;
+// .PB_OdInfo OdData = 8;
 inline bool PB_Hmi3dPackage::_internal_has_oddata() const {
   return this != internal_default_instance() && oddata_ != nullptr;
 }
@@ -782,7 +878,7 @@ inline void PB_Hmi3dPackage::set_allocated_oddata(::PB_OdInfo* oddata) {
   // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.OdData)
 }
 
-// .PB_PlanTrackInfo PlanTrackData = 8;
+// .PB_PlanTrackInfo PlanTrackData = 9;
 inline bool PB_Hmi3dPackage::_internal_has_plantrackdata() const {
   return this != internal_default_instance() && plantrackdata_ != nullptr;
 }
@@ -857,7 +953,7 @@ inline void PB_Hmi3dPackage::set_allocated_plantrackdata(::PB_PlanTrackInfo* pla
   // @@protoc_insertion_point(field_set_allocated:PB_Hmi3dPackage.PlanTrackData)
 }
 
-// .PB_PlanFullPath PlanFullPathData = 9;
+// .PB_PlanFullPath PlanFullPathData = 10;
 inline bool PB_Hmi3dPackage::_internal_has_planfullpathdata() const {
   return this != internal_default_instance() && planfullpathdata_ != nullptr;
 }

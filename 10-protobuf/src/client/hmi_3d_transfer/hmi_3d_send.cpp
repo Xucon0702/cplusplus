@@ -2,11 +2,14 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 
+#include <chrono>
+
 CHmi3DSendInf::CHmi3DSendInf()
 {
     p_frame_header == NULL;
     p_UssSectorInfo == NULL;
     // p_frame_header == NULL;
+    m_sendPackageId = 0;
 
     memset(&m_Hmi3dBufQueue,0,sizeof(Hmi3dBufQueue));
     memset(&m_MvHmi3dInfo,0,sizeof(MvHmi3dInfo));
@@ -77,6 +80,8 @@ int32_t CHmi3DSendInf::SendHmi3dPackage(int sock)
     //获取最新数据
     memset(&m_MvHmi3dInfo,0,sizeof(MvHmi3dInfo));
     GetHmi3DBuf(&m_MvHmi3dInfo);
+    
+    m_PB_Hmi3dPackage.Clear();    
 
     //转换数据
     if(ConvertHmi3dPackagePB(m_MvHmi3dInfo,&m_PB_Hmi3dPackage))
@@ -84,7 +89,6 @@ int32_t CHmi3DSendInf::SendHmi3dPackage(int sock)
         printf("fail to ConvertHmi3dPackagePB\n");
         return -1;
     }
-
 
     // 序列化protobuf消息
     std::string serialized_data;
@@ -107,6 +111,8 @@ int32_t CHmi3DSendInf::SendHmi3dPackage(int sock)
     
     printf("sock = %d;serialized_data.size() = %ld;bytes_sent %ld\n",sock,serialized_data.size(),bytes_sent);
 
+    m_sendPackageId++;
+
     return 0;
 }
 
@@ -125,6 +131,35 @@ int32_t CHmi3DSendInf::IsEqualToZero(const float fData)
     return ret;
 }
 
+uint64_t CHmi3DSendInf::GetCurrentTimestampMs() 
+{
+    auto now = std::chrono::high_resolution_clock::now();
+    auto duration = now.time_since_epoch();
+    auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(duration).count();
+    return static_cast<uint64_t>(milliseconds);
+}
+
+void CHmi3DSendInf::AddPbBaseHead(uint32_t uHead,uint32_t uDataType,PB_Hmi3dPackage* pb_hmi_3d)
+{
+    if(pb_hmi_3d == NULL)
+    {
+        printf("pb_hmi_3d is null\n");
+        return ;
+    }
+
+    p_base_head = pb_hmi_3d->mutable_basehead();
+    if(p_base_head != NULL)
+    {
+         p_base_head->set_crc_head(uHead);   
+         p_base_head->set_data_type(uDataType);
+    }
+    else
+    {
+        printf("p_base_head is null\n");
+    }
+
+}
+
 /*************************Convert data to protobuf************************************/
 int32_t CHmi3DSendInf::ConvertHmi3dPackagePB(const MvHmi3dInfo& tHmi3dInfo, PB_Hmi3dPackage* pb_hmi_3d) {
         
@@ -133,6 +168,12 @@ int32_t CHmi3DSendInf::ConvertHmi3dPackagePB(const MvHmi3dInfo& tHmi3dInfo, PB_H
         printf("pb_hmi_3d is null\n");
         return -1;
     }
+
+    pb_hmi_3d->set_lsendtimsms(GetCurrentTimestampMs());
+    pb_hmi_3d->set_usendnum(m_sendPackageId);
+
+    //add base head
+    AddPbBaseHead(CRC_HEAD,TRANSPORT_3D_PACKAGE_PROTO,pb_hmi_3d);
 
     //ApaStateToHmiTestInfo
     p_apa_state_info = pb_hmi_3d->mutable_apastatedata();

@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+//基础数据头的protobuf定义
+message PB_BaseHead
+{
+    uint32 crc_head = 1;        //数据头CRC校验 
+    uint32  data_type = 2;      //数据类型
+    // uint32  payload_len = 3;    //有效数据长度
+}

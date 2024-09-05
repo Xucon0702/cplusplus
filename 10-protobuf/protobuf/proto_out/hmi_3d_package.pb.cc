@@ -15,6 +15,7 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_hmi_5f3d_2fmv_5fapa_5fstate_5finfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PB_ApaStateInfo_hmi_5f3d_2fmv_5fapa_5fstate_5finfo_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_base_5fhead_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PB_BaseHead_base_5fhead_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_hmi_5f3d_2fmv_5fcan_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PB_CanData_hmi_5f3d_2fmv_5fcan_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_hmi_5f3d_2fmv_5fod_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_PB_OdInfo_hmi_5f3d_2fmv_5fod_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_hmi_5f3d_2fmv_5fplan_5ffull_5fpath_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PB_PlanFullPath_hmi_5f3d_2fmv_5fplan_5ffull_5fpath_2eproto;
@@ -36,8 +37,9 @@ static void InitDefaultsscc_info_PB_Hmi3dPackage_hmi_5f3d_5fpackage_2eproto() {
   ::PB_Hmi3dPackage::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<7> scc_info_PB_Hmi3dPackage_hmi_5f3d_5fpackage_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 7, 0, InitDefaultsscc_info_PB_Hmi3dPackage_hmi_5f3d_5fpackage_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<8> scc_info_PB_Hmi3dPackage_hmi_5f3d_5fpackage_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 8, 0, InitDefaultsscc_info_PB_Hmi3dPackage_hmi_5f3d_5fpackage_2eproto}, {
+      &scc_info_PB_BaseHead_base_5fhead_2eproto.base,
       &scc_info_PB_CanData_hmi_5f3d_2fmv_5fcan_2eproto.base,
       &scc_info_PB_UssSectorOutputData_hmi_5f3d_2fmv_5fuss_2eproto.base,
       &scc_info_PB_ApaStateInfo_hmi_5f3d_2fmv_5fapa_5fstate_5finfo_2eproto.base,
@@ -56,6 +58,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hmi_5f3d_5fpackage_2eproto::of
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::PB_Hmi3dPackage, basehead_),
   PROTOBUF_FIELD_OFFSET(::PB_Hmi3dPackage, lsendtimsms_),
   PROTOBUF_FIELD_OFFSET(::PB_Hmi3dPackage, usendnum_),
   PROTOBUF_FIELD_OFFSET(::PB_Hmi3dPackage, candata_),
@@ -80,17 +83,19 @@ const char descriptor_table_protodef_hmi_5f3d_5fpackage_2eproto[] PROTOBUF_SECTI
   ".proto\032\022hmi_3d/mv_od.proto\032\036hmi_3d/mv_ap"
   "a_state_info.proto\032\036hmi_3d/mv_plan_full_"
   "path.proto\032\037hmi_3d/mv_plan_track_info.pr"
-  "oto\"\300\002\n\017PB_Hmi3dPackage\022\023\n\013LSendTimsMs\030\001"
-  " \001(\004\022\020\n\010uSendNum\030\002 \001(\r\022\034\n\007CanData\030\003 \001(\0132"
-  "\013.PB_CanData\022.\n\rUssSectorData\030\004 \001(\0132\027.PB"
-  "_UssSectorOutputData\022&\n\014ApaStateData\030\005 \001"
-  "(\0132\020.PB_ApaStateInfo\022\036\n\010SlotData\030\006 \001(\0132\014"
-  ".PB_SlotInfo\022\032\n\006OdData\030\007 \001(\0132\n.PB_OdInfo"
-  "\022(\n\rPlanTrackData\030\010 \001(\0132\021.PB_PlanTrackIn"
-  "fo\022*\n\020PlanFullPathData\030\t \001(\0132\020.PB_PlanFu"
-  "llPathb\006proto3"
+  "oto\032\017base_head.proto\"\340\002\n\017PB_Hmi3dPackage"
+  "\022\036\n\010BaseHead\030\001 \001(\0132\014.PB_BaseHead\022\023\n\013LSen"
+  "dTimsMs\030\002 \001(\004\022\020\n\010uSendNum\030\003 \001(\r\022\034\n\007CanDa"
+  "ta\030\004 \001(\0132\013.PB_CanData\022.\n\rUssSectorData\030\005"
+  " \001(\0132\027.PB_UssSectorOutputData\022&\n\014ApaStat"
+  "eData\030\006 \001(\0132\020.PB_ApaStateInfo\022\036\n\010SlotDat"
+  "a\030\007 \001(\0132\014.PB_SlotInfo\022\032\n\006OdData\030\010 \001(\0132\n."
+  "PB_OdInfo\022(\n\rPlanTrackData\030\t \001(\0132\021.PB_Pl"
+  "anTrackInfo\022*\n\020PlanFullPathData\030\n \001(\0132\020."
+  "PB_PlanFullPathb\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_hmi_5f3d_5fpackage_2eproto_deps[7] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_hmi_5f3d_5fpackage_2eproto_deps[8] = {
+  &::descriptor_table_base_5fhead_2eproto,
   &::descriptor_table_hmi_5f3d_2fmv_5fapa_5fstate_5finfo_2eproto,
   &::descriptor_table_hmi_5f3d_2fmv_5fcan_2eproto,
   &::descriptor_table_hmi_5f3d_2fmv_5fod_2eproto,
@@ -104,8 +109,8 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_hmi
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_hmi_5f3d_5fpackage_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_hmi_5f3d_5fpackage_2eproto = {
-  false, false, descriptor_table_protodef_hmi_5f3d_5fpackage_2eproto, "hmi_3d_package.proto", 534,
-  &descriptor_table_hmi_5f3d_5fpackage_2eproto_once, descriptor_table_hmi_5f3d_5fpackage_2eproto_sccs, descriptor_table_hmi_5f3d_5fpackage_2eproto_deps, 1, 7,
+  false, false, descriptor_table_protodef_hmi_5f3d_5fpackage_2eproto, "hmi_3d_package.proto", 583,
+  &descriptor_table_hmi_5f3d_5fpackage_2eproto_once, descriptor_table_hmi_5f3d_5fpackage_2eproto_sccs, descriptor_table_hmi_5f3d_5fpackage_2eproto_deps, 1, 8,
   schemas, file_default_instances, TableStruct_hmi_5f3d_5fpackage_2eproto::offsets,
   file_level_metadata_hmi_5f3d_5fpackage_2eproto, 1, file_level_enum_descriptors_hmi_5f3d_5fpackage_2eproto, file_level_service_descriptors_hmi_5f3d_5fpackage_2eproto,
 };
@@ -116,6 +121,8 @@ static bool dynamic_init_dummy_hmi_5f3d_5fpackage_2eproto = (static_cast<void>(:
 // ===================================================================
 
 void PB_Hmi3dPackage::InitAsDefaultInstance() {
+  ::_PB_Hmi3dPackage_default_instance_._instance.get_mutable()->basehead_ = const_cast< ::PB_BaseHead*>(
+      ::PB_BaseHead::internal_default_instance());
   ::_PB_Hmi3dPackage_default_instance_._instance.get_mutable()->candata_ = const_cast< ::PB_CanData*>(
       ::PB_CanData::internal_default_instance());
   ::_PB_Hmi3dPackage_default_instance_._instance.get_mutable()->usssectordata_ = const_cast< ::PB_UssSectorOutputData*>(
@@ -133,6 +140,7 @@ void PB_Hmi3dPackage::InitAsDefaultInstance() {
 }
 class PB_Hmi3dPackage::_Internal {
  public:
+  static const ::PB_BaseHead& basehead(const PB_Hmi3dPackage* msg);
   static const ::PB_CanData& candata(const PB_Hmi3dPackage* msg);
   static const ::PB_UssSectorOutputData& usssectordata(const PB_Hmi3dPackage* msg);
   static const ::PB_ApaStateInfo& apastatedata(const PB_Hmi3dPackage* msg);
@@ -142,6 +150,10 @@ class PB_Hmi3dPackage::_Internal {
   static const ::PB_PlanFullPath& planfullpathdata(const PB_Hmi3dPackage* msg);
 };
 
+const ::PB_BaseHead&
+PB_Hmi3dPackage::_Internal::basehead(const PB_Hmi3dPackage* msg) {
+  return *msg->basehead_;
+}
 const ::PB_CanData&
 PB_Hmi3dPackage::_Internal::candata(const PB_Hmi3dPackage* msg) {
   return *msg->candata_;
@@ -169,6 +181,12 @@ PB_Hmi3dPackage::_Internal::plantrackdata(const PB_Hmi3dPackage* msg) {
 const ::PB_PlanFullPath&
 PB_Hmi3dPackage::_Internal::planfullpathdata(const PB_Hmi3dPackage* msg) {
   return *msg->planfullpathdata_;
+}
+void PB_Hmi3dPackage::clear_basehead() {
+  if (GetArena() == nullptr && basehead_ != nullptr) {
+    delete basehead_;
+  }
+  basehead_ = nullptr;
 }
 void PB_Hmi3dPackage::clear_candata() {
   if (GetArena() == nullptr && candata_ != nullptr) {
@@ -221,6 +239,11 @@ PB_Hmi3dPackage::PB_Hmi3dPackage(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 PB_Hmi3dPackage::PB_Hmi3dPackage(const PB_Hmi3dPackage& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_basehead()) {
+    basehead_ = new ::PB_BaseHead(*from.basehead_);
+  } else {
+    basehead_ = nullptr;
+  }
   if (from._internal_has_candata()) {
     candata_ = new ::PB_CanData(*from.candata_);
   } else {
@@ -264,9 +287,9 @@ PB_Hmi3dPackage::PB_Hmi3dPackage(const PB_Hmi3dPackage& from)
 
 void PB_Hmi3dPackage::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_PB_Hmi3dPackage_hmi_5f3d_5fpackage_2eproto.base);
-  ::memset(&candata_, 0, static_cast<size_t>(
+  ::memset(&basehead_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&usendnum_) -
-      reinterpret_cast<char*>(&candata_)) + sizeof(usendnum_));
+      reinterpret_cast<char*>(&basehead_)) + sizeof(usendnum_));
 }
 
 PB_Hmi3dPackage::~PB_Hmi3dPackage() {
@@ -277,6 +300,7 @@ PB_Hmi3dPackage::~PB_Hmi3dPackage() {
 
 void PB_Hmi3dPackage::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete basehead_;
   if (this != internal_default_instance()) delete candata_;
   if (this != internal_default_instance()) delete usssectordata_;
   if (this != internal_default_instance()) delete apastatedata_;
@@ -307,6 +331,10 @@ void PB_Hmi3dPackage::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  if (GetArena() == nullptr && basehead_ != nullptr) {
+    delete basehead_;
+  }
+  basehead_ = nullptr;
   if (GetArena() == nullptr && candata_ != nullptr) {
     delete candata_;
   }
@@ -349,65 +377,72 @@ const char* PB_Hmi3dPackage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 LSendTimsMs = 1;
+      // .PB_BaseHead BaseHead = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_basehead(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 LSendTimsMs = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           lsendtimsms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 uSendNum = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+      // uint32 uSendNum = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           usendnum_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .PB_CanData CanData = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+      // .PB_CanData CanData = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_candata(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .PB_UssSectorOutputData UssSectorData = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+      // .PB_UssSectorOutputData UssSectorData = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_usssectordata(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .PB_ApaStateInfo ApaStateData = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+      // .PB_ApaStateInfo ApaStateData = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_apastatedata(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .PB_SlotInfo SlotData = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+      // .PB_SlotInfo SlotData = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_slotdata(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .PB_OdInfo OdData = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+      // .PB_OdInfo OdData = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           ptr = ctx->ParseMessage(_internal_mutable_oddata(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .PB_PlanTrackInfo PlanTrackData = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+      // .PB_PlanTrackInfo PlanTrackData = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
           ptr = ctx->ParseMessage(_internal_mutable_plantrackdata(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .PB_PlanFullPath PlanFullPathData = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+      // .PB_PlanFullPath PlanFullPathData = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_planfullpathdata(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -440,72 +475,80 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 LSendTimsMs = 1;
+  // .PB_BaseHead BaseHead = 1;
+  if (this->has_basehead()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::basehead(this), target, stream);
+  }
+
+  // uint64 LSendTimsMs = 2;
   if (this->lsendtimsms() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_lsendtimsms(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_lsendtimsms(), target);
   }
 
-  // uint32 uSendNum = 2;
+  // uint32 uSendNum = 3;
   if (this->usendnum() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_usendnum(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_usendnum(), target);
   }
 
-  // .PB_CanData CanData = 3;
+  // .PB_CanData CanData = 4;
   if (this->has_candata()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        3, _Internal::candata(this), target, stream);
+        4, _Internal::candata(this), target, stream);
   }
 
-  // .PB_UssSectorOutputData UssSectorData = 4;
+  // .PB_UssSectorOutputData UssSectorData = 5;
   if (this->has_usssectordata()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        4, _Internal::usssectordata(this), target, stream);
+        5, _Internal::usssectordata(this), target, stream);
   }
 
-  // .PB_ApaStateInfo ApaStateData = 5;
+  // .PB_ApaStateInfo ApaStateData = 6;
   if (this->has_apastatedata()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        5, _Internal::apastatedata(this), target, stream);
+        6, _Internal::apastatedata(this), target, stream);
   }
 
-  // .PB_SlotInfo SlotData = 6;
+  // .PB_SlotInfo SlotData = 7;
   if (this->has_slotdata()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        6, _Internal::slotdata(this), target, stream);
+        7, _Internal::slotdata(this), target, stream);
   }
 
-  // .PB_OdInfo OdData = 7;
+  // .PB_OdInfo OdData = 8;
   if (this->has_oddata()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        7, _Internal::oddata(this), target, stream);
+        8, _Internal::oddata(this), target, stream);
   }
 
-  // .PB_PlanTrackInfo PlanTrackData = 8;
+  // .PB_PlanTrackInfo PlanTrackData = 9;
   if (this->has_plantrackdata()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        8, _Internal::plantrackdata(this), target, stream);
+        9, _Internal::plantrackdata(this), target, stream);
   }
 
-  // .PB_PlanFullPath PlanFullPathData = 9;
+  // .PB_PlanFullPath PlanFullPathData = 10;
   if (this->has_planfullpathdata()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        9, _Internal::planfullpathdata(this), target, stream);
+        10, _Internal::planfullpathdata(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -524,63 +567,70 @@ size_t PB_Hmi3dPackage::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .PB_CanData CanData = 3;
+  // .PB_BaseHead BaseHead = 1;
+  if (this->has_basehead()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *basehead_);
+  }
+
+  // .PB_CanData CanData = 4;
   if (this->has_candata()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *candata_);
   }
 
-  // .PB_UssSectorOutputData UssSectorData = 4;
+  // .PB_UssSectorOutputData UssSectorData = 5;
   if (this->has_usssectordata()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *usssectordata_);
   }
 
-  // .PB_ApaStateInfo ApaStateData = 5;
+  // .PB_ApaStateInfo ApaStateData = 6;
   if (this->has_apastatedata()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *apastatedata_);
   }
 
-  // .PB_SlotInfo SlotData = 6;
+  // .PB_SlotInfo SlotData = 7;
   if (this->has_slotdata()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *slotdata_);
   }
 
-  // .PB_OdInfo OdData = 7;
+  // .PB_OdInfo OdData = 8;
   if (this->has_oddata()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *oddata_);
   }
 
-  // .PB_PlanTrackInfo PlanTrackData = 8;
+  // .PB_PlanTrackInfo PlanTrackData = 9;
   if (this->has_plantrackdata()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *plantrackdata_);
   }
 
-  // .PB_PlanFullPath PlanFullPathData = 9;
+  // .PB_PlanFullPath PlanFullPathData = 10;
   if (this->has_planfullpathdata()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *planfullpathdata_);
   }
 
-  // uint64 LSendTimsMs = 1;
+  // uint64 LSendTimsMs = 2;
   if (this->lsendtimsms() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_lsendtimsms());
   }
 
-  // uint32 uSendNum = 2;
+  // uint32 uSendNum = 3;
   if (this->usendnum() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -618,6 +668,9 @@ void PB_Hmi3dPackage::MergeFrom(const PB_Hmi3dPackage& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.has_basehead()) {
+    _internal_mutable_basehead()->::PB_BaseHead::MergeFrom(from._internal_basehead());
+  }
   if (from.has_candata()) {
     _internal_mutable_candata()->::PB_CanData::MergeFrom(from._internal_candata());
   }
@@ -671,9 +724,9 @@ void PB_Hmi3dPackage::InternalSwap(PB_Hmi3dPackage* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(PB_Hmi3dPackage, usendnum_)
       + sizeof(PB_Hmi3dPackage::usendnum_)
-      - PROTOBUF_FIELD_OFFSET(PB_Hmi3dPackage, candata_)>(
-          reinterpret_cast<char*>(&candata_),
-          reinterpret_cast<char*>(&other->candata_));
+      - PROTOBUF_FIELD_OFFSET(PB_Hmi3dPackage, basehead_)>(
+          reinterpret_cast<char*>(&basehead_),
+          reinterpret_cast<char*>(&other->basehead_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata PB_Hmi3dPackage::GetMetadata() const {

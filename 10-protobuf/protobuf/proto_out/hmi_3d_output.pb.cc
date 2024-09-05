@@ -14,6 +14,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
+extern PROTOBUF_INTERNAL_EXPORT_base_5fhead_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PB_BaseHead_base_5fhead_2eproto;
 class PB_Hmi3dOutputDataDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<PB_Hmi3dOutputData> _instance;
@@ -29,8 +30,9 @@ static void InitDefaultsscc_info_PB_Hmi3dOutputData_hmi_5f3d_5foutput_2eproto() 
   ::PB_Hmi3dOutputData::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PB_Hmi3dOutputData_hmi_5f3d_5foutput_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_PB_Hmi3dOutputData_hmi_5f3d_5foutput_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PB_Hmi3dOutputData_hmi_5f3d_5foutput_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_PB_Hmi3dOutputData_hmi_5f3d_5foutput_2eproto}, {
+      &scc_info_PB_BaseHead_base_5fhead_2eproto.base,}};
 
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_hmi_5f3d_5foutput_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_hmi_5f3d_5foutput_2eproto = nullptr;
@@ -42,7 +44,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hmi_5f3d_5foutput_2eproto::off
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::PB_Hmi3dOutputData, basehead_),
   PROTOBUF_FIELD_OFFSET(::PB_Hmi3dOutputData, ltimestamp_ms_),
+  PROTOBUF_FIELD_OFFSET(::PB_Hmi3dOutputData, hmi_data_num_),
   PROTOBUF_FIELD_OFFSET(::PB_Hmi3dOutputData, hmi_apa_sel_),
   PROTOBUF_FIELD_OFFSET(::PB_Hmi3dOutputData, hmi_park_mode_),
   PROTOBUF_FIELD_OFFSET(::PB_Hmi3dOutputData, hmi_start_park_),
@@ -64,25 +68,28 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_hmi_5f3d_5foutput_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\023hmi_3d_output.proto\"\263\002\n\022PB_Hmi3dOutput"
-  "Data\022\025\n\rlTimestamp_ms\030\001 \001(\004\022\023\n\013Hmi_apa_s"
-  "el\030\002 \001(\r\022\025\n\rHmi_park_mode\030\003 \001(\r\022\026\n\016Hmi_s"
-  "tart_park\030\004 \001(\r\022\026\n\016Hmi_cancel_req\030\005 \001(\r\022"
-  "\024\n\014Hmi_Selected\030\006 \001(\r\022\025\n\rHmi_pause_req\030\007"
-  " \001(\r\022\025\n\rHmi_resum_req\030\010 \001(\r\022\033\n\023Hmi_tragP"
-  "arkConfSwt\030\t \001(\r\022\027\n\017Hmi_parkslot_id\030\n \001("
-  "\r\022\027\n\017Hmi_parkout_dir\030\013 \001(\r\022\027\n\017Hmi_slot_p"
-  "oints\030\014 \003(\002b\006proto3"
+  "\n\023hmi_3d_output.proto\032\017base_head.proto\"\351"
+  "\002\n\022PB_Hmi3dOutputData\022\036\n\010BaseHead\030\001 \001(\0132"
+  "\014.PB_BaseHead\022\025\n\rlTimestamp_ms\030\002 \001(\004\022\024\n\014"
+  "Hmi_data_num\030\003 \001(\r\022\023\n\013Hmi_apa_sel\030\004 \001(\r\022"
+  "\025\n\rHmi_park_mode\030\005 \001(\r\022\026\n\016Hmi_start_park"
+  "\030\006 \001(\r\022\026\n\016Hmi_cancel_req\030\007 \001(\r\022\024\n\014Hmi_Se"
+  "lected\030\010 \001(\r\022\025\n\rHmi_pause_req\030\t \001(\r\022\025\n\rH"
+  "mi_resum_req\030\n \001(\r\022\033\n\023Hmi_tragParkConfSw"
+  "t\030\013 \001(\r\022\027\n\017Hmi_parkslot_id\030\014 \001(\r\022\027\n\017Hmi_"
+  "parkout_dir\030\r \001(\r\022\027\n\017Hmi_slot_points\030\016 \003"
+  "(\002b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_hmi_5f3d_5foutput_2eproto_deps[1] = {
+  &::descriptor_table_base_5fhead_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_hmi_5f3d_5foutput_2eproto_sccs[1] = {
   &scc_info_PB_Hmi3dOutputData_hmi_5f3d_5foutput_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_hmi_5f3d_5foutput_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_hmi_5f3d_5foutput_2eproto = {
-  false, false, descriptor_table_protodef_hmi_5f3d_5foutput_2eproto, "hmi_3d_output.proto", 339,
-  &descriptor_table_hmi_5f3d_5foutput_2eproto_once, descriptor_table_hmi_5f3d_5foutput_2eproto_sccs, descriptor_table_hmi_5f3d_5foutput_2eproto_deps, 1, 0,
+  false, false, descriptor_table_protodef_hmi_5f3d_5foutput_2eproto, "hmi_3d_output.proto", 410,
+  &descriptor_table_hmi_5f3d_5foutput_2eproto_once, descriptor_table_hmi_5f3d_5foutput_2eproto_sccs, descriptor_table_hmi_5f3d_5foutput_2eproto_deps, 1, 1,
   schemas, file_default_instances, TableStruct_hmi_5f3d_5foutput_2eproto::offsets,
   file_level_metadata_hmi_5f3d_5foutput_2eproto, 1, file_level_enum_descriptors_hmi_5f3d_5foutput_2eproto, file_level_service_descriptors_hmi_5f3d_5foutput_2eproto,
 };
@@ -93,11 +100,24 @@ static bool dynamic_init_dummy_hmi_5f3d_5foutput_2eproto = (static_cast<void>(::
 // ===================================================================
 
 void PB_Hmi3dOutputData::InitAsDefaultInstance() {
+  ::_PB_Hmi3dOutputData_default_instance_._instance.get_mutable()->basehead_ = const_cast< ::PB_BaseHead*>(
+      ::PB_BaseHead::internal_default_instance());
 }
 class PB_Hmi3dOutputData::_Internal {
  public:
+  static const ::PB_BaseHead& basehead(const PB_Hmi3dOutputData* msg);
 };
 
+const ::PB_BaseHead&
+PB_Hmi3dOutputData::_Internal::basehead(const PB_Hmi3dOutputData* msg) {
+  return *msg->basehead_;
+}
+void PB_Hmi3dOutputData::clear_basehead() {
+  if (GetArena() == nullptr && basehead_ != nullptr) {
+    delete basehead_;
+  }
+  basehead_ = nullptr;
+}
 PB_Hmi3dOutputData::PB_Hmi3dOutputData(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   hmi_slot_points_(arena) {
@@ -109,6 +129,11 @@ PB_Hmi3dOutputData::PB_Hmi3dOutputData(const PB_Hmi3dOutputData& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       hmi_slot_points_(from.hmi_slot_points_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_basehead()) {
+    basehead_ = new ::PB_BaseHead(*from.basehead_);
+  } else {
+    basehead_ = nullptr;
+  }
   ::memcpy(&ltimestamp_ms_, &from.ltimestamp_ms_,
     static_cast<size_t>(reinterpret_cast<char*>(&hmi_parkout_dir_) -
     reinterpret_cast<char*>(&ltimestamp_ms_)) + sizeof(hmi_parkout_dir_));
@@ -116,9 +141,10 @@ PB_Hmi3dOutputData::PB_Hmi3dOutputData(const PB_Hmi3dOutputData& from)
 }
 
 void PB_Hmi3dOutputData::SharedCtor() {
-  ::memset(&ltimestamp_ms_, 0, static_cast<size_t>(
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_PB_Hmi3dOutputData_hmi_5f3d_5foutput_2eproto.base);
+  ::memset(&basehead_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&hmi_parkout_dir_) -
-      reinterpret_cast<char*>(&ltimestamp_ms_)) + sizeof(hmi_parkout_dir_));
+      reinterpret_cast<char*>(&basehead_)) + sizeof(hmi_parkout_dir_));
 }
 
 PB_Hmi3dOutputData::~PB_Hmi3dOutputData() {
@@ -129,6 +155,7 @@ PB_Hmi3dOutputData::~PB_Hmi3dOutputData() {
 
 void PB_Hmi3dOutputData::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete basehead_;
 }
 
 void PB_Hmi3dOutputData::ArenaDtor(void* object) {
@@ -153,6 +180,10 @@ void PB_Hmi3dOutputData::Clear() {
   (void) cached_has_bits;
 
   hmi_slot_points_.Clear();
+  if (GetArena() == nullptr && basehead_ != nullptr) {
+    delete basehead_;
+  }
+  basehead_ = nullptr;
   ::memset(&ltimestamp_ms_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&hmi_parkout_dir_) -
       reinterpret_cast<char*>(&ltimestamp_ms_)) + sizeof(hmi_parkout_dir_));
@@ -167,89 +198,103 @@ const char* PB_Hmi3dOutputData::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 lTimestamp_ms = 1;
+      // .PB_BaseHead BaseHead = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_basehead(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 lTimestamp_ms = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           ltimestamp_ms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 Hmi_apa_sel = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+      // uint32 Hmi_data_num = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          hmi_data_num_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 Hmi_apa_sel = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           hmi_apa_sel_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 Hmi_park_mode = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+      // uint32 Hmi_park_mode = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           hmi_park_mode_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 Hmi_start_park = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+      // uint32 Hmi_start_park = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           hmi_start_park_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 Hmi_cancel_req = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+      // uint32 Hmi_cancel_req = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           hmi_cancel_req_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 Hmi_Selected = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+      // uint32 Hmi_Selected = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           hmi_selected_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 Hmi_pause_req = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+      // uint32 Hmi_pause_req = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           hmi_pause_req_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 Hmi_resum_req = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+      // uint32 Hmi_resum_req = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           hmi_resum_req_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 Hmi_tragParkConfSwt = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
+      // uint32 Hmi_tragParkConfSwt = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
           hmi_tragparkconfswt_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 Hmi_parkslot_id = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
+      // uint32 Hmi_parkslot_id = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           hmi_parkslot_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 Hmi_parkout_dir = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
+      // uint32 Hmi_parkout_dir = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
           hmi_parkout_dir_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated float Hmi_slot_points = 12;
-      case 12:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
+      // repeated float Hmi_slot_points = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_hmi_slot_points(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 101) {
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 117) {
           _internal_add_hmi_slot_points(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
         } else goto handle_unusual;
@@ -282,75 +327,89 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 lTimestamp_ms = 1;
+  // .PB_BaseHead BaseHead = 1;
+  if (this->has_basehead()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::basehead(this), target, stream);
+  }
+
+  // uint64 lTimestamp_ms = 2;
   if (this->ltimestamp_ms() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_ltimestamp_ms(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_ltimestamp_ms(), target);
   }
 
-  // uint32 Hmi_apa_sel = 2;
+  // uint32 Hmi_data_num = 3;
+  if (this->hmi_data_num() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_hmi_data_num(), target);
+  }
+
+  // uint32 Hmi_apa_sel = 4;
   if (this->hmi_apa_sel() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_hmi_apa_sel(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_hmi_apa_sel(), target);
   }
 
-  // uint32 Hmi_park_mode = 3;
+  // uint32 Hmi_park_mode = 5;
   if (this->hmi_park_mode() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_hmi_park_mode(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_hmi_park_mode(), target);
   }
 
-  // uint32 Hmi_start_park = 4;
+  // uint32 Hmi_start_park = 6;
   if (this->hmi_start_park() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_hmi_start_park(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_hmi_start_park(), target);
   }
 
-  // uint32 Hmi_cancel_req = 5;
+  // uint32 Hmi_cancel_req = 7;
   if (this->hmi_cancel_req() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_hmi_cancel_req(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_hmi_cancel_req(), target);
   }
 
-  // uint32 Hmi_Selected = 6;
+  // uint32 Hmi_Selected = 8;
   if (this->hmi_selected() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_hmi_selected(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_hmi_selected(), target);
   }
 
-  // uint32 Hmi_pause_req = 7;
+  // uint32 Hmi_pause_req = 9;
   if (this->hmi_pause_req() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_hmi_pause_req(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_hmi_pause_req(), target);
   }
 
-  // uint32 Hmi_resum_req = 8;
+  // uint32 Hmi_resum_req = 10;
   if (this->hmi_resum_req() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_hmi_resum_req(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(10, this->_internal_hmi_resum_req(), target);
   }
 
-  // uint32 Hmi_tragParkConfSwt = 9;
+  // uint32 Hmi_tragParkConfSwt = 11;
   if (this->hmi_tragparkconfswt() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_hmi_tragparkconfswt(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(11, this->_internal_hmi_tragparkconfswt(), target);
   }
 
-  // uint32 Hmi_parkslot_id = 10;
+  // uint32 Hmi_parkslot_id = 12;
   if (this->hmi_parkslot_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(10, this->_internal_hmi_parkslot_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(12, this->_internal_hmi_parkslot_id(), target);
   }
 
-  // uint32 Hmi_parkout_dir = 11;
+  // uint32 Hmi_parkout_dir = 13;
   if (this->hmi_parkout_dir() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(11, this->_internal_hmi_parkout_dir(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(13, this->_internal_hmi_parkout_dir(), target);
   }
 
-  // repeated float Hmi_slot_points = 12;
+  // repeated float Hmi_slot_points = 14;
   if (this->_internal_hmi_slot_points_size() > 0) {
-    target = stream->WriteFixedPacked(12, _internal_hmi_slot_points(), target);
+    target = stream->WriteFixedPacked(14, _internal_hmi_slot_points(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -369,7 +428,7 @@ size_t PB_Hmi3dOutputData::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated float Hmi_slot_points = 12;
+  // repeated float Hmi_slot_points = 14;
   {
     unsigned int count = static_cast<unsigned int>(this->_internal_hmi_slot_points_size());
     size_t data_size = 4UL * count;
@@ -384,77 +443,91 @@ size_t PB_Hmi3dOutputData::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // uint64 lTimestamp_ms = 1;
+  // .PB_BaseHead BaseHead = 1;
+  if (this->has_basehead()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *basehead_);
+  }
+
+  // uint64 lTimestamp_ms = 2;
   if (this->ltimestamp_ms() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_ltimestamp_ms());
   }
 
-  // uint32 Hmi_apa_sel = 2;
+  // uint32 Hmi_data_num = 3;
+  if (this->hmi_data_num() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_hmi_data_num());
+  }
+
+  // uint32 Hmi_apa_sel = 4;
   if (this->hmi_apa_sel() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_hmi_apa_sel());
   }
 
-  // uint32 Hmi_park_mode = 3;
+  // uint32 Hmi_park_mode = 5;
   if (this->hmi_park_mode() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_hmi_park_mode());
   }
 
-  // uint32 Hmi_start_park = 4;
+  // uint32 Hmi_start_park = 6;
   if (this->hmi_start_park() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_hmi_start_park());
   }
 
-  // uint32 Hmi_cancel_req = 5;
+  // uint32 Hmi_cancel_req = 7;
   if (this->hmi_cancel_req() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_hmi_cancel_req());
   }
 
-  // uint32 Hmi_Selected = 6;
+  // uint32 Hmi_Selected = 8;
   if (this->hmi_selected() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_hmi_selected());
   }
 
-  // uint32 Hmi_pause_req = 7;
+  // uint32 Hmi_pause_req = 9;
   if (this->hmi_pause_req() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_hmi_pause_req());
   }
 
-  // uint32 Hmi_resum_req = 8;
+  // uint32 Hmi_resum_req = 10;
   if (this->hmi_resum_req() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_hmi_resum_req());
   }
 
-  // uint32 Hmi_tragParkConfSwt = 9;
+  // uint32 Hmi_tragParkConfSwt = 11;
   if (this->hmi_tragparkconfswt() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_hmi_tragparkconfswt());
   }
 
-  // uint32 Hmi_parkslot_id = 10;
+  // uint32 Hmi_parkslot_id = 12;
   if (this->hmi_parkslot_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_hmi_parkslot_id());
   }
 
-  // uint32 Hmi_parkout_dir = 11;
+  // uint32 Hmi_parkout_dir = 13;
   if (this->hmi_parkout_dir() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -493,8 +566,14 @@ void PB_Hmi3dOutputData::MergeFrom(const PB_Hmi3dOutputData& from) {
   (void) cached_has_bits;
 
   hmi_slot_points_.MergeFrom(from.hmi_slot_points_);
+  if (from.has_basehead()) {
+    _internal_mutable_basehead()->::PB_BaseHead::MergeFrom(from._internal_basehead());
+  }
   if (from.ltimestamp_ms() != 0) {
     _internal_set_ltimestamp_ms(from._internal_ltimestamp_ms());
+  }
+  if (from.hmi_data_num() != 0) {
+    _internal_set_hmi_data_num(from._internal_hmi_data_num());
   }
   if (from.hmi_apa_sel() != 0) {
     _internal_set_hmi_apa_sel(from._internal_hmi_apa_sel());
@@ -553,9 +632,9 @@ void PB_Hmi3dOutputData::InternalSwap(PB_Hmi3dOutputData* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(PB_Hmi3dOutputData, hmi_parkout_dir_)
       + sizeof(PB_Hmi3dOutputData::hmi_parkout_dir_)
-      - PROTOBUF_FIELD_OFFSET(PB_Hmi3dOutputData, ltimestamp_ms_)>(
-          reinterpret_cast<char*>(&ltimestamp_ms_),
-          reinterpret_cast<char*>(&other->ltimestamp_ms_));
+      - PROTOBUF_FIELD_OFFSET(PB_Hmi3dOutputData, basehead_)>(
+          reinterpret_cast<char*>(&basehead_),
+          reinterpret_cast<char*>(&other->basehead_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata PB_Hmi3dOutputData::GetMetadata() const {

@@ -2,15 +2,16 @@
 #define HMI_3D_INFO_H_
 
 #include <cstdint>
-
+#include <atomic>
 //protobuf头文件
 #include "hmi_3d/mv_uss.pb.h"
 #include "hmi_3d_package.pb.h"
 #include "hmi_3d/mv_slot.pb.h"
 
 #include "hmi_3d_output.pb.h"
-#include <atomic>
+#include "data/hmi_base_proto.h"
 
+#define HMI_3D_DATA_VERSION "1.0.0" //2024-08-28
 #define MAX_HMI_3D_INFO_LEN 1024
 
 #define F_CONVERT_RATE (0.001)
@@ -32,8 +33,9 @@ typedef struct
     uint8_t     Hmi_tragParkConfSwt; //循迹倒车确认按键：1-发出请求  
     uint32_t    Hmi_parkslot_id;     //选择的泊入车位ID     
     uint32_t    Hmi_parkout_dir;     //选择的泊出方向,参考ApaParkOutDir
-    float       Hmi_slot_points[8];  //选中的车位角点，主要用于自选     
-    uint8_t Reserve[64-56];
+    float       Hmi_slot_points[8];  //选中的车位角点，主要用于自选
+    uint32_t    Hmi_data_num;     
+    uint8_t Reserve[64-60];
 }Hmi_test_info;
 
 //slot
