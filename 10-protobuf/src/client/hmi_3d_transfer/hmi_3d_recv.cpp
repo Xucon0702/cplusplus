@@ -21,6 +21,32 @@ CRecvHmi3D::~CRecvHmi3D()
     
 }
 
+
+int32_t CRecvHmi3D::CheckData(PB_Hmi3dOutputData* pb_hmi_3d_output,uint32_t dataType)
+{
+    if(pb_hmi_3d_output == NULL)
+    {
+        printf("%s,%d\n",__FUNCTION__,__LINE__);
+        return -1;
+    }
+
+    p_recved_head = pb_hmi_3d_output->mutable_basehead();
+
+    if(p_recved_head == NULL)
+    {
+        printf("%s,%d\n",__FUNCTION__,__LINE__);
+        return -1;
+    }
+
+    if((p_recved_head->crc_head() != CRC_HEAD)||(p_recved_head->data_type() != dataType))
+    {
+        printf("%s,%d\n",__FUNCTION__,__LINE__);
+        return -1;
+    }
+
+    return 0;
+}
+
 int32_t CRecvHmi3D::RecvHmi3dOutput(int sock, PB_Hmi3dOutputData* pb_hmi_3d_output) {
     if(pb_hmi_3d_output == NULL)
     {
@@ -42,6 +68,12 @@ int32_t CRecvHmi3D::RecvHmi3dOutput(int sock, PB_Hmi3dOutputData* pb_hmi_3d_outp
         return -1;
     }
 
+    if(CheckData(pb_hmi_3d_output,HMI_3D_OUTPUT_PROTO) != 0)
+    {
+        printf("wrong HMI_3D_OUTPUT_PROTO data\n");
+        return 0;
+    }
+    
     // 打印解析结果
     PrintHmi3DOutput(pb_hmi_3d_output);
 
@@ -61,6 +93,7 @@ void CRecvHmi3D::PrintHmi3DOutput(const PB_Hmi3dOutputData* pb_hmi_3d_output)
 
         printf("PB_Hmi3dOutputData:\n");
         printf("  lTimestamp_ms: %lu\n", pb_hmi_3d_output->ltimestamp_ms());
+        printf("Hmi_data_num:%d\n",pb_hmi_3d_output->hmi_data_num());
         printf("  Hmi_apa_sel: %u\n", pb_hmi_3d_output->hmi_apa_sel());
         printf("  Hmi_park_mode: %u\n", pb_hmi_3d_output->hmi_park_mode());
         printf("  Hmi_start_park: %u\n", pb_hmi_3d_output->hmi_start_park());
@@ -88,6 +121,7 @@ void CRecvHmi3D::ConvertToHmiTestInfo(const PB_Hmi3dOutputData* pb_hmi_3d_output
 
         memset(pDest, 0, sizeof(Hmi_test_info));
         pDest->lTimestamp_ms = pb_hmi_3d_output->ltimestamp_ms();
+        pDest->Hmi_data_num = pb_hmi_3d_output->hmi_data_num();
         pDest->Hmi_apa_sel = pb_hmi_3d_output->hmi_apa_sel();
         pDest->Hmi_park_mode = pb_hmi_3d_output->hmi_park_mode();
         pDest->Hmi_start_park = pb_hmi_3d_output->hmi_start_park();

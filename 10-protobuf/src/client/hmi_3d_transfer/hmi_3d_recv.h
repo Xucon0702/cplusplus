@@ -10,6 +10,7 @@ public:
     CRecvHmi3D();
     ~CRecvHmi3D();
 
+    int32_t CheckData(PB_Hmi3dOutputData* pb_hmi_3d_output,uint32_t dataType);
     int32_t RecvHmi3dOutput(int sock, PB_Hmi3dOutputData* pb_hmi_3d_output);
 
 public:
@@ -23,6 +24,8 @@ private:
     char buffer[MAX_HMI_3D_INFO_LEN];
 
     Hmi_test_info m_Hmi_test_info;
+
+    PB_BaseHead* p_recved_head;
 };
 
 
