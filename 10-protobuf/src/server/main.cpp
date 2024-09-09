@@ -4,7 +4,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
-#include "animal_test/recv_animal.h"
+#include "test/recv_animal.h"
 
 #include "hmi_3d_transfer/hmi_3d_recever.h"
 

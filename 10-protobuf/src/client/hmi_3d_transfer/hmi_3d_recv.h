@@ -10,6 +10,7 @@ public:
     CRecvHmi3D();
     ~CRecvHmi3D();
 
+    void StartRecvThread(int sock);
     int32_t CheckData(PB_Hmi3dOutputData* pb_hmi_3d_output,uint32_t dataType);
     int32_t RecvHmi3dOutput(int sock, PB_Hmi3dOutputData* pb_hmi_3d_output);
 

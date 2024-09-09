@@ -5,7 +5,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 
-#include "animal_test/recv_animal.h"
+#include "test/recv_animal.h"
 
 
 void receiveAnimal(int sock, Animal* animal) {

@@ -21,6 +21,14 @@ CRecvHmi3D::~CRecvHmi3D()
     
 }
 
+void CRecvHmi3D::StartRecvThread(int sock)
+{
+    while(1)
+    {
+        RecvHmi3dOutput(sock,&m_PB_Hmi3dOutputData);
+        usleep(40*100);
+    }
+}
 
 int32_t CRecvHmi3D::CheckData(PB_Hmi3dOutputData* pb_hmi_3d_output,uint32_t dataType)
 {
