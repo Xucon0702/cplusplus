@@ -12,7 +12,7 @@
 #include "data/hmi_base_proto.h"
 
 #define HMI_3D_DATA_VERSION "1.0.0" //2024-08-28
-#define MAX_HMI_3D_INFO_LEN 1024
+#define MAX_HMI_3D_INFO_LEN 102400
 
 #define F_CONVERT_RATE (0.001)
 

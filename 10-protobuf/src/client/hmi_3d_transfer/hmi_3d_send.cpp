@@ -92,6 +92,7 @@ int32_t CHmi3DSendInf::SendHmi3dPackage(int sock)
 
     // 序列化protobuf消息
     std::string serialized_data;
+    // serialized_data.clear();
     // if (!pb_uss_pdc.SerializeToString(&serialized_data)) {
     //     std::cerr << "Failed to serialize PB_UssSectorOutputData." << std::endl;
     //     return -1;
@@ -150,6 +151,7 @@ void CHmi3DSendInf::AddPbBaseHead(uint32_t uHead,uint32_t uDataType,PB_Hmi3dPack
     p_base_head = pb_hmi_3d->mutable_basehead();
     if(p_base_head != NULL)
     {
+         p_base_head->Clear();
          p_base_head->set_crc_head(uHead);   
          p_base_head->set_data_type(uDataType);
     }
@@ -270,6 +272,8 @@ int32_t CHmi3DSendInf::ConvertUssPdcToPB(const ZU2UssSectorOutputData_t& uss_pdc
         return -1;
     }
 
+    pb_uss_pdc->Clear();
+
     // 转换FrameHead
     p_frame_header = pb_uss_pdc->mutable_framehead();
     if(p_frame_header == NULL)
@@ -288,6 +292,9 @@ int32_t CHmi3DSendInf::ConvertUssPdcToPB(const ZU2UssSectorOutputData_t& uss_pdc
         printf("p_UssSectorInfo is null\n");
         return -1;
     }
+
+    p_UssSectorInfo->Clear();
+
     // for (int i = 0; i < 32; ++i) 
     for (int i = 0; i < 12; i++) 
     {
@@ -312,6 +319,7 @@ int32_t CHmi3DSendInf::ConvertCanToPB(const MvCanCarInfo& src_can, PB_CanData* p
         printf("pb_can is null\n");
         return -1;
     }
+    pb_can->Clear();
 
     pb_can->set_nstructlen(src_can.nStructLen);
     pb_can->set_nframeid(src_can.nFrameId);
@@ -390,6 +398,7 @@ int32_t CHmi3DSendInf::ConvertApaStateToPB(const ApaStateToHmiTestInfo& src_apas
         printf("pb_apastate is null\n");
         return -1;
     }
+    pb_apastate->Clear();
 
     pb_apastate->set_ltimestampms(src_apastate.lTimestampMs);  // 时间戳
     pb_apastate->set_avap_apafundispsts(src_apastate.AVAP_APAFunDispSts);     // AVAP_APAFunDispSts
@@ -409,6 +418,7 @@ int32_t CHmi3DSendInf::ConvertSlotToPB(const ApaAvapSlotOut& src_slot, PB_SlotIn
         return -1;
     }
 
+    pb_slot->Clear();
     pb_slot->set_timemsec(src_slot.TimeMsec);
 
     for (int i = 0; i < 16; i++) 
@@ -445,6 +455,7 @@ int32_t CHmi3DSendInf::ConvertOdToPB(const MvApaAvapObjOut& src_od, PB_OdInfo* p
         return -1;
     }
 
+    pb_od->Clear();
     pb_od->set_timemsec(src_od.TimeMsec);
 
     // 设置PB_AVAP_StcBarrier消息
@@ -512,6 +523,9 @@ int32_t CHmi3DSendInf::ConvertPlanTrackToPB(const ApaPlanTrackInfo& src_plantrac
         return -1;
     }
 
+    pb_plantrack->Clear();
+    m_pb_plan_to_hdmi.Clear();
+
     pb_plantrack->set_ltimemsec(src_plantrack.lTimeMsec);
 
     uint32_t validnum = src_plantrack.validNum > 400?400:src_plantrack.validNum;
@@ -559,6 +573,8 @@ int32_t CHmi3DSendInf::ConvertFullPathToPB(const PlanFullPath& src_fullpath, PB_
         return -1;
     }
 
+    pb_fullpath->Clear();
+
     uint32_t uValidPathSize = 0;
     uint32_t uValidPointSize = 0;
 
@@ -579,6 +595,7 @@ int32_t CHmi3DSendInf::ConvertFullPathToPB(const PlanFullPath& src_fullpath, PB_
     for(int i = 0; i < uValidPathSize;i++)
     {
         uValidPointSize = src_fullpath.Array_APAPathPoints[i].validNum;
+        m_pb_pathpoints.Clear();
         for(int j=0;j<uValidPointSize;j++)
         {
             m_pb_point.set_fx(src_fullpath.Array_APAPathPoints[i].aPoints[j].fX);

@@ -142,7 +142,7 @@ int main() {
   }
  // 发送数据    quaternion_test(sock);        
 //   sendAnimal(sock, animal);
-    animal_test(sock);
+    // animal_test(sock);
     
     ZU2UssSectorOutputData_t uss_pdc = {
         {1, 0, 123456789}, // FrameHead
