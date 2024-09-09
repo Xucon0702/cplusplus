@@ -4,6 +4,7 @@
 #include <cstdint>
 
 //数据协议
+#define HMI_3D_PORT  (8099)
 #define CRC_HEAD (0x6D76)  //"mv"
 #define PAYLOAD_LENGTH 4   //存放有效数据的实际长度的数据长度
 #define TOTAL_HEAD_LENGTH 8

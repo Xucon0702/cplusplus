@@ -92,12 +92,8 @@ int32_t CHmi3DSendInf::SendHmi3dPackage(int sock)
 
     // 序列化protobuf消息
     std::string serialized_data;
-    // serialized_data.clear();
-    // if (!pb_uss_pdc.SerializeToString(&serialized_data)) {
-    //     std::cerr << "Failed to serialize PB_UssSectorOutputData." << std::endl;
-    //     return -1;
-    // }
-    
+    serialized_data.clear();
+
     if (!m_PB_Hmi3dPackage.SerializeToString(&serialized_data)) {
         std::cerr << "Failed to serialize PB_UssSectorOutputData." << std::endl;
         return -1;
