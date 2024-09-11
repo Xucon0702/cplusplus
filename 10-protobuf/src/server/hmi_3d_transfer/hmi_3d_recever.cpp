@@ -10,10 +10,11 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 
+#include <unistd.h>
 
 CHmi3DReceiver::CHmi3DReceiver()
 {
-
+    memset(&m_hmi_3d_info,0,sizeof(MvHmi3dInfo));
 }
 
 CHmi3DReceiver::~CHmi3DReceiver()
@@ -103,8 +104,10 @@ int32_t CHmi3DReceiver::RecvHmi3dPackage(int sock, PB_Hmi3dPackage* pb_hmi_3d_pa
         return 0;
     }
 
+    //转为内部结构体数据
+    ConvertHmi3dPackage(pb_hmi_3d_package, &m_hmi_3d_info);
     // 打印解析结果
-    PrintPbHmi3dPackage(*pb_hmi_3d_package);
+    // PrintPbHmi3dPackage(*pb_hmi_3d_package);
 
     return bytes_received;
 }
@@ -172,5 +175,165 @@ void CHmi3DReceiver::PrintPbHmi3dPackage(const PB_Hmi3dPackage& package) {
 
     if (package.has_planfullpathdata()) {
         // std::cout << "PlanFullPathData: " << package.planfullpathdata().DebugString() << std::endl;
+    }
+}
+
+void CHmi3DReceiver::ConvertHmi3dPackage(PB_Hmi3dPackage* pb_hmi_3d_package, MvHmi3dInfo* p_mv_3d_info)
+{
+    if(pb_hmi_3d_package == NULL || p_mv_3d_info == NULL)
+    {
+        printf("%s,%d\n",__FUNCTION__,__LINE__);
+        return;
+    }
+
+    uint64_t LSendTimsMs = pb_hmi_3d_package->lsendtimsms();
+    uint32_t uSendNum = pb_hmi_3d_package->usendnum();
+
+    printf("\n LSendTimsMs %ld;uSendNum %u\n",LSendTimsMs,uSendNum);
+
+    if (pb_hmi_3d_package->has_candata()) {
+        //转换为MvCanCarInfo
+        ConvertToCanData(pb_hmi_3d_package->candata(), &p_mv_3d_info->tMvCanCarInfo);
+    }
+
+    if (pb_hmi_3d_package->has_usssectordata()) {
+        ConvertToUssPdc(pb_hmi_3d_package->usssectordata(), &p_mv_3d_info->tUssPdc);
+    }
+
+    if (pb_hmi_3d_package->has_apastatedata()) {
+        ConvertToApaStateInfo(pb_hmi_3d_package->apastatedata(), &p_mv_3d_info->tApaStateInfo);
+    }
+
+    if (pb_hmi_3d_package->has_slotdata()) {
+        ConvertToSlotData(pb_hmi_3d_package->slotdata(), &p_mv_3d_info->tApaAvapSlotOut);
+    }
+
+    if (pb_hmi_3d_package->has_oddata()) {
+        ConvertToOdData(pb_hmi_3d_package->oddata(), &p_mv_3d_info->tMvApaAvapObjOut);
+    }
+
+    if (pb_hmi_3d_package->has_plantrackdata()) {
+        ConvertToPlanTrackData(pb_hmi_3d_package->plantrackdata(), &p_mv_3d_info->tPlanTrackInfo);
+    }
+
+    if (pb_hmi_3d_package->has_planfullpathdata()) {
+        ConvertToPlanFullPathData(pb_hmi_3d_package->planfullpathdata(), &p_mv_3d_info->tPlanFullPath);
+    }
+}   
+
+void CHmi3DReceiver::ConvertToCanData(const PB_CanData& pb_candata,MvCanCarInfo* p_can)
+{
+    if(p_can == NULL)
+    {
+        printf("%s,%d\n",__FUNCTION__,__LINE__);
+        return;
+    }
+
+    p_can->lTimeMsec = pb_candata.ltimemsec();
+    p_can->nBrake = pb_candata.nbrake();
+
+    printf("p_can:lTimeMsec %ld,nBrake %d\n",p_can->lTimeMsec,p_can->nBrake);
+
+    for(int i = 0; i < pb_candata.ndoorstat_size(); i++)
+    {
+        p_can->nDoorStat[i] = pb_candata.ndoorstat(i);
+        printf("nDoorStat[%d]:%d\n",i,p_can->nDoorStat[i]);
+    }
+}
+void CHmi3DReceiver::ConvertToUssPdc(const PB_UssSectorOutputData& pb_ussPdcData,ZU2UssSectorOutputData_t* p_ussPdc)
+{
+    if(p_ussPdc == NULL)
+    {
+        printf("%s,%d\n",__FUNCTION__,__LINE__);
+        return;
+    }
+    p_ussPdc->FrameHead.ITimeMsec = pb_ussPdcData.framehead().itimemsec();
+    p_ussPdc->FrameHead.nFrameId = pb_ussPdcData.framehead().nframeid();
+    p_ussPdc->SectorData.SystemStatus = pb_ussPdcData.sectordata().systemstatus();
+
+    printf("p_ussPdc:ITimeMsec %ld,nFrameId %u,SystemStatus %d\n",p_ussPdc->FrameHead.ITimeMsec,p_ussPdc->FrameHead.nFrameId,p_ussPdc->SectorData.SystemStatus);
+
+    for(int i = 0; i < pb_ussPdcData.sectordata().pdc_distance_size(); i++)
+    {
+        p_ussPdc->SectorData.PDC_Distance[i] = pb_ussPdcData.sectordata().pdc_distance(i);
+        p_ussPdc->SectorData.SensorStatus[i] = pb_ussPdcData.sectordata().sensorstatus(i);
+
+        printf("PDC_Distance[%d]:%d,SensorStatus[%d]:%d\n",i,p_ussPdc->SectorData.PDC_Distance[i],i,p_ussPdc->SectorData.SensorStatus[i]);
+    }
+    
+}
+void CHmi3DReceiver::ConvertToApaStateInfo(const PB_ApaStateInfo& pb_apaStateInfo,ApaStateToHmiTestInfo* p_apaStateInfo)
+{
+    if(p_apaStateInfo == NULL)
+    {
+        printf("%s,%d\n",__FUNCTION__,__LINE__);
+        return;
+    }
+
+    p_apaStateInfo->lTimestampMs = pb_apaStateInfo.ltimestampms();
+    p_apaStateInfo->AVAP_APAFunDispSts = pb_apaStateInfo.avap_apafundispsts();
+    p_apaStateInfo->AVAP_InfoMsgs = pb_apaStateInfo.avap_infomsgs();
+    p_apaStateInfo->AVAP_PrkgPauseMsgs = pb_apaStateInfo.avap_prkgpausemsgs();
+    p_apaStateInfo->APA_CnclMsgs = pb_apaStateInfo.apa_cnclmsgs();
+    p_apaStateInfo->APA_FctUnavlMsgs = pb_apaStateInfo.apa_fctunavlmsgs();
+
+    printf("p_apaStateInfo:lTimestampMs %ld,AVAP_APAFunDispSts %d,AVAP_InfoMsgs %d,AVAP_PrkgPauseMsgs %d,APA_CnclMsgs %d,APA_FctUnavlMsgs %d\n",\
+    p_apaStateInfo->lTimestampMs,p_apaStateInfo->AVAP_APAFunDispSts,p_apaStateInfo->AVAP_InfoMsgs,\
+    p_apaStateInfo->AVAP_PrkgPauseMsgs,p_apaStateInfo->APA_CnclMsgs,p_apaStateInfo->APA_FctUnavlMsgs);
+
+}
+
+void CHmi3DReceiver::ConvertToSlotData(const PB_SlotInfo& pb_slot,ApaAvapSlotOut* p_slot)
+{
+    if(p_slot == NULL)
+    {
+        printf("%s,%d\n",__FUNCTION__,__LINE__);
+        return;
+    }
+
+    p_slot->TimeMsec = pb_slot.timemsec();
+    for(int i = 0;i < pb_slot.prkgslot_size();i++)
+    {
+        p_slot->PrkgSlot[i].APA_PrkgSlot_Sts = pb_slot.prkgslot(i).apa_prkgslot_sts();
+        p_slot->PrkgSlot[i].APA_SlotACoorX = pb_slot.prkgslot(i).apa_slotacoorx(); 
+        p_slot->PrkgSlot[i].APA_SlotACoorY = pb_slot.prkgslot(i).apa_slotacoory(); 
+        p_slot->PrkgSlot[i].APA_SlotBCoorX = pb_slot.prkgslot(i).apa_slotbcoorx(); 
+        p_slot->PrkgSlot[i].APA_SlotBCoorY = pb_slot.prkgslot(i).apa_slotbcoory(); 
+        p_slot->PrkgSlot[i].APA_SlotCCoorX = pb_slot.prkgslot(i).apa_slotccoorx(); 
+        p_slot->PrkgSlot[i].APA_SlotCCoorY = pb_slot.prkgslot(i).apa_slotccoory(); 
+        p_slot->PrkgSlot[i].APA_SlotDCoorX = pb_slot.prkgslot(i).apa_slotdcoorx(); 
+        p_slot->PrkgSlot[i].APA_SlotDCoorY = pb_slot.prkgslot(i).apa_slotdcoory();  
+
+        printf("p_slot:TimeMsec %ld,APA_PrkgSlot_Sts %d,(%d,%d)(%d,%d)(%d,%d)(%d,%d)\n",\
+        p_slot->TimeMsec,p_slot->PrkgSlot[i].APA_PrkgSlot_Sts,p_slot->PrkgSlot[i].APA_SlotACoorX,p_slot->PrkgSlot[i].APA_SlotACoorY,\
+        p_slot->PrkgSlot[i].APA_SlotBCoorX,p_slot->PrkgSlot[i].APA_SlotBCoorY,p_slot->PrkgSlot[i].APA_SlotCCoorX,p_slot->PrkgSlot[i].APA_SlotCCoorY,\
+        p_slot->PrkgSlot[i].APA_SlotDCoorX,p_slot->PrkgSlot[i].APA_SlotDCoorY);
+    }
+}
+
+void CHmi3DReceiver::ConvertToOdData(const PB_OdInfo& pb_odInfo,MvApaAvapObjOut* p_od)
+{
+    if(p_od == NULL)
+    {
+        printf("%s,%d\n",__FUNCTION__,__LINE__);
+        return;
+    }
+}
+
+void CHmi3DReceiver::ConvertToPlanTrackData(const PB_PlanTrackInfo& pb_planTrackInfo,ApaPlanTrackInfo* p_planTrackInfo)
+{
+    if(p_planTrackInfo == NULL)
+    {
+        printf("%s,%d\n",__FUNCTION__,__LINE__);
+        return;
+    }
+}
+
+void CHmi3DReceiver::ConvertToPlanFullPathData(const PB_PlanFullPath& pb_planFullPath,PlanFullPath* p_planFullPath)
+{
+    if(p_planFullPath == NULL)
+    {
+        printf("%s,%d\n",__FUNCTION__,__LINE__);
+        return;
     }
 }

@@ -8,7 +8,7 @@ SET(INSTALL_LIB_DIR ${CMAKE_CURRENT_LIST_DIR}/lib)
 
 PROJECT(proto_test)
 
-FIND_PACKAGE(Protobuf REQUIRED)
+FIND_PACKAGE(Protobuf REQUIRED)  #放到工程中替换为link_directories对应库路径,target_link_libraries(proto_test ${PROTOBUF_LIBRARIES})
 FIND_PACKAGE(Threads REQUIRED)
 
 INCLUDE_DIRECTORIES(
