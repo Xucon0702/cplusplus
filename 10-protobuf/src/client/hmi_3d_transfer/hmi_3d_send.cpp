@@ -3,6 +3,8 @@
 #include <sys/socket.h>
 
 #include <chrono>
+#include <fstream>
+#include <iostream>
 
 CHmi3DSendInf::CHmi3DSendInf()
 {
@@ -109,6 +111,27 @@ int32_t CHmi3DSendInf::SendHmi3dPackage(int sock)
     printf("sock = %d;serialized_data.size() = %ld;bytes_sent %ld\n",sock,serialized_data.size(),bytes_sent);
 
     m_sendPackageId++;
+
+    //保存为Bin
+    #if 1
+    static uint32_t writeBin = 0 ;
+    // if(!writeBin)
+    {
+        std::ofstream output("./Mv_Hmi3dPackage.bin", std::ios::binary | std::ios::out);
+        if (!output.is_open()) {
+            std::cerr << "无法打开文件" << std::endl;
+            return -1;
+        }
+
+        if (m_PB_Hmi3dPackage.SerializeToOstream(&output)) {
+            std::cout << "序列化成功" << std::endl;
+        } else {
+            std::cerr << "序列化失败" << std::endl;
+        }
+        writeBin++;
+    }
+    
+    #endif
 
     return 0;
 }

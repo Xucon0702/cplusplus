@@ -13,6 +13,7 @@ public:
     int32_t CheckData(PB_Hmi3dPackage* pb_hmi_3d_package,uint32_t dataType);
     int32_t RecvHmi3dPackage(int sock, PB_Hmi3dPackage* pb_hmi_3d_package);
     int32_t ReceiveUssPdc(int sock, PB_UssSectorOutputData* pb_uss_pdc);
+    int32_t ParseHmi3dPackageFromBin();
 
     PB_Hmi3dPackage m_PB_Hmi3dPackage;
 private:

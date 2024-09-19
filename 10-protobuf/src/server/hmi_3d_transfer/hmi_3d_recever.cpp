@@ -12,6 +12,9 @@
 
 #include <unistd.h>
 
+#include <fstream>
+#include <iostream>
+
 CHmi3DReceiver::CHmi3DReceiver()
 {
     memset(&m_hmi_3d_info,0,sizeof(MvHmi3dInfo));
@@ -336,4 +339,22 @@ void CHmi3DReceiver::ConvertToPlanFullPathData(const PB_PlanFullPath& pb_planFul
         printf("%s,%d\n",__FUNCTION__,__LINE__);
         return;
     }
+}
+
+int32_t CHmi3DReceiver::ParseHmi3dPackageFromBin()
+{
+    PB_Hmi3dPackage rd_PB_Hmi3dPackage;
+    std::ifstream input("./Mv_Hmi3dPackage.bin", std::ios::binary | std::ios::in);
+    if (!input.is_open()) {
+        std::cerr << "无法打开文件" << std::endl;
+        return -1;
+    }
+
+    if (rd_PB_Hmi3dPackage.ParseFromIstream(&input)) {
+        PrintPbHmi3dPackage(rd_PB_Hmi3dPackage);
+    } else {
+        std::cerr << "解析失败" << std::endl;
+    }
+
+    return 0;
 }

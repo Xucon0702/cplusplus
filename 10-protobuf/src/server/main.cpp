@@ -21,6 +21,7 @@ void StartRecvThread()
   while(1)
   {
     printf("StartRecvThread\n");
+    g_receiver_3d.ParseHmi3dPackageFromBin();
     g_receiver_3d.RecvHmi3dPackage(g_sock,&(g_receiver_3d.m_PB_Hmi3dPackage));
 
     
@@ -134,3 +135,9 @@ int main() {
 
   return 0;
 }
+
+// int main()
+// {
+//      g_receiver_3d.ParseHmi3dPackageFromBin();
+//      return 0;
+// }
